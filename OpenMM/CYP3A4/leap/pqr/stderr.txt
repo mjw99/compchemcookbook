@@ -1,0 +1,8 @@
+Error parsing line: invalid literal for int(): 
+<SEQADV 1TQN HIS A  504  UNP  P08684              EXPRESSION TAG>
+Error parsing line: invalid literal for int(): 
+<SEQADV 1TQN HIS A  505  UNP  P08684              EXPRESSION TAG>
+Error parsing line: invalid literal for int(): 
+<SEQADV 1TQN HIS A  506  UNP  P08684              EXPRESSION TAG>
+Error parsing line: invalid literal for int(): 
+<SEQADV 1TQN HIS A  507  UNP  P08684              EXPRESSION TAG>

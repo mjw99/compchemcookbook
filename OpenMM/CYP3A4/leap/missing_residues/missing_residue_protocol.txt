@@ -1,0 +1,34 @@
+1) Load snap.pdb from output of stage 1 minimisation	(../mmmd/1/snap.pdb)
+2) Load 1TQN.pdb
+3) Extensions->Analysis->RMSD Calculator
+4) Select align (1TQN should be the active item, hence snap.psb will be aligned to this)
+5) Select snap.pdb and then File->Save Coordinates
+6) Use the selection
+	residue 252 to 259
+7) and save to "missing_4_residues.pdb"
+
+8) Process the extraction
+	1) Strip Hydrogens from extraction
+	2) Set Chain to A from X
+	3) Rename HIE to HIS
+	4) Adjust residue numbering (add 27)
+
+	grep -v "H$" new_missing_4_residues.pdb | sed s/X/A/g | sed s/HIE/HIS/g
+
+
+awk '{printf "ATOM %4d C BLB | %8.3f %8.3f %8.3f \n", $5, $1, $2, $3}' filename.xyz
+
+
+WIP
+12345678901
+ATOM      1  N   ASN X 253      -7.840 -27.719  13.440  1.00  0.00           N
+ATOM    119    O HIE X  260.000   -6.075  -17.442 6.829 1.00 0.00 O
+ATOM    119   O HIE X  260.000   -6.075  -17.442 6.829 1.00 0.00 O 
+
+awk '{printf "%4s %6d %4s %s %s %8.3f %8.3f %8.3f %s %s %s %s \n",$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13}' new_missing_4_residues.pdb
+
+
+9) Insert over residues 280 to 287 in 1TQN
+
+
+10)

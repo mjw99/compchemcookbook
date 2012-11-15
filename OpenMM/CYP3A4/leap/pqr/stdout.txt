@@ -1,0 +1,166 @@
+
+--------------------------
+PDB2PQR - a Python-based structural conversion utility
+--------------------------
+Please cite your use of PDB2PQR as:
+  Dolinsky TJ, Nielsen JE, McCammon JA, Baker NA.
+  PDB2PQR: an automated pipeline for the setup, execution,
+  and analysis of Poisson-Boltzmann electrostatics calculations.
+  Nucleic Acids Research 32 W665-W667 (2004).
+
+Beginning PDB2PQR...
+
+Parsed Amino Acid definition file.
+Created protein object -
+	Number of residues in protein: 659
+	Number of atoms in protein   : 3999
+Setting the termini... 
+Done.
+	Gap in backbone detected between SER A 281 and SER A 286!
+Checking for missing heavy atoms... 
+	Missing OXT in THR A 499
+Missing 1 out of 3767 heavy atoms (0.03 percent) - Will attempt to repair.
+Rebuilding missing heavy atoms... 
+	Added OXT to THR A 499 at coordinates -23.765 -61.574 -21.774
+Done.
+Updating SS bridges...
+	CYS A 442 is a free cysteine
+	CYS A 377 is a free cysteine
+	CYS A 58 is a free cysteine
+	CYS A 64 is a free cysteine
+	CYS A 239 is a free cysteine
+	CYS A 468 is a free cysteine
+	CYS A 98 is a free cysteine
+Done.
+Checking if we must debump any residues... 
+Done.
+Adding hydrogens to the protein...
+ Added 3857 hydrogen atoms.
+Checking if we must debump any residues... 
+	TYR A 53 HH is too close to ARG A 372 HH22
+	Starting to debump TYR A 53...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 2 to debump the residue.
+	No conflicts found at angle 22.06.
+	Debumping Successful!
+
+	MET A 62 HE3 is too close to ALA A 400 HA
+	Starting to debump MET A 62...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 165.36.
+	Debumping Successful!
+
+	LYS A 70 HD3 is too close to VAL A 71 HG22
+	Starting to debump LYS A 70...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 171.87.
+	Debumping Successful!
+
+	LEU A 132 HD13 is too close to LEU A 290 HG
+	Starting to debump LEU A 132...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -41.23.
+	Debumping Successful!
+
+	THR A 185 HG1 is too close to SER A 186 H
+	Starting to debump THR A 185...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 104.02.
+	Debumping Successful!
+
+	LYS A 257 HZ1 is too close to LEU A 295 HD13
+	LYS A 257 HZ2 is too close to GLN A 279 HE21
+	Starting to debump LYS A 257...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 116.31.
+	Debumping Successful!
+
+	GLU A 258 HB2 is too close to SER A 259 H
+	Starting to debump GLU A 258...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -62.59.
+	Debumping Successful!
+
+	THR A 264 HG21 is too close to GLN A 265 H
+	Starting to debump THR A 264...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -17.27.
+	Debumping Successful!
+
+	HIS A 267 HD1 is too close to GLN A 273 HG3
+	Starting to debump HIS A 267...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -23.81.
+	Debumping Successful!
+
+	LYS A 288 HB2 is too close to ALA A 289 H
+	Starting to debump LYS A 288...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 57.52.
+	Debumping Successful!
+
+	SER A 291 HB3 is too close to GLU A 294 HG3
+	Starting to debump SER A 291...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -169.95.
+	Debumping Successful!
+
+	THR A 309 HG1 is too close to THR A 310 H
+	Starting to debump THR A 309...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 132.16.
+	Debumping Successful!
+
+	THR A 323 HG1 is too close to HIS A 324 HD1
+	Starting to debump THR A 323...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle 117.97.
+	Debumping Successful!
+
+	GLN A 332 HE21 is too close to SER A 464 HG
+	Starting to debump GLN A 332...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -47.02.
+	Debumping Successful!
+
+	HIS A 402 HE2 is too close to THR A 433 H
+	Starting to debump HIS A 402...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 0 to debump the residue.
+	No conflicts found at angle -59.85.
+	Debumping Successful!
+
+	SER A 478 HG is too close to GLY A 480 H
+	Starting to debump SER A 478...
+	Debumping cutoffs: 2.0 for heavy atoms, 1.5 for hydrogens.
+	Using dihedral angle number 1 to debump the residue.
+	No conflicts found at angle 15.05.
+	Debumping Successful!
+
+Done.
+Initializing full optimization...
+Done.
+Optimization progress:
+  Detecting potential hydrogen bonds:
+	0% |                    | 100%
+	    ********************
+  Optimizing hydrogen bonds:
+	0% |                    | 100%
+	    ********************
+Applying the forcefield to the protein...Done.
+Applying the naming scheme to the protein...Done.
+Total time taken: 38.15 seconds
+

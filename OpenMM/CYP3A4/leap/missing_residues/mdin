@@ -1,0 +1,25 @@
+Restrained mimimisation after adding 4 missing residues
+ &cntrl
+  imin          = 1,     ! do a minimization
+  maxcyc        = 1000,  ! max 1000 minimization steps
+  ntmin         = 3,     ! XMIN method is used
+  ntb           = 1,     ! periodic boundary conditions
+  ntpr          = 1,     ! print every minimization step
+  ntwx          = 1,     ! write coordinates each step
+  ioutfm        = 1      ! NetCDF MDCRD
+  ntr           = 1,     ! Turn on restraints
+  restraint_wt  = 20,    ! force constant for restraint
+ 
+  ! We carry out a restrained mimisation with only atoms 
+  ! in the region of the just added missing residues 
+  ! allowed to move. The solvent is also free to move. 
+  ! The missing residues in the original PDB are
+  ! 282-285, however, this gets offset (-27) when converted to
+  ! a prmtop, hence this range is now 255-258.
+  ! We add on 5 residue buffer either side of this range
+  ! 
+  restraintmask = ":1-249,264-472"     ! restraint mask
+                                   !
+  
+ /
+
