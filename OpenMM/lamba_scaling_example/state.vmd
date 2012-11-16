@@ -329,42 +329,8 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
-mol representation VDW 1.000000 12.000000
-mol color ColorID 1
-mol selection {name MODD }
-mol material Opaque
-mol addrep top
-mol selupdate 1 top 0
-mol colupdate 1 top 0
-mol scaleminmax top 1 0.000000 0.000000
-mol smoothrep top 1 0
-mol drawframes top 1 {now}
-mol clipplane center 0 1 top {0.0 0.0 0.0}
-mol clipplane color  0 1 top {0.5 0.5 0.5 }
-mol clipplane normal 0 1 top {0.0 0.0 1.0}
-mol clipplane status 0 1 top {0}
-mol clipplane center 1 1 top {0.0 0.0 0.0}
-mol clipplane color  1 1 top {0.5 0.5 0.5 }
-mol clipplane normal 1 1 top {0.0 0.0 1.0}
-mol clipplane status 1 1 top {0}
-mol clipplane center 2 1 top {0.0 0.0 0.0}
-mol clipplane color  2 1 top {0.5 0.5 0.5 }
-mol clipplane normal 2 1 top {0.0 0.0 1.0}
-mol clipplane status 2 1 top {0}
-mol clipplane center 3 1 top {0.0 0.0 0.0}
-mol clipplane color  3 1 top {0.5 0.5 0.5 }
-mol clipplane normal 3 1 top {0.0 0.0 1.0}
-mol clipplane status 3 1 top {0}
-mol clipplane center 4 1 top {0.0 0.0 0.0}
-mol clipplane color  4 1 top {0.5 0.5 0.5 }
-mol clipplane normal 4 1 top {0.0 0.0 1.0}
-mol clipplane status 4 1 top {0}
-mol clipplane center 5 1 top {0.0 0.0 0.0}
-mol clipplane color  5 1 top {0.5 0.5 0.5 }
-mol clipplane normal 5 1 top {0.0 0.0 1.0}
-mol clipplane status 5 1 top {0}
 mol rename top output.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -10.2288} {0 1 0 -11.1313} {0 0 1 -10.6054} {0 0 0 1}} {{0.964151 -0.10829 0.242252 0} {0.136796 0.985116 -0.104079 0} {-0.227376 0.133487 0.964614 0} {0 0 0 1}} {{0.0365818 0 0 0} {0 0.0365818 0 0} {0 0 0.0365818 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -12.6153} {0 1 0 -10.5234} {0 0 1 -11.7455} {0 0 0 1}} {{0.788166 0.0373168 -0.614331 0} {0.228766 0.908883 0.348708 0} {0.571368 -0.415378 0.707814 0} {0 0 0 1}} {{0.0146085 0 0 0} {0 0.0146085 0 0} {0 0 0.0146085 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 0
@@ -398,12 +364,12 @@ color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
     {color Display {FPS} white}
     {color Name {LPA} green}
     {color Name {LPB} green}
-    {color Name {A} pink}
-    {color Name {M} cyan}
+    {color Name {M} pink}
+    {color Name {A} cyan}
     {color Type {LP} green}
     {color Type {DRUD} pink}
-    {color Type {A} pink}
-    {color Type {M} cyan}
+    {color Type {M} pink}
+    {color Type {A} cyan}
     {color Element {X} cyan}
     {color Element {Ac} ochre}
     {color Element {Ag} ochre}
