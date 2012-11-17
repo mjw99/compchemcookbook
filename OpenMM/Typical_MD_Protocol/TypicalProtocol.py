@@ -90,6 +90,9 @@ positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
 
 
+#clear reporters
+simulation.reporters = []
+
 
 ####################################
 # 4) Density correction under NPT  #
@@ -112,6 +115,9 @@ simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 # Save the positions and velocities
 positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
+
+#clear reporters
+simulation.reporters = []
 
 
 ####################################
