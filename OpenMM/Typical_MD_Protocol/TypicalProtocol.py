@@ -12,7 +12,17 @@ from sys import stdout
 # CUDA
 #platform=openmm.Platform_getPlatform(1)
 # OpenCL
-platform=openmm.Platform_getPlatform(2)
+#platform=openmm.Platform_getPlatform(2)
+
+
+# Run on multiple cards
+# 0  Tesla M2090
+# 1  Tesla C2075
+# 2  Tesla C2075
+#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platformProperties = {"OpenCLDeviceIndex":"1,2"}
+platform = openmm.Platform_getPlatformByName("OpenCL")
+print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 
@@ -51,9 +61,11 @@ print "Minimising system"
 system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom)
 
 integrator = VerletIntegrator(1*femtosecond)
-simulation = Simulation(modeller.topology, system, integrator, platform)
+
+simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 print "Platform: %s" % (simulation.context.getPlatform().getName())
+print platform.getPropertyValue(simulation.context, "OpenCLDeviceIndex")
 
 simulation.context.setPositions(modeller.positions)
 simulation.minimizeEnergy(maxIterations=1000)
@@ -77,7 +89,7 @@ integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 # Note, new system
 system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
 
-simulation = Simulation(modeller.topology, system, integrator, platform)
+simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 simulation.context.setPositions(positions)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
@@ -102,7 +114,7 @@ print "Density correction under NPT"
 system.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
-simulation = Simulation(modeller.topology, system, integrator, platform)
+simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
