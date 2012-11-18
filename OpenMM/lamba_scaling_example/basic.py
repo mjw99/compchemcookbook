@@ -64,12 +64,13 @@ newChain = topology.addChain()
 
 
 # Modified VdW
-customNonBondedForce = CustomNonbondedForce("4*epsilon*lambda*( 1/( (alphaLJ*(1-lambda) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-lambda) + (r/sigma)^6) ) ;sigma=0.5*(sigma1*sigma2); epsilon=sqrt(epsilon1*epsilon2); alphaLJ=0.5");
+customNonBondedForce = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;sigma=0.5*(sigma1*sigma2); epsilon=sqrt(epsilon1*epsilon2); alphaLJ=0.5; l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
 
 customNonBondedForce.addPerParticleParameter("sigma")
 customNonBondedForce.addPerParticleParameter("epsilon")
 
 customNonBondedForce.addGlobalParameter("lambda", 1.0)
+customNonBondedForce.addPerParticleParameter("useLambda")
 
 customNonBondedForce.setNonbondedMethod(NonbondedForce.CutoffPeriodic)
 customNonBondedForce.setCutoffDistance(cutoff)
@@ -84,13 +85,13 @@ for particle_index in range(nparticles):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", "Ar", newResidue)
      # Is there a better way to do this?
-     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal ])  )
+     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 1 ])  )
      
   else:
      # Add normal particle.
      topology.addAtom("Argo", "ar", newResidue)
      # Is there a better way to do this?
-     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal ])  )
+     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 0 ])  )
 
 system.addForce(customNonBondedForce)
 
@@ -130,7 +131,7 @@ simulation.reporters.append( StateDataReporter(stdout, 10000, step=True, potenti
 
 for i in range(10):
   print i
-  simulation.context.setParameter("lambda", ( 1 - (i*0.1) ) )
+  simulation.context.setParameter("lambda",  i*0.1  )
   print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
   simulation.step(10000)
 
