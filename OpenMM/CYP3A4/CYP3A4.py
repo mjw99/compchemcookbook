@@ -7,14 +7,15 @@ from sys import stdout
 import time
 
 
-# Reference
-#platform=openmm.Platform_getPlatform(0)
-
-# CUDA
-#platform=openmm.Platform_getPlatform(1)
-
-# OpenCL
-platform=openmm.Platform_getPlatform(2)
+# Run on multiple cards
+# 0  Tesla M2090
+# 1  Tesla C2075
+# 2  Tesla C2075
+platformProperties = {"OpenCLDeviceIndex":"0"}
+#platformProperties = {"OpenCLDeviceIndex":"1,2"}
+#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platform = openmm.Platform_getPlatformByName("OpenCL")
+print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 
@@ -27,7 +28,7 @@ system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=8*angstrom, co
 
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
-simulation = Simulation(prmtop.topology, system, integrator, platform)
+simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties )
 print "Platform: %s" % (simulation.context.getPlatform().getName())
 
 print "Number of atoms %i"      % len(inpcrd.positions)
@@ -47,7 +48,7 @@ start_time = time.time()
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
 # 100 seconds to run 0.02 ns 
-# Hence it will take 1/0.02  * 100s to run one nS.
+# Hence it will take 1/0.02  * 100s to run one ns.
 totalDynmaicRunTimeInSeconds = time.time() - start_time
 
 timeNeedToRunOneNsinSeconds = (1/0.02) * totalDynmaicRunTimeInSeconds
@@ -64,23 +65,4 @@ print str(NsPerDay)  + " ns/day"
 # https://simtk.org/api_docs/openmm/api4_1/python/main.html
 
 
-
-# http://wiki.simtk.org/openmm/BenchmarkOpenMMDHRF
-#  1xC2070 = 30.9 ns/day
-#
-# http://ambermd.org/gpus/benchmarks.htm
-#  1xM2090 = 43.74 ns/day
-#  
-
-
-
-
-# Results
-# AMBER11 ecc on 			38.12 ns/day  (45.28s run time)
-# AMBER11 ecc off 			42.48 ns/day  (40.67s run time)
-
-# OpenMM 4.1.1/OpenCL ecc on 		17.38 ns/day  (99.41)
-# OpenMM 4.1.1/OpenCL ecc off 		18.40 ns/day  (93.91 run time)
-
-# OpenMM 4.1.1/CUDA ecc off		11.77 ns/day (146.69 run time)
 
