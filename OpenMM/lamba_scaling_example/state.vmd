@@ -330,7 +330,7 @@ mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
 mol rename top output.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -12.6153} {0 1 0 -10.5234} {0 0 1 -11.7455} {0 0 0 1}} {{0.788166 0.0373168 -0.614331 0} {0.228766 0.908883 0.348708 0} {0.571368 -0.415378 0.707814 0} {0 0 0 1}} {{0.0146085 0 0 0} {0 0.0146085 0 0} {0 0 0.0146085 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 0} {0 1 0 0} {0 0 1 -1} {0 0 0 1}} {{0.01436 -0.0660696 0.997712 0} {-0.324535 -0.944104 -0.0578484 0} {0.945766 -0.322962 -0.034999 0} {0 0 0 1}} {{0.167048 0 0 0} {0 0.167048 0 0} {0 0 0.167048 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 0
@@ -521,3 +521,11 @@ color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
 }
 vmdrestoremycolors
 label textsize 1.0
+label add Atoms 0/0
+label textoffset Atoms 0 {0.0 0.0}
+label textformat Atoms 0 %R%d:%a
+label add Atoms 0/1
+label textoffset Atoms 1 {0.0 0.0}
+label textformat Atoms 1 %R%d:%a
+label add Bonds 0/0 0/1
+label textoffset Bonds 0 {0.0 0.0}
