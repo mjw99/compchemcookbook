@@ -107,8 +107,6 @@ simulation.reporters.append( StateDataReporter(stdout, 100, step=True, potential
 
 # This is NVE; kinetic energy has come from the slight perturbation of the interatomic distance
 for i in range(10):
-  print i
-
   #1, 0.9, 0.8
   simulation.context.setParameter("lambda",  1 - (i*0.1)  )
   #simulation.context.setParameter("lambda",  1 )
