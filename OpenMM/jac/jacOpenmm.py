@@ -64,7 +64,7 @@ print str(NsPerDay)  + " nS/day"
 
 # Refs
 # Python API docs
-# https://simtk.org/api_docs/openmm/api4_1/python/main.html
+# https://simtk.org/api_docs/openmm/api4_1/python/
 
 
 
