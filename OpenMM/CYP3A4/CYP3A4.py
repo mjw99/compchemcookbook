@@ -1,5 +1,3 @@
-# DHRF Benchmark using OpenMM
-
 from simtk.openmm.app import *
 from simtk.openmm import *
 from simtk.unit import *
@@ -14,55 +12,124 @@ import time
 platformProperties = {"OpenCLDeviceIndex":"0"}
 #platformProperties = {"OpenCLDeviceIndex":"1,2"}
 #platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+
 platform = openmm.Platform_getPlatformByName("OpenCL")
 print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 
 
+
+# Prepared via LEAP; I'm hoping to replace this with modeller,
+# but I need to parse the Heme frcmods to XML first.
 prmtop = AmberPrmtopFile('prmtop')
-#inpcrd = AmberInpcrdFile('inpcrd',  loadVelocities=True, loadBoxVectors=True)
 inpcrd = AmberInpcrdFile('inpcrd',  loadBoxVectors=True)
 
 system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
-
-integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
+integrator = VerletIntegrator(1*femtosecond)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties )
 print "Platform: %s" % (simulation.context.getPlatform().getName())
-
 print "Number of atoms %i"      % len(inpcrd.positions)
-#print inpcrd.positions
-#print "Number of velocities %i" % len(inpcrd.velocities)
 
+
+
+######################
+# 2) Minimisation    #
+######################
+print "Minimising system"
+integrator = VerletIntegrator(1*femtosecond)
 
 simulation.context.setPositions(inpcrd.positions)
-#simulation.context.setVelocities(inpcrd.velocities)
-
 LocalEnergyMinimizer.minimize(simulation.context)
+
+# Saving minimised positions
+positions = simulation.context.getState(getPositions=True).getPositions()
+PDBFile.writeFile(simulation.topology, positions, open('minisation.pdb', 'w'))
+
+#######################
+#######################
+## PMEMD like stages ##
+#######################
+#######################
+
+################################
+# 3) Thermalisation under NVT  #
+################################
+
+# Use all GPUs
+platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+
+print "Heating system under NVT"
+integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
+
+# Note, new system
+system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
+
+simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
+simulation.context.setPositions(positions)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
 simulation.reporters.append(PDBReporter('heating.pdb', 1000))
 
-start_time = time.time()
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
-# 100 seconds to run 0.02 ns 
-# Hence it will take 1/0.02  * 100s to run one ns.
-totalDynmaicRunTimeInSeconds = time.time() - start_time
-
-timeNeedToRunOneNsinSeconds = (1/0.02) * totalDynmaicRunTimeInSeconds
-
-NsPerDay = 86400 / timeNeedToRunOneNsinSeconds
+# Save the positions and velocities
+positions = simulation.context.getState(getPositions=True).getPositions()
+velocities = simulation.context.getState(getVelocities=True).getVelocities()
 
 
-print str(totalDynmaicRunTimeInSeconds) + " seconds"
-print str(timeNeedToRunOneNsinSeconds) + " is the time needed to run 1 ns"
-print str(NsPerDay)  + " ns/day"
+#clear reporters
+simulation.reporters = []
 
-# Refs
-# Python API docs
-# https://simtk.org/api_docs/openmm/api4_1/python/main.html
+
+####################################
+# 4) Density correction under NPT  #
+####################################
+print "Density correction under NPT"
+
+system.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
+integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
+
+simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
+
+simulation.context.setPositions(positions)
+simulation.context.setVelocities(velocities)
+
+simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(PDBReporter('density.pdb', 1000))
+
+simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
+
+# Save the positions and velocities
+positions = simulation.context.getState(getPositions=True).getPositions()
+velocities = simulation.context.getState(getVelocities=True).getVelocities()
+
+#clear reporters
+simulation.reporters = []
+
+
+####################################
+# 5) Production under NPT          #
+####################################
+print "Production under NPT"
+
+simulation.context.setPositions(positions)
+simulation.context.setVelocities(velocities)
+
+
+# Report every 0.1 ns / 100 ps
+simulation.reporters.append(StateDataReporter(stdout, 50000, step=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(PDBReporter('production.pdb', 50000))
+
+# 10 ns
+simulation.step(5000000) 
+
+# Save the positions and velocities
+positions = simulation.context.getState(getPositions=True).getPositions()
+velocities = simulation.context.getState(getVelocities=True).getVelocities()
+
+
 
 
 
