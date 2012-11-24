@@ -5,7 +5,6 @@ from simtk.openmm.app import *
 from simtk.openmm import *
 from simtk.unit import *
 from sys import stdout
-import numpy
 from array import *
 
 
@@ -67,13 +66,12 @@ for particle_index in range(nparticles):
   if (particle_index == 0 ):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", element.argon, newResidue)
-     # Is there a better way to do this?
-     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 1 ])  )
+     customNonBondedForce.addParticle( [3.4*angstrom, 0.238*kilocalories, 1 ]  )
      
   else:
-     # Add normal particle.
+     # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
-     customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 0 ])  )
+     customNonBondedForce.addParticle( [3.4*angstrom, 0.238*kilocalories, 0 ]  )
 
 system.addForce(customNonBondedForce)
 
