@@ -66,13 +66,13 @@ for particle_index in range(nparticles):
 
   if (particle_index == 0 ):
      # Add alchemically-modified particle.
-     topology.addAtom("MODD", "Ar", newResidue)
+     topology.addAtom("MODD", element.argon, newResidue)
      # Is there a better way to do this?
      customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 1 ])  )
      
   else:
      # Add normal particle.
-     topology.addAtom("Argo", "ar", newResidue)
+     topology.addAtom("Argo", element.argon, newResidue)
      customNonBondedForce.addParticle( array('d',[3.4*NmPerAngstrom, 0.238*KJPerKcal, 0 ])  )
 
 system.addForce(customNonBondedForce)
