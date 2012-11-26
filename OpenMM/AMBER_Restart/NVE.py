@@ -50,9 +50,10 @@ simulation.reporters.append(StateDataReporter(stdout, 1, step=True,  totalEnergy
 # Write the AMBER restart
 positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
-# TODO box vectors
-# TODO time? Needs to be parsed out to picoseconds
-newInpcrd = AmberRestrtFile('restrt', positions, velocities)
+boxVectors = simulation.context.getState().getPeriodicBoxVectors()
+time = simulation.context.getState().getTime()
+
+restrt = AmberRestrtFile('restrt', positions, velocities, boxVectors, time)
 
 
 
