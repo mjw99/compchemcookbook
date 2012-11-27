@@ -54,7 +54,7 @@ velocities = simulation.context.getState(getVelocities=True).getVelocities()
 boxVectors = simulation.context.getState().getPeriodicBoxVectors()
 time = simulation.context.getState().getTime()
 
-restrt = AmberRestrtFile('minimsation.restrt', positions, velocities, boxVectors, time)
+restrt = AmberRestrtFile('minimisation.restrt', positions, velocities, boxVectors, time)
 
 
 #######################
