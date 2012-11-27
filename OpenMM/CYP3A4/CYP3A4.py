@@ -46,7 +46,7 @@ LocalEnergyMinimizer.minimize(simulation.context)
 
 # Saving minimised positions
 positions = simulation.context.getState(getPositions=True).getPositions()
-PDBFile.writeFile(simulation.topology, positions, open('minisation.pdb', 'w'))
+PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 
 # Write the AMBER restart
 positions = simulation.context.getState(getPositions=True).getPositions()
