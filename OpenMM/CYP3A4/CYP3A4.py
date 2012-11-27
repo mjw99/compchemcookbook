@@ -3,15 +3,16 @@ from simtk.openmm import *
 from simtk.unit import *
 from sys import stdout
 import time
+from AmberRestrtFile import AmberRestrtFile
 
 
 # Run on multiple cards
 # 0  Tesla M2090
 # 1  Tesla C2075
 # 2  Tesla C2075
-platformProperties = {"OpenCLDeviceIndex":"0"}
+#platformProperties = {"OpenCLDeviceIndex":"0"}
 #platformProperties = {"OpenCLDeviceIndex":"1,2"}
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
 
 platform = openmm.Platform_getPlatformByName("OpenCL")
 print "Speed relative to reference is : " + str(platform.getSpeed())
@@ -47,6 +48,15 @@ LocalEnergyMinimizer.minimize(simulation.context)
 positions = simulation.context.getState(getPositions=True).getPositions()
 PDBFile.writeFile(simulation.topology, positions, open('minisation.pdb', 'w'))
 
+# Write the AMBER restart
+positions = simulation.context.getState(getPositions=True).getPositions()
+velocities = simulation.context.getState(getVelocities=True).getVelocities()
+boxVectors = simulation.context.getState().getPeriodicBoxVectors()
+time = simulation.context.getState().getTime()
+
+restrt = AmberRestrtFile('minimsation.restrt', positions, velocities, boxVectors, time)
+
+
 #######################
 #######################
 ## PMEMD like stages ##
@@ -78,6 +88,13 @@ simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
 
+# Write the AMBER restart
+boxVectors = simulation.context.getState().getPeriodicBoxVectors()
+time = simulation.context.getState().getTime()
+
+restrt = AmberRestrtFile('NVT.restrt', positions, velocities, boxVectors, time)
+
+
 
 #clear reporters
 simulation.reporters = []
@@ -105,6 +122,13 @@ simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
 
+# Write the AMBER restart
+boxVectors = simulation.context.getState().getPeriodicBoxVectors()
+time = simulation.context.getState().getTime()
+
+restrt = AmberRestrtFile('NPT.restrt', positions, velocities, boxVectors, time)
+
+
 #clear reporters
 simulation.reporters = []
 
@@ -128,6 +152,13 @@ simulation.step(5000000)
 # Save the positions and velocities
 positions = simulation.context.getState(getPositions=True).getPositions()
 velocities = simulation.context.getState(getVelocities=True).getVelocities()
+
+# Write the AMBER restart
+boxVectors = simulation.context.getState().getPeriodicBoxVectors()
+time = simulation.context.getState().getTime()
+
+restrt = AmberRestrtFile('production.restrt', positions, velocities, boxVectors, time)
+
 
 
 
