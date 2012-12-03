@@ -1,4 +1,6 @@
-# DHRF Benchmark using OpenMM
+# Obtaining per term energy contributions in OpenMM is hard.
+# This takes an original system and then copies out each class
+# of force to their own system.
 
 from simtk.openmm.app import *
 from simtk.openmm import *
@@ -39,39 +41,35 @@ print "Number of atoms %i"      % len(inpcrd.positions)
 
 simulation.context.setPositions(inpcrd.positions)
 
-#simulation.reporters.append(PDBReporter('output.pdb', 1))
-#simulation.reporters.append(StateDataReporter(stdout, 1, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
-
-
+# Entire system
 system = simulation.context.getSystem()
 state = simulation.context.getState( getEnergy=True)
-
 print "Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 
-# New state with only Harmonic Bonds in
+
+# Create new state with only Harmonic Bonds in
 HarmonicBondSystem = System()
 for j in range (system.getNumParticles()):
   HarmonicBondSystem.addParticle(system.getParticleMass(j) )
 HarmonicBondIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-# New state with only Harmonic Angles in
+# Creat state with only Harmonic Angles in
 HarmonicAngleSystem = System()
 for j in range (system.getNumParticles()):
   HarmonicAngleSystem.addParticle(system.getParticleMass(j) )
 HarmonicAngleIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-
-# Torsion
+# Create state with only Torsion terms in
 PeriodicTorsionSystem = System()
 for j in range (system.getNumParticles()):
   PeriodicTorsionSystem.addParticle(system.getParticleMass(j) )
 PeriodicTorsionIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-#Nonbonded
+# Create state with only Nonbonded terms in
 NonbondedSystem = System()
 for j in range (system.getNumParticles()):
   NonbondedSystem.addParticle(system.getParticleMass(j) )
@@ -82,7 +80,7 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 
 
 
-
+# Decompose and copy out respective force terms
 for i in range(system.getNumForces()):
 
    force = system.getForce(i)
@@ -130,9 +128,15 @@ for i in range(system.getNumForces()):
         print force.getExceptionParameters(k)
 
 
-     print force.getExceptionParameters(i)
 
 
+
+
+
+
+
+
+## Now evaluate each system
 
 # Harmonic Bond
 HarmonicBondContext = Context(HarmonicBondSystem, HarmonicBondIntegrator, platform)
@@ -165,7 +169,7 @@ print (NonbondedState.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 JAMBER_Result = -79.994516268914055 + -1.0455001424914672 + 4.4614567778860472 + 48.744345933282325
 print str( JAMBER_Result  ) + " (JAMBER)"
-print "OpenMM 4.1.1 Vanilla " + "-27.8352952389"
+#print "OpenMM 4.1.1 Vanilla " + "-27.8352952389"
 
 
 
