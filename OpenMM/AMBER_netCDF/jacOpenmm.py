@@ -21,8 +21,6 @@ platformProperties = {"OpenCLDeviceIndex":"0"}
 #platformProperties = {"OpenCLDeviceIndex":"1"}
 #platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
 #platformProperties = {"OpenCLDeviceIndex":"1,2"}
-print "Speed relative to reference is : " + str(platform.getSpeed())
-
 
 
 
@@ -35,16 +33,11 @@ system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=0.8*nanometer,
 integrator = VerletIntegrator(2*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
-print "Platform: %s" % (simulation.context.getPlatform().getName())
-
-print "Number of atoms %i"      % len(inpcrd.positions)
-print "Number of velocities %i" % len(inpcrd.velocities)
 
 simulation.context.setPositions(inpcrd.positions)
 simulation.context.setVelocities(inpcrd.velocities)
 
-simulation.reporters.append(AmberNetCDFReporter('output.nc', 1))
-simulation.reporters.append(StateDataReporter(stdout, 1, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
+simulation.reporters.append(AmberNetCDFReporter('output.nc', 10))
+simulation.reporters.append(StateDataReporter(stdout, 10, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
 
-start_time = time.time()
-simulation.step(10) # i.e. 20,000 fs == 20 ps == 0.02 ns
+simulation.step(100) 
