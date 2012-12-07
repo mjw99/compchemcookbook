@@ -116,23 +116,6 @@ for i in range(system.getNumForces()):
      NonbondedSystem.addForce(copyOfForce)
 
 
-     print ""
-     print "Normal pairs"
-     for k in range (force.getNumParticles()):
-       print force.getParticleParameters(k)
-
-
-     print ""
-     print "Exception pairs"
-     for k in range (force.getNumExceptions()):
-        print force.getExceptionParameters(k)
-
-
-
-
-
-
-
 
 
 
@@ -143,7 +126,7 @@ HarmonicBondContext = Context(HarmonicBondSystem, HarmonicBondIntegrator, platfo
 HarmonicBondContext.setPositions(inpcrd.positions)
 HarmonicBondState = HarmonicBondContext.getState( getEnergy=True)
 print (HarmonicBondState.getPotentialEnergy().in_units_of(kilocalorie/mole))
-print str(5.6366273691689504) + " (JAMBER)"
+print str(5.6366273691689504) + " kcal/mol (JAMBER)"
 
 
 # Harmonic Angle
@@ -151,7 +134,7 @@ HarmonicAngleContext = Context(HarmonicAngleSystem, HarmonicAngleIntegrator, pla
 HarmonicAngleContext.setPositions(inpcrd.positions)
 HarmonicAngleState = HarmonicAngleContext.getState( getEnergy=True)
 print (HarmonicAngleState.getPotentialEnergy().in_units_of(kilocalorie/mole))
-print str(8.2046173826501736) + " (JAMBER)"
+print str(8.2046173826501736) + " kcal/mol (JAMBER)"
 
 
 # Torsions
@@ -159,7 +142,7 @@ PeriodicTorsionContext = Context(PeriodicTorsionSystem, PeriodicTorsionIntegrato
 PeriodicTorsionContext.setPositions(inpcrd.positions)
 PeriodicTorsionState = PeriodicTorsionContext.getState( getEnergy=True)
 print (PeriodicTorsionState.getPotentialEnergy().in_units_of(kilocalorie/mole))
-print str(11.365686464834990) + " (JAMBER)"
+print str(11.365686464834990) + " kcal/mol (JAMBER)"
 
 # NB
 NonbondedContext = Context(NonbondedSystem, NonbondedIntegrator, platform)
@@ -168,7 +151,7 @@ NonbondedState = NonbondedContext.getState( getEnergy=True)
 print (NonbondedState.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 JAMBER_Result = -79.994516268914055 + -1.0455001424914672 + 4.4614567778860472 + 48.744345933282325
-print str( JAMBER_Result  ) + " (JAMBER)"
+print str( JAMBER_Result  ) + " kcal/mol (JAMBER)"
 #print "OpenMM 4.1.1 Vanilla " + "-27.8352952389"
 
 

@@ -6,9 +6,9 @@ from simtk.unit import *
 from sys import stdout
 import time
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
+platform = openmm.Platform_getPlatformByName("OpenCL")
 #platform = openmm.Platform_getPlatformByName("Cuda")
-platform = openmm.Platform_getPlatformByName("Reference")
+#platform = openmm.Platform_getPlatformByName("Reference")
 
 
 
@@ -52,12 +52,14 @@ print "Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kiloc
 for i in range(system.getNumForces()):
    force = system.getForce(i)
    if isinstance( force, openmm.HarmonicBondForce ):
+     force.setForceGroup(1)
      print ""
      print "Found " + str(force.getNumBonds()) + " HarmonicBondForce terms"
      for j in range(force.getNumBonds()):
        print force.getBondParameters(j)
 
    if isinstance( force, openmm.HarmonicAngleForce ):
+     force.setForceGroup(2)
      print ""
      print "Found " + str(force.getNumAngles()) + " HarmonicAngleForce terms"
      for j in range(force.getNumAngles()):
@@ -65,6 +67,7 @@ for i in range(system.getNumForces()):
 
 
    if isinstance( force, openmm.PeriodicTorsionForce ):
+     force.setForceGroup(3)
      print ""
      print "Found " + str(force.getNumTorsions()) + " PeriodicTorsionForce terms"
      for j in range(force.getNumTorsions()):
@@ -72,6 +75,7 @@ for i in range(system.getNumForces()):
 
 
    if isinstance( force, openmm.NonbondedForce ):
+     force.setForceGroup(4)
      print ""
      print "Found " + str(force.getNumParticles()) + " NonbondedForce terms"
      for j in range(force.getNumParticles()):
