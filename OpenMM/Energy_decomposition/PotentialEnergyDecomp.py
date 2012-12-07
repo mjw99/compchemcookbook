@@ -30,6 +30,7 @@ inpcrd = AmberInpcrdFile('inpcrd')
 
 #system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=0.8*nanometer, constraints=HBonds)
 #system = prmtop.createSystem(nonbondedMethod=NoCutoff, implicitSolvent=OBC2)
+#system = prmtop.createSystem(nonbondedMethod=NoCutoff, removeCMMotion=False)
 system = prmtop.createSystem(nonbondedMethod=NoCutoff)
 
 # Remember, this is being run NVE
