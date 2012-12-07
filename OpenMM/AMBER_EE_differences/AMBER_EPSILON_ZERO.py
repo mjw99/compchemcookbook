@@ -14,9 +14,14 @@
 #                                 ^^^^^^^^^^^^^^^^
 
 
-
 # The origin of this lies with the fact that EPSILON_ZERO used by AMBER
-# to calculate this is slightly wrong. This script carries out the back 
+# to calculate this is slightly wrong; CHARMM suffers from something similar...
+
+# AMBER 	332.0522173
+# CHARMM 	332.0716
+# "Exact"	332.063408432
+
+# This script carries out the back 
 # calculation to work out this difference:
 
 #  ATKINS's molecular Quantum Mechanics  8.854187817e-12
@@ -24,7 +29,9 @@
 #                                             ^^^^^^^^^^^
 
 # Hence AMBER is wrong in the 4th decimal place.
-# CHARMM suffers from something similar...
+
+# Refs
+# http://www.charmm.org/ubbthreads/ubbthreads.php?ubb=showflat&Number=12674
 
 
 
