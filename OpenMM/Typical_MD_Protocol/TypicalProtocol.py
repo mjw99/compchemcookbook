@@ -86,8 +86,14 @@ PDBFile.writeFile(simulation.topology, positions, open('minisation.pdb', 'w'))
 print "Heating system under NVT"
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
-# Note, new system
+# Note, new system, with SHAKE
 system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
+
+# Set the COM Removal to something sensible
+for i in range(system.getNumForces()):
+   if (type(system.getForce(i)) == openmm.CMMotionRemover):
+      system.getForce(i).setFrequency(1000)
+
 
 simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 simulation.context.setPositions(positions)
