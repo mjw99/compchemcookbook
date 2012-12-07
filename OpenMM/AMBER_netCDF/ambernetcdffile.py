@@ -27,9 +27,7 @@ class AmberNetCDFFile(object):
     setattr(self.nc, 'ConventionVersion', '1.0')
 
     # dimensions
-    #self.nc.createDimension('frame', None)
-    self.nc.createDimension('frame', 3)
-
+    self.nc.createDimension('frame', None)
     self.nc.createDimension('spatial', 3)
     self.nc.createDimension('atom', len(list(self._topology.atoms())) )   
     self.nc.createDimension('label', 5)
@@ -61,7 +59,6 @@ class AmberNetCDFFile(object):
     self.spatial[:] = 'xyz'
     self.cell_spatial[:] = 'abc'
     self.cell_angular[:] = 'alpha', 'beta ', 'gamma'
-    self.cell_angles[:] = 90.0
 
   def writeModel(self, positions, time, unitCellDimensions=None):
     if len(list(self._topology.atoms())) != len(positions):
@@ -86,6 +83,7 @@ class AmberNetCDFFile(object):
                 boxSize = unitCellDimensions
       size = boxSize.value_in_unit(angstroms)
       self.cell_lengths[self._modelCount] =  size[0], size[1], size[2]
+      self.cell_angles[self._modelCount] = 90.0, 90.0, 90.0
 
 
     self._modelCount += 1

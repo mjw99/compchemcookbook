@@ -47,4 +47,4 @@ simulation.reporters.append(AmberNetCDFReporter('output.nc', 1))
 simulation.reporters.append(StateDataReporter(stdout, 1, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
 
 start_time = time.time()
-simulation.step(3) # i.e. 20,000 fs == 20 ps == 0.02 ns
+simulation.step(10) # i.e. 20,000 fs == 20 ps == 0.02 ns
