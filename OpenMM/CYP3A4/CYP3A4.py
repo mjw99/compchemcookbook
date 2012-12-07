@@ -80,7 +80,7 @@ simulation = Simulation(prmtop.topology, system, integrator, platform, platformP
 simulation.context.setPositions(positions)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('heating.pdb', 1000))
+simulation.reporters.append(AmberNetCDFReporter('heating.nc', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -114,7 +114,7 @@ simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('density.pdb', 1000))
+simulation.reporters.append(AmberNetCDFReporter('density.nc', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -144,7 +144,7 @@ simulation.context.setVelocities(velocities)
 
 # Report every 0.1 ns / 100 ps
 simulation.reporters.append(StateDataReporter(stdout, 50000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('production.pdb', 50000))
+simulation.reporters.append(AmberNetCDFReporter('production.nc', 50000))
 
 # 10 ns
 simulation.step(5000000) 
