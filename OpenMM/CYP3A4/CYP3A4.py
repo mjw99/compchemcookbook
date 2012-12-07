@@ -4,6 +4,7 @@ from simtk.unit import *
 from sys import stdout
 import time
 from amberrestrtfile import AmberRestrtFile
+from ambernetcdfreporter import AmberNetCDFReporter
 
 
 # Run on multiple cards
@@ -11,8 +12,8 @@ from amberrestrtfile import AmberRestrtFile
 # 1  Tesla C2075
 # 2  Tesla C2075
 #platformProperties = {"OpenCLDeviceIndex":"0"}
-#platformProperties = {"OpenCLDeviceIndex":"1,2"}
-platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platformProperties = {"OpenCLDeviceIndex":"1,2"}
+#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
 
 platform = openmm.Platform_getPlatformByName("OpenCL")
 print "Speed relative to reference is : " + str(platform.getSpeed())
