@@ -3,7 +3,7 @@ from simtk.openmm import *
 from simtk.unit import *
 from sys import stdout
 import time
-from AmberRestrtFile import AmberRestrtFile
+from amberrestrtfile import AmberRestrtFile
 
 
 # Run on multiple cards
