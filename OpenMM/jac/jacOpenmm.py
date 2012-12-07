@@ -30,6 +30,12 @@ prmtop = AmberPrmtopFile('prmtop7')
 inpcrd = AmberInpcrdFile('inpcrd.equil.openmm',  loadVelocities=True, loadBoxVectors=True)
 
 system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=0.8*nanometer, constraints=HBonds)
+
+# Set the COM Removal to something sensible
+for i in range(system.getNumForces()):
+   if (type(system.getForce(i)) == openmm.CMMotionRemover):
+      system.getForce(i).setFrequency(1000)
+
 # Remember, this is being run NVE
 integrator = VerletIntegrator(2*femtoseconds)
 
