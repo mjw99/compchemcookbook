@@ -1,3 +1,8 @@
+"""
+ambernetcdffile.py: Used for writing Amber NetCDF files.
+
+Based upon dcdfile.py by Peter Eastman
+"""
 __author__ = "Mark J. Williamson"
 __version__ = "0.1"
 
@@ -9,8 +14,18 @@ from simtk.unit import angstroms, is_quantity, picoseconds, norm
 
 
 class AmberNetCDFFile(object):
+  """AmberNetCDFFile provides a method for wrting AMBER NetCDF files.
+
+  To use this class, create a AmberNetCDFFile object, then call writeModel() once for each model in the file."""
 
   def __init__(self, filename, topology):
+    """Create an AmberNetCDFFile, and write the initial header data.
+
+    Parameters:
+      - file (file) A file to write to
+      - topology (Topology) The Topology defining the molecular system being written
+    """
+
     self._filename = filename
     self._topology = topology
     self._modelCount = 0
@@ -60,7 +75,17 @@ class AmberNetCDFFile(object):
     self.cell_spatial[:] = 'abc'
     self.cell_angular[:] = 'alpha', 'beta ', 'gamma'
 
-  def writeModel(self, positions, time, unitCellDimensions=None):
+  def writeModel(self, positions, time):
+    """Write out a model to the AMBER NetCDF file.
+
+    Parameters:
+      - positions (list) The list of atomic positions to write.
+      - time The current time of the frame being written
+
+    """
+
+
+    # Basic sanity checking
     if len(list(self._topology.atoms())) != len(positions):
             raise ValueError('The number of positions must match the number of atoms')
     if is_quantity(positions):
@@ -79,8 +104,6 @@ class AmberNetCDFFile(object):
 
     boxSize = self._topology.getUnitCellDimensions()
     if boxSize is not None:
-      if unitCellDimensions is not None:
-                boxSize = unitCellDimensions
       size = boxSize.value_in_unit(angstroms)
       self.cell_lengths[self._modelCount] =  size[0], size[1], size[2]
       self.cell_angles[self._modelCount] = 90.0, 90.0, 90.0
