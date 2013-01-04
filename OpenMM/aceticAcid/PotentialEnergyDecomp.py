@@ -151,6 +151,11 @@ print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnerg
 
 
 
+# Output forces
+print ""
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
 
 
-
+for force in forces:
+     print force
