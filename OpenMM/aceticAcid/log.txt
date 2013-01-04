@@ -1,0 +1,19 @@
+Platform: Reference
+Number of atoms 8
+Total potential energy is -35.459440727 kcal/mol
+
+<class 'simtk.openmm.openmm.HarmonicBondForce'>
+Found 7 HarmonicBondForce terms
+<class 'simtk.openmm.openmm.HarmonicAngleForce'>
+Found 10 HarmonicAngleForce terms
+<class 'simtk.openmm.openmm.PeriodicTorsionForce'>
+Found 15 PeriodicTorsionForce terms
+<class 'simtk.openmm.openmm.NonbondedForce'>
+Found 8 NonbondedForce terms )
+Found 25 NonbondedForce exception terms (i.e. 1-4) 
+<class 'simtk.openmm.openmm.CMMotionRemover'>
+
+Harmonic bond: 			1.00580294116 kcal/mol
+Harmonic angle: 		0.717995927282 kcal/mol
+Proper and improper torsions: 	2.4323562765 kcal/mol
+EE, VDW, 14EE and 14VDW: 	-39.6155958719 kcal/mol
