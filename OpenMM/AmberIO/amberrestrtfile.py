@@ -1,9 +1,10 @@
 """
 amberrestrtfile.py: Used for writing AMBER restrt files.
+Please see http://ambermd.org/formats.html#restart
 
 """
 __author__ = "Mark J. Williamson"
-__version__ = "1.0"
+__version__ = "0.1"
 
 from simtk.unit import Quantity, angstroms, picoseconds
 import datetime
@@ -66,6 +67,8 @@ class AmberRestrtFile():
        # Translate units for velocities
        velocities = velocities.value_in_unit(angstroms/picoseconds)
 
+       # See here for 20.455 scaling
+       # http://ambermd.org/Questions/units.html
        def divideByFactor(x): return x/20.455
        velocities = map(divideByFactor, velocities)
 

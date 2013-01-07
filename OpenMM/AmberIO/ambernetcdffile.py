@@ -1,5 +1,6 @@
 """
 ambernetcdffile.py: Used for writing Amber NetCDF files.
+Please see http://ambermd.org/netcdf/nctraj.html
 
 Based upon dcdfile.py by Peter Eastman
 """

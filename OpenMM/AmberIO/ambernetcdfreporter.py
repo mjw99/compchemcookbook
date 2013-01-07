@@ -1,5 +1,6 @@
 """
 ambernetcdfreporter.py: Outputs simulation trajectories in AMBER's NetCDF format
+Please see Please see http://ambermd.org/netcdf/nctraj.html
 
 Based upon dcdreporter.py by Peter Eastman
 """
