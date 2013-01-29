@@ -1,0 +1,198 @@
+-I: Adding /netscratch/mw529/code/AMBER/amber12/dat/leap/prep to search path.
+-I: Adding /netscratch/mw529/code/AMBER/amber12/dat/leap/lib to search path.
+-I: Adding /netscratch/mw529/code/AMBER/amber12/dat/leap/parm to search path.
+-I: Adding /netscratch/mw529/code/AMBER/amber12/dat/leap/cmd to search path.
+-f: Source leap.bat.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./leap.bat
+----- Source: /netscratch/mw529/code/AMBER/amber12/dat/leap/cmd/leaprc.gaff
+----- Source of /netscratch/mw529/code/AMBER/amber12/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /netscratch/mw529/code/AMBER/amber12/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.4, March 2010) add. info. at the end
+Loading Mol2 file: ./HEM.mol2
+Reading MOLECULE named HEM-CPDI
+Loading parameters: ./CPDI.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Shahrokh,K; Orendt,A; Yost, G.S; and Cheatham III, T.E. Jour Comp Chem (2011)
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+STRING (with no reference): 'CYP'
+Loading PDB file: ./heme.pdb
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NB-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NA-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-ND-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NC-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
+  total atoms in file: 44
+  Leap added 30 missing atoms according to residue templates:
+       30 H / lone pairs
+Writing pdb file: snap.pdb
+Checking Unit.
+ERROR: The unperturbed charge of the unit: -1.614100 is not integral.
+WARNING: The unperturbed charge of the unit: -1.614100 is not zero.
+
+ -- ignoring the error and warning.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 2 improper torsions applied
+Building H-Bond parameters.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	HEM	1
+  )
+ (no restraints)
+	Quit
+rParams CPDI.frcmod
+Loading parameters: ./CPDI.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Shahrokh,K; Orendt,A; Yost, G.S; and Cheatham III, T.E. Jour Comp Chem (2011)
+(UNKNOWN ATOM TYPE: fe)
+(UNKNOWN ATOM TYPE: oa)
+> 
+> # Needed because mol2 does not contain head/tail info
+> set CYP head CYP.1.N
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+> set CYP tail CYP.1.C
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+> desc CYP
+STRING (with no reference): 'CYP'
+> 
+> # Load the preparsed PDB
+> CYP3A4 = loadpdb heme.pdb
+Loading PDB file: ./heme.pdb
+Enter zPdbReadScan from call depth  0.
+Exit  zPdbReadScan from call depth  0.
+Matching PDB residue names to LEaP variables.
+(Residue 0: HEM, Terminal/last, was not found in name map.)
+  total atoms in file: 44
+  Leap added 30 missing atoms according to residue templates:
+       30 H / lone pairs
+> 
+> # Save a pdb for convience of debugging
+> savepdb CYP3A4 snap.pdb
+Writing pdb file: snap.pdb
+> 
+> # Generate the AMBER parameter and coordinate files
+> saveamberparm CYP3A4 prmtop inpcrd
+Checking Unit.
+ERROR: The unperturbed charge of the unit: -1.614100 is not integral.
+WARNING: The unperturbed charge of the unit: -1.614100 is not zero.
+
+ -- ignoring the error and warning.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ ** Warning: No sp2 improper torsion term for  cd-ha-cc-ha
+        atoms are: CAC HBC1 CBC HBC2
+ ** Warning: No sp2 improper torsion term for  cc-ha-cd-cc
+        atoms are: C3C HAC CAC CBC
+ ** Warning: No sp2 improper torsion term for  cc-ha-cd-ha
+        atoms are: CAB HBB1 CBB HBB2
+ ** Warning: No sp2 improper torsion term for  cd-ha-cc-cd
+        atoms are: C3B HAB CAB CBB
+ ** Warning: No sp2 improper torsion term for  cd-cd-cd-cc
+        atoms are: C2B C4B C3B CAB
+ ** Warning: No sp2 improper torsion term for  cc-cd-cg-ha
+        atoms are: C1C C4B CHC HHC
+ ** Warning: No sp2 improper torsion term for  nd-cg-cd-cd
+        atoms are: NB CHC C4B C3B
+ ** Warning: No sp2 improper torsion term for  cd-cd-nd-fe
+        atoms are: C1B C4B NB FE
+ ** Warning: No sp2 improper torsion term for  cd-cd-cd-c3
+        atoms are: C1B C3B C2B CMB
+ ** Warning: No sp2 improper torsion term for  cg-cd-cd-nd
+        atoms are: CHB C2B C1B NB
+ ** Warning: No sp2 improper torsion term for  cc-ha-cg-cd
+        atoms are: C4A HHB CHB C1B
+ ** Warning: No sp2 improper torsion term for  cc-cc-cc-c3
+        atoms are: C2A C4A C3A CMA
+ ** Warning: No sp2 improper torsion term for  cc-cc-nc-fe
+        atoms are: C1A C4A NA FE
+ ** Warning: No sp2 improper torsion term for  nc-cc-cc-cg
+        atoms are: NA C3A C4A CHB
+ ** Warning: No sp2 improper torsion term for  cc-cc-cc-c3
+        atoms are: C1A C3A C2A CAA
+ ** Warning: No sp2 improper torsion term for  cg-cc-cc-nc
+        atoms are: CHA C2A C1A NA
+ ** Warning: No sp2 improper torsion term for  cd-ha-cg-cc
+        atoms are: C4D HHA CHA C1A
+ ** Warning: No sp2 improper torsion term for  cd-cd-cd-c3
+        atoms are: C1D C3D C2D CMD
+ ** Warning: No sp2 improper torsion term for  cd-cd-cd-c3
+        atoms are: C4D C2D C3D CAD
+ ** Warning: No sp2 improper torsion term for  nd-cd-cd-cg
+        atoms are: ND C3D C4D CHA
+ ** Warning: No sp2 improper torsion term for  cd-cd-nd-fe
+        atoms are: C1D C4D ND FE
+ ** Warning: No sp2 improper torsion term for  cg-nd-cd-cd
+        atoms are: CHD ND C1D C2D
+ ** Warning: No sp2 improper torsion term for  cc-ha-cg-cd
+        atoms are: C4C HHD CHD C1D
+ ** Warning: No sp2 improper torsion term for  cc-cc-cc-cd
+        atoms are: C4C C2C C3C CAC
+ ** Warning: No sp2 improper torsion term for  cc-cc-cc-c3
+        atoms are: C1C C3C C2C CMC
+ ** Warning: No sp2 improper torsion term for  nc-cc-cc-cg
+        atoms are: NC C3C C4C CHD
+ ** Warning: No sp2 improper torsion term for  nc-cc-cc-cg
+        atoms are: NC C2C C1C CHC
+ ** Warning: No sp2 improper torsion term for  cc-cc-nc-fe
+        atoms are: C1C C4C NC FE
+ total 2 improper torsions applied
+Building H-Bond parameters.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	HEM	1
+  )
+ (no restraints)
+> 
+> quit
+	Quit

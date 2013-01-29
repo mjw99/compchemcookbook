@@ -1,0 +1,94 @@
+-I: Adding /usr/local/ucc/amber/11/gnu/amber11/dat/leap/prep to search path.
+-I: Adding /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib to search path.
+-I: Adding /usr/local/ucc/amber/11/gnu/amber11/dat/leap/parm to search path.
+-I: Adding /usr/local/ucc/amber/11/gnu/amber11/dat/leap/cmd to search path.
+-f: Source leap.bat.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./leap.bat
+----- Source: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/cmd/leaprc.ff99SB
+----- Source of /usr/local/ucc/amber/11/gnu/amber11/dat/leap/cmd/leaprc.ff99SB done
+Log file: ./leap.log
+Loading parameters: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/parm/parm99.dat
+Reading title:
+PARM99 for DNA,RNA,AA, organic molecules, TIP3P wat. Polariz.& LP incl.02/04/99
+Loading parameters: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/parm/frcmod.ff99SB
+Reading force field modification type file (frcmod)
+Reading title:
+Modification/update of parm99.dat (Hornak & Simmerling)
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/all_nucleic94.lib
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/all_amino94.lib
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/all_aminoct94.lib
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/all_aminont94.lib
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/ions94.lib
+Loading library: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/lib/solvents.lib
+----- Source: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/cmd/leaprc.gaff
+----- Source of /usr/local/ucc/amber/11/gnu/amber11/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /usr/local/ucc/amber/11/gnu/amber11/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.4, March 2010) add. info. at the end
+Loading Mol2 file: ./HEM.mol2
+Reading MOLECULE named HEM-CPDI
+Loading parameters: ./CPDI.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Shahrokh,K; Orendt,A; Yost, G.S; and Cheatham III, T.E. Jour Comp Chem (2011)
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+cyp: expected 'default'
+usage:  set <container> <parameter> <object>
+   or:  set default <parameter> <value>
+STRING (with no reference): 'CYP'
+Loading PDB file: ./heme.pdb
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NB-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NA-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-ND-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-NC-FE-*
++--- With Sp2 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
+  total atoms in file: 44
+  Leap added 30 missing atoms according to residue templates:
+       30 H / lone pairs
+Writing pdb file: snap.pdb
+Checking Unit.
+ERROR: The unperturbed charge of the unit: -1.614100 is not integral.
+WARNING: The unperturbed charge of the unit: -1.614100 is not zero.
+
+ -- ignoring the error and warning.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 2 improper torsions applied
+Building H-Bond parameters.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	HEM	1
+  )
+ (no restraints)
+	Quit
