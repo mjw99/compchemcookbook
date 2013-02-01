@@ -1,0 +1,1752 @@
+ForceField.__init__() reading file: CPDI_CYP.xml
+0 nc 14.01 nitrogen
+1 cc 12.01 carbon
+2 cc 12.01 carbon
+3 cc 12.01 carbon
+4 cc 12.01 carbon
+5 cg 12.01 carbon
+6 ha 1.008 hydrogen
+7 cd 12.01 carbon
+8 nd 14.01 nitrogen
+9 cd 12.01 carbon
+10 cd 12.01 carbon
+11 cd 12.01 carbon
+12 cg 12.01 carbon
+13 ha 1.008 hydrogen
+14 cc 12.01 carbon
+15 cc 12.01 carbon
+16 cc 12.01 carbon
+17 nc 14.01 nitrogen
+18 cc 12.01 carbon
+19 cg 12.01 carbon
+20 ha 1.008 hydrogen
+21 cd 12.01 carbon
+22 cd 12.01 carbon
+23 nd 14.01 nitrogen
+24 cd 12.01 carbon
+25 cg 12.01 carbon
+26 ha 1.008 hydrogen
+27 fe 55.85 iron
+28 cd 12.01 carbon
+29 cc 12.01 carbon
+30 ha 1.008 hydrogen
+31 cd 12.01 carbon
+32 ha 1.008 hydrogen
+33 ha 1.008 hydrogen
+34 cd 12.01 carbon
+35 ha 1.008 hydrogen
+36 cc 12.01 carbon
+37 ha 1.008 hydrogen
+38 ha 1.008 hydrogen
+39 c3 12.01 carbon
+40 hc 1.008 hydrogen
+41 hc 1.008 hydrogen
+42 hc 1.008 hydrogen
+43 c3 12.01 carbon
+44 hc 1.008 hydrogen
+45 hc 1.008 hydrogen
+46 hc 1.008 hydrogen
+47 c3 12.01 carbon
+48 hc 1.008 hydrogen
+49 hc 1.008 hydrogen
+50 hc 1.008 hydrogen
+51 c3 12.01 carbon
+52 hc 1.008 hydrogen
+53 hc 1.008 hydrogen
+54 hc 1.008 hydrogen
+55 c3 12.01 carbon
+56 hc 1.008 hydrogen
+57 hc 1.008 hydrogen
+58 c3 12.01 carbon
+59 hc 1.008 hydrogen
+60 hc 1.008 hydrogen
+61 c3 12.01 carbon
+62 h1 1.008 hydrogen
+63 h1 1.008 hydrogen
+64 c3 12.01 carbon
+65 h1 1.008 hydrogen
+66 h1 1.008 hydrogen
+67 c 12.01 carbon
+68 c 12.01 carbon
+69 o 16.0 oxygen
+70 o 16.0 oxygen
+71 o 16.0 oxygen
+72 o 16.0 oxygen
+73 oa 16.0 oxygen
+74 N 14.01 nitrogen
+75 H 1.008 hydrogen
+76 CT 12.01 carbon
+77 H1 1.008 hydrogen
+78 CT 12.01 carbon
+79 H1 1.008 hydrogen
+80 H1 1.008 hydrogen
+81 SH 32.06 sulfur
+82 C 12.01 carbon
+83 O 16.0 oxygen
+
+__init__() resname is HEM
+__init__() Atom is: NC 0 nitrogen
+__init__() Atom is: C1C 1 carbon
+__init__() Atom is: C4C 2 carbon
+__init__() Atom is: C2C 3 carbon
+__init__() Atom is: C3C 4 carbon
+__init__() Atom is: CHD 5 carbon
+__init__() Atom is: HHD 6 hydrogen
+__init__() Atom is: C1D 7 carbon
+__init__() Atom is: ND 8 nitrogen
+__init__() Atom is: C4D 9 carbon
+__init__() Atom is: C3D 10 carbon
+__init__() Atom is: C2D 11 carbon
+__init__() Atom is: CHA 12 carbon
+__init__() Atom is: HHA 13 hydrogen
+__init__() Atom is: C1A 14 carbon
+__init__() Atom is: C2A 15 carbon
+__init__() Atom is: C4A 16 carbon
+__init__() Atom is: NA 17 nitrogen
+__init__() Atom is: C3A 18 carbon
+__init__() Atom is: CHB 19 carbon
+__init__() Atom is: HHB 20 hydrogen
+__init__() Atom is: C1B 21 carbon
+__init__() Atom is: C2B 22 carbon
+__init__() Atom is: NB 23 nitrogen
+__init__() Atom is: C4B 24 carbon
+__init__() Atom is: CHC 25 carbon
+__init__() Atom is: HHC 26 hydrogen
+__init__() Atom is: FE 27 iron
+__init__() Atom is: C3B 28 carbon
+__init__() Atom is: CAB 29 carbon
+__init__() Atom is: HAB 30 hydrogen
+__init__() Atom is: CBB 31 carbon
+__init__() Atom is: HBB1 32 hydrogen
+__init__() Atom is: HBB2 33 hydrogen
+__init__() Atom is: CAC 34 carbon
+__init__() Atom is: HAC 35 hydrogen
+__init__() Atom is: CBC 36 carbon
+__init__() Atom is: HBC1 37 hydrogen
+__init__() Atom is: HBC2 38 hydrogen
+__init__() Atom is: CMB 39 carbon
+__init__() Atom is: HMB1 40 hydrogen
+__init__() Atom is: HMB2 41 hydrogen
+__init__() Atom is: HMB3 42 hydrogen
+__init__() Atom is: CMC 43 carbon
+__init__() Atom is: HMC1 44 hydrogen
+__init__() Atom is: HMC2 45 hydrogen
+__init__() Atom is: HMC3 46 hydrogen
+__init__() Atom is: CMD 47 carbon
+__init__() Atom is: HMD1 48 hydrogen
+__init__() Atom is: HMD2 49 hydrogen
+__init__() Atom is: HMD3 50 hydrogen
+__init__() Atom is: CMA 51 carbon
+__init__() Atom is: HMA1 52 hydrogen
+__init__() Atom is: HMA2 53 hydrogen
+__init__() Atom is: HMA3 54 hydrogen
+__init__() Atom is: CAA 55 carbon
+__init__() Atom is: HAA1 56 hydrogen
+__init__() Atom is: HAA2 57 hydrogen
+__init__() Atom is: CAD 58 carbon
+__init__() Atom is: HAD1 59 hydrogen
+__init__() Atom is: HAD2 60 hydrogen
+__init__() Atom is: CBA 61 carbon
+__init__() Atom is: HBA1 62 hydrogen
+__init__() Atom is: HBA2 63 hydrogen
+__init__() Atom is: CBD 64 carbon
+__init__() Atom is: HBD1 65 hydrogen
+__init__() Atom is: HBD2 66 hydrogen
+__init__() Atom is: CGD 67 carbon
+__init__() Atom is: CGA 68 carbon
+__init__() Atom is: O1A 69 oxygen
+__init__() Atom is: O1D 70 oxygen
+__init__() Atom is: O2A 71 oxygen
+__init__() Atom is: O2D 72 oxygen
+__init__() Atom is: O1 73 oxygen
+
+__init__() resname is CYP
+__init__() Atom is: N 74 nitrogen
+__init__() Atom is: H 75 hydrogen
+__init__() Atom is: CA 76 carbon
+__init__() Atom is: HA 77 hydrogen
+__init__() Atom is: CB 78 carbon
+__init__() Atom is: HB2 79 hydrogen
+__init__() Atom is: HB3 80 hydrogen
+__init__() Atom is: SG 81 sulfur
+__init__() Atom is: C 82 carbon
+__init__() Atom is: O 83 oxygen
+ForceField.__init__() reading residue template: HEM	 with sigString: 	Fe1O5N4C34H30
+ForceField.__init__() reading residue template: CYP	 with sigString: 	S1O1N1C3H4
+self._atomTypes
+hc 1.008
+H1 1.008
+hc 1.008
+hc 1.008
+hc 1.008
+c3 12.01
+hc 1.008
+c3 12.01
+h1 1.008
+h1 1.008
+c3 12.01
+hc 1.008
+h1 1.008
+c 12.01
+c 12.01
+o 16.0
+H1 1.008
+hc 1.008
+hc 1.008
+cd 12.01
+cg 12.01
+ha 1.008
+fe 55.85
+ha 1.008
+cd 12.01
+cd 12.01
+nd 14.01
+hc 1.008
+c3 12.01
+hc 1.008
+hc 1.008
+cd 12.01
+cc 12.01
+hc 1.008
+hc 1.008
+cc 12.01
+nc 14.01
+cc 12.01
+cc 12.01
+cg 12.01
+cc 12.01
+cd 12.01
+ha 1.008
+cd 12.01
+nd 14.01
+CT 12.01
+c3 12.01
+C 12.01
+O 16.0
+c3 12.01
+h1 1.008
+CT 12.01
+H 1.008
+ha 1.008
+oa 16.0
+o 16.0
+o 16.0
+o 16.0
+hc 1.008
+H1 1.008
+c3 12.01
+cd 12.01
+cd 12.01
+ha 1.008
+cg 12.01
+cc 12.01
+cc 12.01
+nc 14.01
+cc 12.01
+cg 12.01
+cc 12.01
+cd 12.01
+ha 1.008
+ha 1.008
+cc 12.01
+ha 1.008
+cd 12.01
+ha 1.008
+c3 12.01
+N 14.01
+ha 1.008
+SH 32.06
+hc 1.008
+hc 1.008
+self._atomClasses
+
+oa
+c
+h1
+cc
+nd
+H1
+cg
+nc
+o
+cd
+N
+SH
+fe
+O
+H
+c3
+hc
+C
+ha
+CT
+  
+addHydrogens: working on residue: HEM
+addHydrogens: for residue: HEM using spec: 
+<simtk.openmm.app.modeller._ResidueData instance at 0x2b9a3b0>
+addHydrogens: for residue: HEM using variant: 
+None
+addHydrogens: parents are:
+['FE', 'CHA', 'CHB', 'CHC', 'CHD', 'NA', 'C1A', 'C2A', 'C3A', 'C4A', 'CMA', 'CAA', 'CBA', 'CGA', 'O1A', 'O2A', 'NB', 'C1B', 'C2B', 'C3B', 'C4B', 'CMB', 'CAB', 'CBB', 'NC', 'C1C', 'C2C', 'C3C', 'C4C', 'CMC', 'CAC', 'CBC', 'ND', 'C1D', 'C2D', 'C3D', 'C4D', 'CMD', 'CAD', 'CBD', 'CGD', 'O1D', 'O2D', 'O1']
+addHydrogens: self.topology.bonds() (i.e. existing bonds)
+ NC-C1C
+addHydrogen adding bond:NC-C1C
+ NC-C4C
+addHydrogen adding bond:NC-C4C
+ NC-FE
+addHydrogen adding bond:NC-FE
+ C1C-C2C
+addHydrogen adding bond:C1C-C2C
+ C1C-CHC
+addHydrogen adding bond:C1C-CHC
+ C4C-C3C
+addHydrogen adding bond:C4C-C3C
+ C4C-CHD
+addHydrogen adding bond:C4C-CHD
+ C2C-C3C
+addHydrogen adding bond:C2C-C3C
+ C2C-CMC
+addHydrogen adding bond:C2C-CMC
+ C3C-CAC
+addHydrogen adding bond:C3C-CAC
+ CHD-C1D
+addHydrogen adding bond:CHD-C1D
+ C1D-ND
+addHydrogen adding bond:C1D-ND
+ C1D-C2D
+addHydrogen adding bond:C1D-C2D
+ ND-C4D
+addHydrogen adding bond:ND-C4D
+ ND-FE
+addHydrogen adding bond:ND-FE
+ C4D-C3D
+addHydrogen adding bond:C4D-C3D
+ C4D-CHA
+addHydrogen adding bond:C4D-CHA
+ C3D-C2D
+addHydrogen adding bond:C3D-C2D
+ C3D-CAD
+addHydrogen adding bond:C3D-CAD
+ C2D-CMD
+addHydrogen adding bond:C2D-CMD
+ CHA-C1A
+addHydrogen adding bond:CHA-C1A
+ C1A-C2A
+addHydrogen adding bond:C1A-C2A
+ C1A-NA
+addHydrogen adding bond:C1A-NA
+ C2A-C3A
+addHydrogen adding bond:C2A-C3A
+ C2A-CAA
+addHydrogen adding bond:C2A-CAA
+ C4A-NA
+addHydrogen adding bond:C4A-NA
+ C4A-C3A
+addHydrogen adding bond:C4A-C3A
+ C4A-CHB
+addHydrogen adding bond:C4A-CHB
+ NA-FE
+addHydrogen adding bond:NA-FE
+ C3A-CMA
+addHydrogen adding bond:C3A-CMA
+ CHB-C1B
+addHydrogen adding bond:CHB-C1B
+ C1B-C2B
+addHydrogen adding bond:C1B-C2B
+ C1B-NB
+addHydrogen adding bond:C1B-NB
+ C2B-C3B
+addHydrogen adding bond:C2B-C3B
+ C2B-CMB
+addHydrogen adding bond:C2B-CMB
+ NB-C4B
+addHydrogen adding bond:NB-C4B
+ NB-FE
+addHydrogen adding bond:NB-FE
+ C4B-CHC
+addHydrogen adding bond:C4B-CHC
+ C4B-C3B
+addHydrogen adding bond:C4B-C3B
+ FE-O1
+addHydrogen adding bond:FE-O1
+ C3B-CAB
+addHydrogen adding bond:C3B-CAB
+ CAB-CBB
+addHydrogen adding bond:CAB-CBB
+ CAC-CBC
+addHydrogen adding bond:CAC-CBC
+ CAA-CBA
+addHydrogen adding bond:CAA-CBA
+ CAD-CBD
+addHydrogen adding bond:CAD-CBD
+ CBA-CGA
+addHydrogen adding bond:CBA-CGA
+ CBD-CGD
+addHydrogen adding bond:CBD-CGD
+ CGD-O1D
+addHydrogen adding bond:CGD-O1D
+ CGD-O2D
+addHydrogen adding bond:CGD-O2D
+ CGA-O1A
+addHydrogen adding bond:CGA-O1A
+ CGA-O2A
+addHydrogen adding bond:CGA-O2A
+addHydrogens: newTopology.bonds() (i.e. new bonds):
+  addHydrogens: newTopology.bonds() CHA-HHA
+  addHydrogens: newTopology.bonds() CHB-HHB
+  addHydrogens: newTopology.bonds() CHC-HHC
+  addHydrogens: newTopology.bonds() CHD-HHD
+  addHydrogens: newTopology.bonds() CMA-HMA1
+  addHydrogens: newTopology.bonds() CMA-HMA2
+  addHydrogens: newTopology.bonds() CMA-HMA3
+  addHydrogens: newTopology.bonds() CAA-HAA1
+  addHydrogens: newTopology.bonds() CAA-HAA2
+  addHydrogens: newTopology.bonds() CBA-HBA1
+  addHydrogens: newTopology.bonds() CBA-HBA2
+  addHydrogens: newTopology.bonds() CMB-HMB1
+  addHydrogens: newTopology.bonds() CMB-HMB2
+  addHydrogens: newTopology.bonds() CMB-HMB3
+  addHydrogens: newTopology.bonds() CAB-HAB
+  addHydrogens: newTopology.bonds() CBB-HBB1
+  addHydrogens: newTopology.bonds() CBB-HBB2
+  addHydrogens: newTopology.bonds() CMC-HMC1
+  addHydrogens: newTopology.bonds() CMC-HMC2
+  addHydrogens: newTopology.bonds() CMC-HMC3
+  addHydrogens: newTopology.bonds() CAC-HAC
+  addHydrogens: newTopology.bonds() CBC-HBC1
+  addHydrogens: newTopology.bonds() CBC-HBC2
+  addHydrogens: newTopology.bonds() CMD-HMD1
+  addHydrogens: newTopology.bonds() CMD-HMD2
+  addHydrogens: newTopology.bonds() CMD-HMD3
+  addHydrogens: newTopology.bonds() CAD-HAD1
+  addHydrogens: newTopology.bonds() CAD-HAD2
+  addHydrogens: newTopology.bonds() CBD-HBD1
+  addHydrogens: newTopology.bonds() CBD-HBD2
+  addHydrogens: newTopology.bonds() NC-C1C
+  addHydrogens: newTopology.bonds() NC-C4C
+  addHydrogens: newTopology.bonds() NC-FE
+  addHydrogens: newTopology.bonds() C1C-C2C
+  addHydrogens: newTopology.bonds() C1C-CHC
+  addHydrogens: newTopology.bonds() C4C-C3C
+  addHydrogens: newTopology.bonds() C4C-CHD
+  addHydrogens: newTopology.bonds() C2C-C3C
+  addHydrogens: newTopology.bonds() C2C-CMC
+  addHydrogens: newTopology.bonds() C3C-CAC
+  addHydrogens: newTopology.bonds() CHD-C1D
+  addHydrogens: newTopology.bonds() C1D-ND
+  addHydrogens: newTopology.bonds() C1D-C2D
+  addHydrogens: newTopology.bonds() ND-C4D
+  addHydrogens: newTopology.bonds() ND-FE
+  addHydrogens: newTopology.bonds() C4D-C3D
+  addHydrogens: newTopology.bonds() C4D-CHA
+  addHydrogens: newTopology.bonds() C3D-C2D
+  addHydrogens: newTopology.bonds() C3D-CAD
+  addHydrogens: newTopology.bonds() C2D-CMD
+  addHydrogens: newTopology.bonds() CHA-C1A
+  addHydrogens: newTopology.bonds() C1A-C2A
+  addHydrogens: newTopology.bonds() C1A-NA
+  addHydrogens: newTopology.bonds() C2A-C3A
+  addHydrogens: newTopology.bonds() C2A-CAA
+  addHydrogens: newTopology.bonds() C4A-NA
+  addHydrogens: newTopology.bonds() C4A-C3A
+  addHydrogens: newTopology.bonds() C4A-CHB
+  addHydrogens: newTopology.bonds() NA-FE
+  addHydrogens: newTopology.bonds() C3A-CMA
+  addHydrogens: newTopology.bonds() CHB-C1B
+  addHydrogens: newTopology.bonds() C1B-C2B
+  addHydrogens: newTopology.bonds() C1B-NB
+  addHydrogens: newTopology.bonds() C2B-C3B
+  addHydrogens: newTopology.bonds() C2B-CMB
+  addHydrogens: newTopology.bonds() NB-C4B
+  addHydrogens: newTopology.bonds() NB-FE
+  addHydrogens: newTopology.bonds() C4B-CHC
+  addHydrogens: newTopology.bonds() C4B-C3B
+  addHydrogens: newTopology.bonds() FE-O1
+  addHydrogens: newTopology.bonds() C3B-CAB
+  addHydrogens: newTopology.bonds() CAB-CBB
+  addHydrogens: newTopology.bonds() CAC-CBC
+  addHydrogens: newTopology.bonds() CAA-CBA
+  addHydrogens: newTopology.bonds() CAD-CBD
+  addHydrogens: newTopology.bonds() CBA-CGA
+  addHydrogens: newTopology.bonds() CBD-CGD
+  addHydrogens: newTopology.bonds() CGD-O1D
+  addHydrogens: newTopology.bonds() CGD-O2D
+  addHydrogens: newTopology.bonds() CGA-O1A
+  addHydrogens: newTopology.bonds() CGA-O2A
+ForceField::createSystem() topology.atoms() :
+FE iron 0 HEM
+CHA carbon 1 HEM
+HHA hydrogen 2 HEM
+CHB carbon 3 HEM
+HHB hydrogen 4 HEM
+CHC carbon 5 HEM
+HHC hydrogen 6 HEM
+CHD carbon 7 HEM
+HHD hydrogen 8 HEM
+NA nitrogen 9 HEM
+C1A carbon 10 HEM
+C2A carbon 11 HEM
+C3A carbon 12 HEM
+C4A carbon 13 HEM
+CMA carbon 14 HEM
+HMA1 hydrogen 15 HEM
+HMA2 hydrogen 16 HEM
+HMA3 hydrogen 17 HEM
+CAA carbon 18 HEM
+HAA1 hydrogen 19 HEM
+HAA2 hydrogen 20 HEM
+CBA carbon 21 HEM
+HBA1 hydrogen 22 HEM
+HBA2 hydrogen 23 HEM
+CGA carbon 24 HEM
+O1A oxygen 25 HEM
+O2A oxygen 26 HEM
+NB nitrogen 27 HEM
+C1B carbon 28 HEM
+C2B carbon 29 HEM
+C3B carbon 30 HEM
+C4B carbon 31 HEM
+CMB carbon 32 HEM
+HMB1 hydrogen 33 HEM
+HMB2 hydrogen 34 HEM
+HMB3 hydrogen 35 HEM
+CAB carbon 36 HEM
+HAB hydrogen 37 HEM
+CBB carbon 38 HEM
+HBB1 hydrogen 39 HEM
+HBB2 hydrogen 40 HEM
+NC nitrogen 41 HEM
+C1C carbon 42 HEM
+C2C carbon 43 HEM
+C3C carbon 44 HEM
+C4C carbon 45 HEM
+CMC carbon 46 HEM
+HMC1 hydrogen 47 HEM
+HMC2 hydrogen 48 HEM
+HMC3 hydrogen 49 HEM
+CAC carbon 50 HEM
+HAC hydrogen 51 HEM
+CBC carbon 52 HEM
+HBC1 hydrogen 53 HEM
+HBC2 hydrogen 54 HEM
+ND nitrogen 55 HEM
+C1D carbon 56 HEM
+C2D carbon 57 HEM
+C3D carbon 58 HEM
+C4D carbon 59 HEM
+CMD carbon 60 HEM
+HMD1 hydrogen 61 HEM
+HMD2 hydrogen 62 HEM
+HMD3 hydrogen 63 HEM
+CAD carbon 64 HEM
+HAD1 hydrogen 65 HEM
+HAD2 hydrogen 66 HEM
+CBD carbon 67 HEM
+HBD1 hydrogen 68 HEM
+HBD2 hydrogen 69 HEM
+CGD carbon 70 HEM
+O1D oxygen 71 HEM
+O2D oxygen 72 HEM
+O1 oxygen 73 HEM
+createSystem: making bond: 1 2
+createSystem: making bond: 3 4
+createSystem: making bond: 5 6
+createSystem: making bond: 7 8
+createSystem: making bond: 14 15
+createSystem: making bond: 14 16
+createSystem: making bond: 14 17
+createSystem: making bond: 18 19
+createSystem: making bond: 18 20
+createSystem: making bond: 21 22
+createSystem: making bond: 21 23
+createSystem: making bond: 32 33
+createSystem: making bond: 32 34
+createSystem: making bond: 32 35
+createSystem: making bond: 36 37
+createSystem: making bond: 38 39
+createSystem: making bond: 38 40
+createSystem: making bond: 46 47
+createSystem: making bond: 46 48
+createSystem: making bond: 46 49
+createSystem: making bond: 50 51
+createSystem: making bond: 52 53
+createSystem: making bond: 52 54
+createSystem: making bond: 60 61
+createSystem: making bond: 60 62
+createSystem: making bond: 60 63
+createSystem: making bond: 64 65
+createSystem: making bond: 64 66
+createSystem: making bond: 67 68
+createSystem: making bond: 67 69
+createSystem: making bond: 41 42
+createSystem: making bond: 41 45
+createSystem: making bond: 41 0
+createSystem: making bond: 42 43
+createSystem: making bond: 42 5
+createSystem: making bond: 45 44
+createSystem: making bond: 45 7
+createSystem: making bond: 43 44
+createSystem: making bond: 43 46
+createSystem: making bond: 44 50
+createSystem: making bond: 7 56
+createSystem: making bond: 56 55
+createSystem: making bond: 56 57
+createSystem: making bond: 55 59
+createSystem: making bond: 55 0
+createSystem: making bond: 59 58
+createSystem: making bond: 59 1
+createSystem: making bond: 58 57
+createSystem: making bond: 58 64
+createSystem: making bond: 57 60
+createSystem: making bond: 1 10
+createSystem: making bond: 10 11
+createSystem: making bond: 10 9
+createSystem: making bond: 11 12
+createSystem: making bond: 11 18
+createSystem: making bond: 13 9
+createSystem: making bond: 13 12
+createSystem: making bond: 13 3
+createSystem: making bond: 9 0
+createSystem: making bond: 12 14
+createSystem: making bond: 3 28
+createSystem: making bond: 28 29
+createSystem: making bond: 28 27
+createSystem: making bond: 29 30
+createSystem: making bond: 29 32
+createSystem: making bond: 27 31
+createSystem: making bond: 27 0
+createSystem: making bond: 31 5
+createSystem: making bond: 31 30
+createSystem: making bond: 0 73
+createSystem: making bond: 30 36
+createSystem: making bond: 36 38
+createSystem: making bond: 50 52
+createSystem: making bond: 18 21
+createSystem: making bond: 64 67
+createSystem: making bond: 21 24
+createSystem: making bond: 67 70
+createSystem: making bond: 70 71
+createSystem: making bond: 70 72
+createSystem: making bond: 24 25
+createSystem: making bond: 24 26
+ForceField.createSystem() is looking in topology.chain.residues: HEM
+FE Fe
+CHA C
+HHA H
+CHB C
+HHB H
+CHC C
+HHC H
+CHD C
+HHD H
+NA N
+C1A C
+C2A C
+C3A C
+C4A C
+CMA C
+HMA1 H
+HMA2 H
+HMA3 H
+CAA C
+HAA1 H
+HAA2 H
+CBA C
+HBA1 H
+HBA2 H
+CGA C
+O1A O
+O2A O
+NB N
+C1B C
+C2B C
+C3B C
+C4B C
+CMB C
+HMB1 H
+HMB2 H
+HMB3 H
+CAB C
+HAB H
+CBB C
+HBB1 H
+HBB2 H
+NC N
+C1C C
+C2C C
+C3C C
+C4C C
+CMC C
+HMC1 H
+HMC2 H
+HMC3 H
+CAC C
+HAC H
+CBC C
+HBC1 H
+HBC2 H
+ND N
+C1D C
+C2D C
+C3D C
+C4D C
+CMD C
+HMD1 H
+HMD2 H
+HMD3 H
+CAD C
+HAD1 H
+HAD2 H
+CBD C
+HBD1 H
+HBD2 H
+CGD C
+O1D O
+O2D O
+O1 O
+Creating sig from atoms in topology.chain.residue: HEM
+Looking for sig: Fe1O5N4C34H30
+********************************
+Template sig: Fe1O5N4C34H30
+Template : HEM
+Template virtualSites: []
+Template bonds: [(0, 1), (0, 2), (0, 27), (1, 3), (1, 25), (2, 4), (2, 5), (3, 4), (3, 43), (4, 34), (5, 6), (5, 7), (7, 8), (7, 11), (8, 9), (8, 27), (9, 10), (9, 12), (10, 11), (10, 58), (11, 47), (12, 13), (12, 14), (14, 15), (14, 17), (15, 18), (15, 55), (16, 17), (16, 18), (16, 19), (17, 27), (18, 51), (19, 20), (19, 21), (21, 22), (21, 23), (22, 28), (22, 39), (23, 24), (23, 27), (24, 25), (24, 28), (25, 26), (27, 73), (28, 29), (29, 30), (29, 31), (31, 32), (31, 33), (34, 35), (34, 36), (36, 37), (36, 38), (39, 40), (39, 41), (39, 42), (43, 44), (43, 45), (43, 46), (47, 48), (47, 49), (47, 50), (51, 52), (51, 53), (51, 54), (55, 56), (55, 57), (55, 61), (58, 59), (58, 60), (58, 64), (61, 62), (61, 63), (61, 68), (64, 65), (64, 66), (64, 67), (67, 70), (67, 72), (68, 69), (68, 71)]
+Template externalBonds: []
+_matchResidue is checking res: HEM
+Atoms renumbered:
+{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58, 59: 59, 60: 60, 61: 61, 62: 62, 63: 63, 64: 64, 65: 65, 66: 66, 67: 67, 68: 68, 69: 69, 70: 70, 71: 71, 72: 72, 73: 73}
+Atom bondedTo
+[[41, 27, 9, 73, 55], [2, 59, 10], [1], [28, 4, 13], [3], [42, 6, 31], [5], [8, 56, 45], [7], [0, 10, 13], [1, 11, 9], [10, 12, 18], [11, 13, 14], [9, 3, 12], [16, 17, 12, 15], [14], [14], [14], [11, 19, 20, 21], [18], [18], [24, 18, 22, 23], [21], [21], [25, 26, 21], [24], [24], [0, 28, 31], [27, 3, 29], [32, 28, 30], [36, 29, 31], [27, 5, 30], [33, 34, 35, 29], [32], [32], [32], [38, 37, 30], [36], [40, 36, 39], [38], [38], [0, 42, 45], [41, 43, 5], [42, 44, 46], [50, 43, 45], [41, 44, 7], [48, 49, 43, 47], [46], [46], [46], [52, 51, 44], [50], [50, 53, 54], [52], [52], [56, 0, 59], [57, 55, 7], [56, 58, 60], [64, 57, 59], [1, 58, 55], [57, 61, 62, 63], [60], [60], [60], [65, 66, 67, 58], [64], [64], [64, 68, 69, 70], [67], [67], [72, 67, 71], [70], [70], [0]]
+Atoms with externalBonds
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+*****
+Matched template :HEM
+*****
+ForceField::createSystem() topology.atoms() :
+FE iron 0 HEM 55.85
+CHA carbon 1 HEM 12.01
+HHA hydrogen 2 HEM 1.008
+CHB carbon 3 HEM 12.01
+HHB hydrogen 4 HEM 1.008
+CHC carbon 5 HEM 12.01
+HHC hydrogen 6 HEM 1.008
+CHD carbon 7 HEM 12.01
+HHD hydrogen 8 HEM 1.008
+NA nitrogen 9 HEM 14.01
+C1A carbon 10 HEM 12.01
+C2A carbon 11 HEM 12.01
+C3A carbon 12 HEM 12.01
+C4A carbon 13 HEM 12.01
+CMA carbon 14 HEM 12.01
+HMA1 hydrogen 15 HEM 1.008
+HMA2 hydrogen 16 HEM 1.008
+HMA3 hydrogen 17 HEM 1.008
+CAA carbon 18 HEM 12.01
+HAA1 hydrogen 19 HEM 1.008
+HAA2 hydrogen 20 HEM 1.008
+CBA carbon 21 HEM 12.01
+HBA1 hydrogen 22 HEM 1.008
+HBA2 hydrogen 23 HEM 1.008
+CGA carbon 24 HEM 12.01
+O1A oxygen 25 HEM 16.0
+O2A oxygen 26 HEM 16.0
+NB nitrogen 27 HEM 14.01
+C1B carbon 28 HEM 12.01
+C2B carbon 29 HEM 12.01
+C3B carbon 30 HEM 12.01
+C4B carbon 31 HEM 12.01
+CMB carbon 32 HEM 12.01
+HMB1 hydrogen 33 HEM 1.008
+HMB2 hydrogen 34 HEM 1.008
+HMB3 hydrogen 35 HEM 1.008
+CAB carbon 36 HEM 12.01
+HAB hydrogen 37 HEM 1.008
+CBB carbon 38 HEM 12.01
+HBB1 hydrogen 39 HEM 1.008
+HBB2 hydrogen 40 HEM 1.008
+NC nitrogen 41 HEM 14.01
+C1C carbon 42 HEM 12.01
+C2C carbon 43 HEM 12.01
+C3C carbon 44 HEM 12.01
+C4C carbon 45 HEM 12.01
+CMC carbon 46 HEM 12.01
+HMC1 hydrogen 47 HEM 1.008
+HMC2 hydrogen 48 HEM 1.008
+HMC3 hydrogen 49 HEM 1.008
+CAC carbon 50 HEM 12.01
+HAC hydrogen 51 HEM 1.008
+CBC carbon 52 HEM 12.01
+HBC1 hydrogen 53 HEM 1.008
+HBC2 hydrogen 54 HEM 1.008
+ND nitrogen 55 HEM 14.01
+C1D carbon 56 HEM 12.01
+C2D carbon 57 HEM 12.01
+C3D carbon 58 HEM 12.01
+C4D carbon 59 HEM 12.01
+CMD carbon 60 HEM 12.01
+HMD1 hydrogen 61 HEM 1.008
+HMD2 hydrogen 62 HEM 1.008
+HMD3 hydrogen 63 HEM 1.008
+CAD carbon 64 HEM 12.01
+HAD1 hydrogen 65 HEM 1.008
+HAD2 hydrogen 66 HEM 1.008
+CBD carbon 67 HEM 12.01
+HBD1 hydrogen 68 HEM 1.008
+HBD2 hydrogen 69 HEM 1.008
+CGD carbon 70 HEM 12.01
+O1D oxygen 71 HEM 16.0
+O2D oxygen 72 HEM 16.0
+O1 oxygen 73 HEM 16.0
+createSystem(): atom index: 0 bonded to atom index: set([41, 27, 9, 73, 55])
+createSystem(): Found for improper 0 41 27 9
+createSystem(): Found for improper 0 41 27 73
+createSystem(): Found for improper 0 41 27 55
+createSystem(): Found for improper 0 41 9 73
+createSystem(): Found for improper 0 41 9 55
+createSystem(): Found for improper 0 41 73 55
+createSystem(): Found for improper 0 27 9 73
+createSystem(): Found for improper 0 27 9 55
+createSystem(): Found for improper 0 27 73 55
+createSystem(): Found for improper 0 9 73 55
+createSystem(): atom index: 1 bonded to atom index: set([2, 59, 10])
+createSystem(): Found for improper 1 2 59 10
+createSystem(): atom index: 2 bonded to atom index: set([1])
+createSystem(): atom index: 3 bonded to atom index: set([28, 4, 13])
+createSystem(): Found for improper 3 28 4 13
+createSystem(): atom index: 4 bonded to atom index: set([3])
+createSystem(): atom index: 5 bonded to atom index: set([42, 6, 31])
+createSystem(): Found for improper 5 42 6 31
+createSystem(): atom index: 6 bonded to atom index: set([5])
+createSystem(): atom index: 7 bonded to atom index: set([8, 56, 45])
+createSystem(): Found for improper 7 8 56 45
+createSystem(): atom index: 8 bonded to atom index: set([7])
+createSystem(): atom index: 9 bonded to atom index: set([0, 10, 13])
+createSystem(): Found for improper 9 0 10 13
+createSystem(): atom index: 10 bonded to atom index: set([1, 11, 9])
+createSystem(): Found for improper 10 1 11 9
+createSystem(): atom index: 11 bonded to atom index: set([10, 12, 18])
+createSystem(): Found for improper 11 10 12 18
+createSystem(): atom index: 12 bonded to atom index: set([11, 13, 14])
+createSystem(): Found for improper 12 11 13 14
+createSystem(): atom index: 13 bonded to atom index: set([9, 3, 12])
+createSystem(): Found for improper 13 9 3 12
+createSystem(): atom index: 14 bonded to atom index: set([16, 17, 12, 15])
+createSystem(): Found for improper 14 16 17 12
+createSystem(): Found for improper 14 16 17 15
+createSystem(): Found for improper 14 16 12 15
+createSystem(): Found for improper 14 17 12 15
+createSystem(): atom index: 15 bonded to atom index: set([14])
+createSystem(): atom index: 16 bonded to atom index: set([14])
+createSystem(): atom index: 17 bonded to atom index: set([14])
+createSystem(): atom index: 18 bonded to atom index: set([11, 19, 20, 21])
+createSystem(): Found for improper 18 11 19 20
+createSystem(): Found for improper 18 11 19 21
+createSystem(): Found for improper 18 11 20 21
+createSystem(): Found for improper 18 19 20 21
+createSystem(): atom index: 19 bonded to atom index: set([18])
+createSystem(): atom index: 20 bonded to atom index: set([18])
+createSystem(): atom index: 21 bonded to atom index: set([24, 18, 22, 23])
+createSystem(): Found for improper 21 24 18 22
+createSystem(): Found for improper 21 24 18 23
+createSystem(): Found for improper 21 24 22 23
+createSystem(): Found for improper 21 18 22 23
+createSystem(): atom index: 22 bonded to atom index: set([21])
+createSystem(): atom index: 23 bonded to atom index: set([21])
+createSystem(): atom index: 24 bonded to atom index: set([25, 26, 21])
+createSystem(): Found for improper 24 25 26 21
+createSystem(): atom index: 25 bonded to atom index: set([24])
+createSystem(): atom index: 26 bonded to atom index: set([24])
+createSystem(): atom index: 27 bonded to atom index: set([0, 28, 31])
+createSystem(): Found for improper 27 0 28 31
+createSystem(): atom index: 28 bonded to atom index: set([27, 3, 29])
+createSystem(): Found for improper 28 27 3 29
+createSystem(): atom index: 29 bonded to atom index: set([32, 28, 30])
+createSystem(): Found for improper 29 32 28 30
+createSystem(): atom index: 30 bonded to atom index: set([36, 29, 31])
+createSystem(): Found for improper 30 36 29 31
+createSystem(): atom index: 31 bonded to atom index: set([27, 5, 30])
+createSystem(): Found for improper 31 27 5 30
+createSystem(): atom index: 32 bonded to atom index: set([33, 34, 35, 29])
+createSystem(): Found for improper 32 33 34 35
+createSystem(): Found for improper 32 33 34 29
+createSystem(): Found for improper 32 33 35 29
+createSystem(): Found for improper 32 34 35 29
+createSystem(): atom index: 33 bonded to atom index: set([32])
+createSystem(): atom index: 34 bonded to atom index: set([32])
+createSystem(): atom index: 35 bonded to atom index: set([32])
+createSystem(): atom index: 36 bonded to atom index: set([38, 37, 30])
+createSystem(): Found for improper 36 38 37 30
+createSystem(): atom index: 37 bonded to atom index: set([36])
+createSystem(): atom index: 38 bonded to atom index: set([40, 36, 39])
+createSystem(): Found for improper 38 40 36 39
+createSystem(): atom index: 39 bonded to atom index: set([38])
+createSystem(): atom index: 40 bonded to atom index: set([38])
+createSystem(): atom index: 41 bonded to atom index: set([0, 42, 45])
+createSystem(): Found for improper 41 0 42 45
+createSystem(): atom index: 42 bonded to atom index: set([41, 43, 5])
+createSystem(): Found for improper 42 41 43 5
+createSystem(): atom index: 43 bonded to atom index: set([42, 44, 46])
+createSystem(): Found for improper 43 42 44 46
+createSystem(): atom index: 44 bonded to atom index: set([50, 43, 45])
+createSystem(): Found for improper 44 50 43 45
+createSystem(): atom index: 45 bonded to atom index: set([41, 44, 7])
+createSystem(): Found for improper 45 41 44 7
+createSystem(): atom index: 46 bonded to atom index: set([48, 49, 43, 47])
+createSystem(): Found for improper 46 48 49 43
+createSystem(): Found for improper 46 48 49 47
+createSystem(): Found for improper 46 48 43 47
+createSystem(): Found for improper 46 49 43 47
+createSystem(): atom index: 47 bonded to atom index: set([46])
+createSystem(): atom index: 48 bonded to atom index: set([46])
+createSystem(): atom index: 49 bonded to atom index: set([46])
+createSystem(): atom index: 50 bonded to atom index: set([52, 51, 44])
+createSystem(): Found for improper 50 52 51 44
+createSystem(): atom index: 51 bonded to atom index: set([50])
+createSystem(): atom index: 52 bonded to atom index: set([50, 53, 54])
+createSystem(): Found for improper 52 50 53 54
+createSystem(): atom index: 53 bonded to atom index: set([52])
+createSystem(): atom index: 54 bonded to atom index: set([52])
+createSystem(): atom index: 55 bonded to atom index: set([56, 0, 59])
+createSystem(): Found for improper 55 56 0 59
+createSystem(): atom index: 56 bonded to atom index: set([57, 55, 7])
+createSystem(): Found for improper 56 57 55 7
+createSystem(): atom index: 57 bonded to atom index: set([56, 58, 60])
+createSystem(): Found for improper 57 56 58 60
+createSystem(): atom index: 58 bonded to atom index: set([64, 57, 59])
+createSystem(): Found for improper 58 64 57 59
+createSystem(): atom index: 59 bonded to atom index: set([1, 58, 55])
+createSystem(): Found for improper 59 1 58 55
+createSystem(): atom index: 60 bonded to atom index: set([57, 61, 62, 63])
+createSystem(): Found for improper 60 57 61 62
+createSystem(): Found for improper 60 57 61 63
+createSystem(): Found for improper 60 57 62 63
+createSystem(): Found for improper 60 61 62 63
+createSystem(): atom index: 61 bonded to atom index: set([60])
+createSystem(): atom index: 62 bonded to atom index: set([60])
+createSystem(): atom index: 63 bonded to atom index: set([60])
+createSystem(): atom index: 64 bonded to atom index: set([65, 66, 67, 58])
+createSystem(): Found for improper 64 65 66 67
+createSystem(): Found for improper 64 65 66 58
+createSystem(): Found for improper 64 65 67 58
+createSystem(): Found for improper 64 66 67 58
+createSystem(): atom index: 65 bonded to atom index: set([64])
+createSystem(): atom index: 66 bonded to atom index: set([64])
+createSystem(): atom index: 67 bonded to atom index: set([64, 68, 69, 70])
+createSystem(): Found for improper 67 64 68 69
+createSystem(): Found for improper 67 64 68 70
+createSystem(): Found for improper 67 64 69 70
+createSystem(): Found for improper 67 68 69 70
+createSystem(): atom index: 68 bonded to atom index: set([67])
+createSystem(): atom index: 69 bonded to atom index: set([67])
+createSystem(): atom index: 70 bonded to atom index: set([72, 67, 71])
+createSystem(): Found for improper 70 72 67 71
+createSystem(): atom index: 71 bonded to atom index: set([70])
+createSystem(): atom index: 72 bonded to atom index: set([70])
+createSystem(): atom index: 73 bonded to atom index: set([0])
+createSystem(): adding force: 
+createSystem(): adding force: 
+createSystem(): adding force: 
+createSystem(): adding force: 
+ForceField::createSystem() topology.atoms() :
+FE iron 0 HEM
+CHA carbon 1 HEM
+HHA hydrogen 2 HEM
+CHB carbon 3 HEM
+HHB hydrogen 4 HEM
+CHC carbon 5 HEM
+HHC hydrogen 6 HEM
+CHD carbon 7 HEM
+HHD hydrogen 8 HEM
+NA nitrogen 9 HEM
+C1A carbon 10 HEM
+C2A carbon 11 HEM
+C3A carbon 12 HEM
+C4A carbon 13 HEM
+CMA carbon 14 HEM
+HMA1 hydrogen 15 HEM
+HMA2 hydrogen 16 HEM
+HMA3 hydrogen 17 HEM
+CAA carbon 18 HEM
+HAA1 hydrogen 19 HEM
+HAA2 hydrogen 20 HEM
+CBA carbon 21 HEM
+HBA1 hydrogen 22 HEM
+HBA2 hydrogen 23 HEM
+CGA carbon 24 HEM
+O1A oxygen 25 HEM
+O2A oxygen 26 HEM
+NB nitrogen 27 HEM
+C1B carbon 28 HEM
+C2B carbon 29 HEM
+C3B carbon 30 HEM
+C4B carbon 31 HEM
+CMB carbon 32 HEM
+HMB1 hydrogen 33 HEM
+HMB2 hydrogen 34 HEM
+HMB3 hydrogen 35 HEM
+CAB carbon 36 HEM
+HAB hydrogen 37 HEM
+CBB carbon 38 HEM
+HBB1 hydrogen 39 HEM
+HBB2 hydrogen 40 HEM
+NC nitrogen 41 HEM
+C1C carbon 42 HEM
+C2C carbon 43 HEM
+C3C carbon 44 HEM
+C4C carbon 45 HEM
+CMC carbon 46 HEM
+HMC1 hydrogen 47 HEM
+HMC2 hydrogen 48 HEM
+HMC3 hydrogen 49 HEM
+CAC carbon 50 HEM
+HAC hydrogen 51 HEM
+CBC carbon 52 HEM
+HBC1 hydrogen 53 HEM
+HBC2 hydrogen 54 HEM
+ND nitrogen 55 HEM
+C1D carbon 56 HEM
+C2D carbon 57 HEM
+C3D carbon 58 HEM
+C4D carbon 59 HEM
+CMD carbon 60 HEM
+HMD1 hydrogen 61 HEM
+HMD2 hydrogen 62 HEM
+HMD3 hydrogen 63 HEM
+CAD carbon 64 HEM
+HAD1 hydrogen 65 HEM
+HAD2 hydrogen 66 HEM
+CBD carbon 67 HEM
+HBD1 hydrogen 68 HEM
+HBD2 hydrogen 69 HEM
+CGD carbon 70 HEM
+O1D oxygen 71 HEM
+O2D oxygen 72 HEM
+O1 oxygen 73 HEM
+createSystem: making bond: 1 2
+createSystem: making bond: 3 4
+createSystem: making bond: 5 6
+createSystem: making bond: 7 8
+createSystem: making bond: 14 15
+createSystem: making bond: 14 16
+createSystem: making bond: 14 17
+createSystem: making bond: 18 19
+createSystem: making bond: 18 20
+createSystem: making bond: 21 22
+createSystem: making bond: 21 23
+createSystem: making bond: 32 33
+createSystem: making bond: 32 34
+createSystem: making bond: 32 35
+createSystem: making bond: 36 37
+createSystem: making bond: 38 39
+createSystem: making bond: 38 40
+createSystem: making bond: 46 47
+createSystem: making bond: 46 48
+createSystem: making bond: 46 49
+createSystem: making bond: 50 51
+createSystem: making bond: 52 53
+createSystem: making bond: 52 54
+createSystem: making bond: 60 61
+createSystem: making bond: 60 62
+createSystem: making bond: 60 63
+createSystem: making bond: 64 65
+createSystem: making bond: 64 66
+createSystem: making bond: 67 68
+createSystem: making bond: 67 69
+createSystem: making bond: 41 42
+createSystem: making bond: 41 45
+createSystem: making bond: 41 0
+createSystem: making bond: 42 43
+createSystem: making bond: 42 5
+createSystem: making bond: 45 44
+createSystem: making bond: 45 7
+createSystem: making bond: 43 44
+createSystem: making bond: 43 46
+createSystem: making bond: 44 50
+createSystem: making bond: 7 56
+createSystem: making bond: 56 55
+createSystem: making bond: 56 57
+createSystem: making bond: 55 59
+createSystem: making bond: 55 0
+createSystem: making bond: 59 58
+createSystem: making bond: 59 1
+createSystem: making bond: 58 57
+createSystem: making bond: 58 64
+createSystem: making bond: 57 60
+createSystem: making bond: 1 10
+createSystem: making bond: 10 11
+createSystem: making bond: 10 9
+createSystem: making bond: 11 12
+createSystem: making bond: 11 18
+createSystem: making bond: 13 9
+createSystem: making bond: 13 12
+createSystem: making bond: 13 3
+createSystem: making bond: 9 0
+createSystem: making bond: 12 14
+createSystem: making bond: 3 28
+createSystem: making bond: 28 29
+createSystem: making bond: 28 27
+createSystem: making bond: 29 30
+createSystem: making bond: 29 32
+createSystem: making bond: 27 31
+createSystem: making bond: 27 0
+createSystem: making bond: 31 5
+createSystem: making bond: 31 30
+createSystem: making bond: 0 73
+createSystem: making bond: 30 36
+createSystem: making bond: 36 38
+createSystem: making bond: 50 52
+createSystem: making bond: 18 21
+createSystem: making bond: 64 67
+createSystem: making bond: 21 24
+createSystem: making bond: 67 70
+createSystem: making bond: 70 71
+createSystem: making bond: 70 72
+createSystem: making bond: 24 25
+createSystem: making bond: 24 26
+ForceField.createSystem() is looking in topology.chain.residues: HEM
+FE Fe
+CHA C
+HHA H
+CHB C
+HHB H
+CHC C
+HHC H
+CHD C
+HHD H
+NA N
+C1A C
+C2A C
+C3A C
+C4A C
+CMA C
+HMA1 H
+HMA2 H
+HMA3 H
+CAA C
+HAA1 H
+HAA2 H
+CBA C
+HBA1 H
+HBA2 H
+CGA C
+O1A O
+O2A O
+NB N
+C1B C
+C2B C
+C3B C
+C4B C
+CMB C
+HMB1 H
+HMB2 H
+HMB3 H
+CAB C
+HAB H
+CBB C
+HBB1 H
+HBB2 H
+NC N
+C1C C
+C2C C
+C3C C
+C4C C
+CMC C
+HMC1 H
+HMC2 H
+HMC3 H
+CAC C
+HAC H
+CBC C
+HBC1 H
+HBC2 H
+ND N
+C1D C
+C2D C
+C3D C
+C4D C
+CMD C
+HMD1 H
+HMD2 H
+HMD3 H
+CAD C
+HAD1 H
+HAD2 H
+CBD C
+HBD1 H
+HBD2 H
+CGD C
+O1D O
+O2D O
+O1 O
+Creating sig from atoms in topology.chain.residue: HEM
+Looking for sig: Fe1O5N4C34H30
+********************************
+Template sig: Fe1O5N4C34H30
+Template : HEM
+Template virtualSites: []
+Template bonds: [(0, 1), (0, 2), (0, 27), (1, 3), (1, 25), (2, 4), (2, 5), (3, 4), (3, 43), (4, 34), (5, 6), (5, 7), (7, 8), (7, 11), (8, 9), (8, 27), (9, 10), (9, 12), (10, 11), (10, 58), (11, 47), (12, 13), (12, 14), (14, 15), (14, 17), (15, 18), (15, 55), (16, 17), (16, 18), (16, 19), (17, 27), (18, 51), (19, 20), (19, 21), (21, 22), (21, 23), (22, 28), (22, 39), (23, 24), (23, 27), (24, 25), (24, 28), (25, 26), (27, 73), (28, 29), (29, 30), (29, 31), (31, 32), (31, 33), (34, 35), (34, 36), (36, 37), (36, 38), (39, 40), (39, 41), (39, 42), (43, 44), (43, 45), (43, 46), (47, 48), (47, 49), (47, 50), (51, 52), (51, 53), (51, 54), (55, 56), (55, 57), (55, 61), (58, 59), (58, 60), (58, 64), (61, 62), (61, 63), (61, 68), (64, 65), (64, 66), (64, 67), (67, 70), (67, 72), (68, 69), (68, 71)]
+Template externalBonds: []
+_matchResidue is checking res: HEM
+Atoms renumbered:
+{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58, 59: 59, 60: 60, 61: 61, 62: 62, 63: 63, 64: 64, 65: 65, 66: 66, 67: 67, 68: 68, 69: 69, 70: 70, 71: 71, 72: 72, 73: 73}
+Atom bondedTo
+[[41, 27, 9, 73, 55], [2, 59, 10], [1], [28, 4, 13], [3], [42, 6, 31], [5], [8, 56, 45], [7], [0, 10, 13], [1, 11, 9], [10, 12, 18], [11, 13, 14], [9, 3, 12], [16, 17, 12, 15], [14], [14], [14], [11, 19, 20, 21], [18], [18], [24, 18, 22, 23], [21], [21], [25, 26, 21], [24], [24], [0, 28, 31], [27, 3, 29], [32, 28, 30], [36, 29, 31], [27, 5, 30], [33, 34, 35, 29], [32], [32], [32], [38, 37, 30], [36], [40, 36, 39], [38], [38], [0, 42, 45], [41, 43, 5], [42, 44, 46], [50, 43, 45], [41, 44, 7], [48, 49, 43, 47], [46], [46], [46], [52, 51, 44], [50], [50, 53, 54], [52], [52], [56, 0, 59], [57, 55, 7], [56, 58, 60], [64, 57, 59], [1, 58, 55], [57, 61, 62, 63], [60], [60], [60], [65, 66, 67, 58], [64], [64], [64, 68, 69, 70], [67], [67], [72, 67, 71], [70], [70], [0]]
+Atoms with externalBonds
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+*****
+Matched template :HEM
+*****
+ForceField::createSystem() topology.atoms() :
+FE iron 0 HEM 55.85
+CHA carbon 1 HEM 12.01
+HHA hydrogen 2 HEM 1.008
+CHB carbon 3 HEM 12.01
+HHB hydrogen 4 HEM 1.008
+CHC carbon 5 HEM 12.01
+HHC hydrogen 6 HEM 1.008
+CHD carbon 7 HEM 12.01
+HHD hydrogen 8 HEM 1.008
+NA nitrogen 9 HEM 14.01
+C1A carbon 10 HEM 12.01
+C2A carbon 11 HEM 12.01
+C3A carbon 12 HEM 12.01
+C4A carbon 13 HEM 12.01
+CMA carbon 14 HEM 12.01
+HMA1 hydrogen 15 HEM 1.008
+HMA2 hydrogen 16 HEM 1.008
+HMA3 hydrogen 17 HEM 1.008
+CAA carbon 18 HEM 12.01
+HAA1 hydrogen 19 HEM 1.008
+HAA2 hydrogen 20 HEM 1.008
+CBA carbon 21 HEM 12.01
+HBA1 hydrogen 22 HEM 1.008
+HBA2 hydrogen 23 HEM 1.008
+CGA carbon 24 HEM 12.01
+O1A oxygen 25 HEM 16.0
+O2A oxygen 26 HEM 16.0
+NB nitrogen 27 HEM 14.01
+C1B carbon 28 HEM 12.01
+C2B carbon 29 HEM 12.01
+C3B carbon 30 HEM 12.01
+C4B carbon 31 HEM 12.01
+CMB carbon 32 HEM 12.01
+HMB1 hydrogen 33 HEM 1.008
+HMB2 hydrogen 34 HEM 1.008
+HMB3 hydrogen 35 HEM 1.008
+CAB carbon 36 HEM 12.01
+HAB hydrogen 37 HEM 1.008
+CBB carbon 38 HEM 12.01
+HBB1 hydrogen 39 HEM 1.008
+HBB2 hydrogen 40 HEM 1.008
+NC nitrogen 41 HEM 14.01
+C1C carbon 42 HEM 12.01
+C2C carbon 43 HEM 12.01
+C3C carbon 44 HEM 12.01
+C4C carbon 45 HEM 12.01
+CMC carbon 46 HEM 12.01
+HMC1 hydrogen 47 HEM 1.008
+HMC2 hydrogen 48 HEM 1.008
+HMC3 hydrogen 49 HEM 1.008
+CAC carbon 50 HEM 12.01
+HAC hydrogen 51 HEM 1.008
+CBC carbon 52 HEM 12.01
+HBC1 hydrogen 53 HEM 1.008
+HBC2 hydrogen 54 HEM 1.008
+ND nitrogen 55 HEM 14.01
+C1D carbon 56 HEM 12.01
+C2D carbon 57 HEM 12.01
+C3D carbon 58 HEM 12.01
+C4D carbon 59 HEM 12.01
+CMD carbon 60 HEM 12.01
+HMD1 hydrogen 61 HEM 1.008
+HMD2 hydrogen 62 HEM 1.008
+HMD3 hydrogen 63 HEM 1.008
+CAD carbon 64 HEM 12.01
+HAD1 hydrogen 65 HEM 1.008
+HAD2 hydrogen 66 HEM 1.008
+CBD carbon 67 HEM 12.01
+HBD1 hydrogen 68 HEM 1.008
+HBD2 hydrogen 69 HEM 1.008
+CGD carbon 70 HEM 12.01
+O1D oxygen 71 HEM 16.0
+O2D oxygen 72 HEM 16.0
+O1 oxygen 73 HEM 16.0
+createSystem(): atom index: 0 bonded to atom index: set([41, 27, 9, 73, 55])
+createSystem(): Found for improper 0 41 27 9
+createSystem(): Found for improper 0 41 27 73
+createSystem(): Found for improper 0 41 27 55
+createSystem(): Found for improper 0 41 9 73
+createSystem(): Found for improper 0 41 9 55
+createSystem(): Found for improper 0 41 73 55
+createSystem(): Found for improper 0 27 9 73
+createSystem(): Found for improper 0 27 9 55
+createSystem(): Found for improper 0 27 73 55
+createSystem(): Found for improper 0 9 73 55
+createSystem(): atom index: 1 bonded to atom index: set([2, 59, 10])
+createSystem(): Found for improper 1 2 59 10
+createSystem(): atom index: 2 bonded to atom index: set([1])
+createSystem(): atom index: 3 bonded to atom index: set([28, 4, 13])
+createSystem(): Found for improper 3 28 4 13
+createSystem(): atom index: 4 bonded to atom index: set([3])
+createSystem(): atom index: 5 bonded to atom index: set([42, 6, 31])
+createSystem(): Found for improper 5 42 6 31
+createSystem(): atom index: 6 bonded to atom index: set([5])
+createSystem(): atom index: 7 bonded to atom index: set([8, 56, 45])
+createSystem(): Found for improper 7 8 56 45
+createSystem(): atom index: 8 bonded to atom index: set([7])
+createSystem(): atom index: 9 bonded to atom index: set([0, 10, 13])
+createSystem(): Found for improper 9 0 10 13
+createSystem(): atom index: 10 bonded to atom index: set([1, 11, 9])
+createSystem(): Found for improper 10 1 11 9
+createSystem(): atom index: 11 bonded to atom index: set([10, 12, 18])
+createSystem(): Found for improper 11 10 12 18
+createSystem(): atom index: 12 bonded to atom index: set([11, 13, 14])
+createSystem(): Found for improper 12 11 13 14
+createSystem(): atom index: 13 bonded to atom index: set([9, 3, 12])
+createSystem(): Found for improper 13 9 3 12
+createSystem(): atom index: 14 bonded to atom index: set([16, 17, 12, 15])
+createSystem(): Found for improper 14 16 17 12
+createSystem(): Found for improper 14 16 17 15
+createSystem(): Found for improper 14 16 12 15
+createSystem(): Found for improper 14 17 12 15
+createSystem(): atom index: 15 bonded to atom index: set([14])
+createSystem(): atom index: 16 bonded to atom index: set([14])
+createSystem(): atom index: 17 bonded to atom index: set([14])
+createSystem(): atom index: 18 bonded to atom index: set([11, 19, 20, 21])
+createSystem(): Found for improper 18 11 19 20
+createSystem(): Found for improper 18 11 19 21
+createSystem(): Found for improper 18 11 20 21
+createSystem(): Found for improper 18 19 20 21
+createSystem(): atom index: 19 bonded to atom index: set([18])
+createSystem(): atom index: 20 bonded to atom index: set([18])
+createSystem(): atom index: 21 bonded to atom index: set([24, 18, 22, 23])
+createSystem(): Found for improper 21 24 18 22
+createSystem(): Found for improper 21 24 18 23
+createSystem(): Found for improper 21 24 22 23
+createSystem(): Found for improper 21 18 22 23
+createSystem(): atom index: 22 bonded to atom index: set([21])
+createSystem(): atom index: 23 bonded to atom index: set([21])
+createSystem(): atom index: 24 bonded to atom index: set([25, 26, 21])
+createSystem(): Found for improper 24 25 26 21
+createSystem(): atom index: 25 bonded to atom index: set([24])
+createSystem(): atom index: 26 bonded to atom index: set([24])
+createSystem(): atom index: 27 bonded to atom index: set([0, 28, 31])
+createSystem(): Found for improper 27 0 28 31
+createSystem(): atom index: 28 bonded to atom index: set([27, 3, 29])
+createSystem(): Found for improper 28 27 3 29
+createSystem(): atom index: 29 bonded to atom index: set([32, 28, 30])
+createSystem(): Found for improper 29 32 28 30
+createSystem(): atom index: 30 bonded to atom index: set([36, 29, 31])
+createSystem(): Found for improper 30 36 29 31
+createSystem(): atom index: 31 bonded to atom index: set([27, 5, 30])
+createSystem(): Found for improper 31 27 5 30
+createSystem(): atom index: 32 bonded to atom index: set([33, 34, 35, 29])
+createSystem(): Found for improper 32 33 34 35
+createSystem(): Found for improper 32 33 34 29
+createSystem(): Found for improper 32 33 35 29
+createSystem(): Found for improper 32 34 35 29
+createSystem(): atom index: 33 bonded to atom index: set([32])
+createSystem(): atom index: 34 bonded to atom index: set([32])
+createSystem(): atom index: 35 bonded to atom index: set([32])
+createSystem(): atom index: 36 bonded to atom index: set([38, 37, 30])
+createSystem(): Found for improper 36 38 37 30
+createSystem(): atom index: 37 bonded to atom index: set([36])
+createSystem(): atom index: 38 bonded to atom index: set([40, 36, 39])
+createSystem(): Found for improper 38 40 36 39
+createSystem(): atom index: 39 bonded to atom index: set([38])
+createSystem(): atom index: 40 bonded to atom index: set([38])
+createSystem(): atom index: 41 bonded to atom index: set([0, 42, 45])
+createSystem(): Found for improper 41 0 42 45
+createSystem(): atom index: 42 bonded to atom index: set([41, 43, 5])
+createSystem(): Found for improper 42 41 43 5
+createSystem(): atom index: 43 bonded to atom index: set([42, 44, 46])
+createSystem(): Found for improper 43 42 44 46
+createSystem(): atom index: 44 bonded to atom index: set([50, 43, 45])
+createSystem(): Found for improper 44 50 43 45
+createSystem(): atom index: 45 bonded to atom index: set([41, 44, 7])
+createSystem(): Found for improper 45 41 44 7
+createSystem(): atom index: 46 bonded to atom index: set([48, 49, 43, 47])
+createSystem(): Found for improper 46 48 49 43
+createSystem(): Found for improper 46 48 49 47
+createSystem(): Found for improper 46 48 43 47
+createSystem(): Found for improper 46 49 43 47
+createSystem(): atom index: 47 bonded to atom index: set([46])
+createSystem(): atom index: 48 bonded to atom index: set([46])
+createSystem(): atom index: 49 bonded to atom index: set([46])
+createSystem(): atom index: 50 bonded to atom index: set([52, 51, 44])
+createSystem(): Found for improper 50 52 51 44
+createSystem(): atom index: 51 bonded to atom index: set([50])
+createSystem(): atom index: 52 bonded to atom index: set([50, 53, 54])
+createSystem(): Found for improper 52 50 53 54
+createSystem(): atom index: 53 bonded to atom index: set([52])
+createSystem(): atom index: 54 bonded to atom index: set([52])
+createSystem(): atom index: 55 bonded to atom index: set([56, 0, 59])
+createSystem(): Found for improper 55 56 0 59
+createSystem(): atom index: 56 bonded to atom index: set([57, 55, 7])
+createSystem(): Found for improper 56 57 55 7
+createSystem(): atom index: 57 bonded to atom index: set([56, 58, 60])
+createSystem(): Found for improper 57 56 58 60
+createSystem(): atom index: 58 bonded to atom index: set([64, 57, 59])
+createSystem(): Found for improper 58 64 57 59
+createSystem(): atom index: 59 bonded to atom index: set([1, 58, 55])
+createSystem(): Found for improper 59 1 58 55
+createSystem(): atom index: 60 bonded to atom index: set([57, 61, 62, 63])
+createSystem(): Found for improper 60 57 61 62
+createSystem(): Found for improper 60 57 61 63
+createSystem(): Found for improper 60 57 62 63
+createSystem(): Found for improper 60 61 62 63
+createSystem(): atom index: 61 bonded to atom index: set([60])
+createSystem(): atom index: 62 bonded to atom index: set([60])
+createSystem(): atom index: 63 bonded to atom index: set([60])
+createSystem(): atom index: 64 bonded to atom index: set([65, 66, 67, 58])
+createSystem(): Found for improper 64 65 66 67
+createSystem(): Found for improper 64 65 66 58
+createSystem(): Found for improper 64 65 67 58
+createSystem(): Found for improper 64 66 67 58
+createSystem(): atom index: 65 bonded to atom index: set([64])
+createSystem(): atom index: 66 bonded to atom index: set([64])
+createSystem(): atom index: 67 bonded to atom index: set([64, 68, 69, 70])
+createSystem(): Found for improper 67 64 68 69
+createSystem(): Found for improper 67 64 68 70
+createSystem(): Found for improper 67 64 69 70
+createSystem(): Found for improper 67 68 69 70
+createSystem(): atom index: 68 bonded to atom index: set([67])
+createSystem(): atom index: 69 bonded to atom index: set([67])
+createSystem(): atom index: 70 bonded to atom index: set([72, 67, 71])
+createSystem(): Found for improper 70 72 67 71
+createSystem(): atom index: 71 bonded to atom index: set([70])
+createSystem(): atom index: 72 bonded to atom index: set([70])
+createSystem(): atom index: 73 bonded to atom index: set([0])
+createSystem(): adding force: 
+createSystem(): adding force: 
+createSystem(): adding force: 
+createSystem(): adding force: 
+Creating map
+0 FE
+1 CHA
+2 HHA
+3 CHB
+4 HHB
+5 CHC
+6 HHC
+7 CHD
+8 HHD
+9 NA
+10 C1A
+11 C2A
+12 C3A
+13 C4A
+14 CMA
+15 HMA1
+16 HMA2
+17 HMA3
+18 CAA
+19 HAA1
+20 HAA2
+21 CBA
+22 HBA1
+23 HBA2
+24 CGA
+25 O1A
+26 O2A
+27 NB
+28 C1B
+29 C2B
+30 C3B
+31 C4B
+32 CMB
+33 HMB1
+34 HMB2
+35 HMB3
+36 CAB
+37 HAB
+38 CBB
+39 HBB1
+40 HBB2
+41 NC
+42 C1C
+43 C2C
+44 C3C
+45 C4C
+46 CMC
+47 HMC1
+48 HMC2
+49 HMC3
+50 CAC
+51 HAC
+52 CBC
+53 HBC1
+54 HBC2
+55 ND
+56 C1D
+57 C2D
+58 C3D
+59 C4D
+60 CMD
+61 HMD1
+62 HMD2
+63 HMD3
+64 CAD
+65 HAD1
+66 HAD2
+67 CBD
+68 HBD1
+69 HBD2
+70 CGD
+71 O1D
+72 O2D
+73 O1
+Platform: Reference
+Total potential energy is 298.845144374 kcal/mol
+
+FE NA C1A CHA [0, 9, 10, 1, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NA C1A C2A [0, 9, 10, 11, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NA C4A CHB [0, 9, 13, 3, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NA C4A C3A [0, 9, 13, 12, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NB C1B CHB [0, 27, 28, 3, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NB C1B C2B [0, 27, 28, 29, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NB C4B CHC [0, 27, 31, 5, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NB C4B C3B [0, 27, 31, 30, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NC C1C CHC [0, 41, 42, 5, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NC C1C C2C [0, 41, 42, 43, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NC C4C CHD [0, 41, 45, 7, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE NC C4C C3C [0, 41, 45, 44, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE ND C1D CHD [0, 55, 56, 7, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE ND C1D C2D [0, 55, 56, 57, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE ND C4D CHA [0, 55, 59, 1, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+FE ND C4D C3D [0, 55, 59, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+CHA C1A NA C4A [1, 10, 9, 13, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHA C1A C2A C3A [1, 10, 11, 12, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHA C1A C2A CAA [1, 10, 11, 18, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHA C4D ND C1D [1, 59, 55, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHA C4D C3D C2D [1, 59, 58, 57, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHA C4D C3D CAD [1, 59, 58, 64, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHA CHA C1A NA [2, 1, 10, 9, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHA CHA C1A C2A [2, 1, 10, 11, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHA CHA C4D ND [2, 1, 59, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHA CHA C4D C3D [2, 1, 59, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHB C4A NA C1A [3, 13, 9, 10, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHB C4A C3A C2A [3, 13, 12, 11, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHB C4A C3A CMA [3, 13, 12, 14, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHB C1B NB C4B [3, 28, 27, 31, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHB C1B C2B C3B [3, 28, 29, 30, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHB C1B C2B CMB [3, 28, 29, 32, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHB CHB C4A NA [4, 3, 13, 9, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHB CHB C4A C3A [4, 3, 13, 12, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHB CHB C1B NB [4, 3, 28, 27, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHB CHB C1B C2B [4, 3, 28, 29, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHC C4B NB C1B [5, 31, 27, 28, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHC C4B C3B C2B [5, 31, 30, 29, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHC C4B C3B CAB [5, 31, 30, 36, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHC C1C NC C4C [5, 42, 41, 45, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHC C1C C2C C3C [5, 42, 43, 44, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHC C1C C2C CMC [5, 42, 43, 46, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHC CHC C4B NB [6, 5, 31, 27, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHC CHC C4B C3B [6, 5, 31, 30, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHC CHC C1C NC [6, 5, 42, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHC CHC C1C C2C [6, 5, 42, 43, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHD C4C NC C1C [7, 45, 41, 42, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHD C4C C3C C2C [7, 45, 44, 43, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHD C4C C3C CAC [7, 45, 44, 50, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHD C1D ND C4D [7, 56, 55, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+CHD C1D C2D C3D [7, 56, 57, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CHD C1D C2D CMD [7, 56, 57, 60, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHD CHD C4C NC [8, 7, 45, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHD CHD C4C C3C [8, 7, 45, 44, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHD CHD C1D ND [8, 7, 56, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HHD CHD C1D C2D [8, 7, 56, 57, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA FE NB C1B [9, 0, 27, 28, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA FE NB C4B [9, 0, 27, 31, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA FE NC C1C [9, 0, 41, 42, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA FE NC C4C [9, 0, 41, 45, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA FE ND C1D [9, 0, 55, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA FE ND C4D [9, 0, 55, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NA C1A CHA C4D [9, 10, 1, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA C1A C2A C3A [9, 10, 11, 12, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA C1A C2A CAA [9, 10, 11, 18, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA C4A CHB C1B [9, 13, 3, 28, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA C4A C3A C2A [9, 13, 12, 11, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NA C4A C3A CMA [9, 13, 12, 14, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1A CHA C4D ND [10, 1, 59, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1A CHA C4D C3D [10, 1, 59, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1A NA FE NB [10, 9, 0, 27, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A NA FE NC [10, 9, 0, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A NA FE ND [10, 9, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A NA FE O1 [10, 9, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A NA C4A C3A [10, 9, 13, 12, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C1A C2A C3A C4A [10, 11, 12, 13, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1A C2A C3A CMA [10, 11, 12, 14, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1A C2A CAA HAA1 [10, 11, 18, 19, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A C2A CAA HAA2 [10, 11, 18, 20, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1A C2A CAA CBA [10, 11, 18, 21, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2A C1A CHA C4D [11, 10, 1, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C2A C1A NA C4A [11, 10, 9, 13, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C2A C3A CMA HMA1 [11, 12, 14, 15, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2A C3A CMA HMA2 [11, 12, 14, 16, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2A C3A CMA HMA3 [11, 12, 14, 17, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2A CAA CBA HBA1 [11, 18, 21, 22, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C2A CAA CBA HBA2 [11, 18, 21, 23, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C2A CAA CBA CGA [11, 18, 21, 24, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C3A C2A CAA HAA1 [12, 11, 18, 19, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3A C2A CAA HAA2 [12, 11, 18, 20, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3A C2A CAA CBA [12, 11, 18, 21, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3A C4A CHB C1B [12, 13, 3, 28, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4A CHB C1B NB [13, 3, 28, 27, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4A CHB C1B C2B [13, 3, 28, 29, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4A NA FE NB [13, 9, 0, 27, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A NA FE NC [13, 9, 0, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A NA FE ND [13, 9, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A NA FE O1 [13, 9, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A C3A C2A CAA [13, 12, 11, 18, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4A C3A CMA HMA1 [13, 12, 14, 15, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A C3A CMA HMA2 [13, 12, 14, 16, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4A C3A CMA HMA3 [13, 12, 14, 17, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+CMA C3A C2A CAA [14, 12, 11, 18, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CAA CBA CGA O1A [18, 21, 24, 25, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+CAA CBA CGA O2A [18, 21, 24, 26, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+HAA1 CAA CBA HBA1 [19, 18, 21, 22, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAA1 CAA CBA HBA2 [19, 18, 21, 23, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAA1 CAA CBA CGA [19, 18, 21, 24, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAA2 CAA CBA HBA1 [20, 18, 21, 22, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAA2 CAA CBA HBA2 [20, 18, 21, 23, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAA2 CAA CBA CGA [20, 18, 21, 24, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HBA1 CBA CGA O1A [22, 21, 24, 25, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBA1 CBA CGA O1A [22, 21, 24, 25, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBA1 CBA CGA O2A [22, 21, 24, 26, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBA1 CBA CGA O2A [22, 21, 24, 26, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBA2 CBA CGA O1A [23, 21, 24, 25, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBA2 CBA CGA O1A [23, 21, 24, 25, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBA2 CBA CGA O2A [23, 21, 24, 26, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBA2 CBA CGA O2A [23, 21, 24, 26, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+NB FE NC C1C [27, 0, 41, 42, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NB FE NC C4C [27, 0, 41, 45, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NB FE ND C1D [27, 0, 55, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NB FE ND C4D [27, 0, 55, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NB C1B C2B C3B [27, 28, 29, 30, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NB C1B C2B CMB [27, 28, 29, 32, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NB C4B CHC C1C [27, 31, 5, 42, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NB C4B C3B C2B [27, 31, 30, 29, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NB C4B C3B CAB [27, 31, 30, 36, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1B NB FE NC [28, 27, 0, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1B NB FE ND [28, 27, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1B NB FE O1 [28, 27, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1B NB C4B C3B [28, 27, 31, 30, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C1B C2B C3B C4B [28, 29, 30, 31, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1B C2B C3B CAB [28, 29, 30, 36, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1B C2B CMB HMB1 [28, 29, 32, 33, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1B C2B CMB HMB2 [28, 29, 32, 34, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1B C2B CMB HMB3 [28, 29, 32, 35, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2B C1B NB C4B [29, 28, 27, 31, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C2B C3B CAB HAB [29, 30, 36, 37, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C2B C3B CAB CBB [29, 30, 36, 38, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3B C2B CMB HMB1 [30, 29, 32, 33, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3B C2B CMB HMB2 [30, 29, 32, 34, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3B C2B CMB HMB3 [30, 29, 32, 35, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3B C4B CHC C1C [30, 31, 5, 42, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3B CAB CBB HBB1 [30, 36, 38, 39, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3B CAB CBB HBB2 [30, 36, 38, 40, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4B CHC C1C NC [31, 5, 42, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4B CHC C1C C2C [31, 5, 42, 43, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4B NB FE NC [31, 27, 0, 41, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4B NB FE ND [31, 27, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4B NB FE O1 [31, 27, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4B C3B C2B CMB [31, 30, 29, 32, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4B C3B CAB HAB [31, 30, 36, 37, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4B C3B CAB CBB [31, 30, 36, 38, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CMB C2B C3B CAB [32, 29, 30, 36, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HAB CAB CBB HBB1 [37, 36, 38, 39, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HAB CAB CBB HBB2 [37, 36, 38, 40, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NC FE ND C1D [41, 0, 55, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NC FE ND C4D [41, 0, 55, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+NC C1C C2C C3C [41, 42, 43, 44, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NC C1C C2C CMC [41, 42, 43, 46, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NC C4C CHD C1D [41, 45, 7, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NC C4C C3C C2C [41, 45, 44, 43, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+NC C4C C3C CAC [41, 45, 44, 50, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1C NC FE ND [42, 41, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1C NC FE O1 [42, 41, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1C NC C4C C3C [42, 41, 45, 44, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C1C C2C C3C C4C [42, 43, 44, 45, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1C C2C C3C CAC [42, 43, 44, 50, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1C C2C CMC HMC1 [42, 43, 46, 47, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1C C2C CMC HMC2 [42, 43, 46, 48, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1C C2C CMC HMC3 [42, 43, 46, 49, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2C C1C NC C4C [43, 42, 41, 45, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C2C C3C CAC HAC [43, 44, 50, 51, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C2C C3C CAC CBC [43, 44, 50, 52, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3C C2C CMC HMC1 [44, 43, 46, 47, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3C C2C CMC HMC2 [44, 43, 46, 48, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3C C2C CMC HMC3 [44, 43, 46, 49, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3C C4C CHD C1D [44, 45, 7, 56, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3C CAC CBC HBC1 [44, 50, 52, 53, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C3C CAC CBC HBC2 [44, 50, 52, 54, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4C CHD C1D ND [45, 7, 56, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4C CHD C1D C2D [45, 7, 56, 57, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4C NC FE ND [45, 41, 0, 55, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4C NC FE O1 [45, 41, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4C C3C C2C CMC [45, 44, 43, 46, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4C C3C CAC HAC [45, 44, 50, 51, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4C C3C CAC CBC [45, 44, 50, 52, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CMC C2C C3C CAC [46, 43, 44, 50, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HAC CAC CBC HBC1 [51, 50, 52, 53, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+HAC CAC CBC HBC2 [51, 50, 52, 54, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+ND C1D C2D C3D [55, 56, 57, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+ND C1D C2D CMD [55, 56, 57, 60, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+ND C4D C3D C2D [55, 59, 58, 57, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+ND C4D C3D CAD [55, 59, 58, 64, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1D ND FE O1 [56, 55, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1D ND C4D C3D [56, 55, 59, 58, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C1D C2D C3D C4D [56, 57, 58, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1D C2D C3D CAD [56, 57, 58, 64, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C1D C2D CMD HMD1 [56, 57, 60, 61, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1D C2D CMD HMD2 [56, 57, 60, 62, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C1D C2D CMD HMD3 [56, 57, 60, 63, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2D C1D ND C4D [57, 56, 55, 59, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=19.874000000000002, unit=kilojoule/mole)]
+C2D C3D CAD HAD1 [57, 58, 64, 65, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2D C3D CAD HAD2 [57, 58, 64, 66, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C2D C3D CAD CBD [57, 58, 64, 67, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3D C2D CMD HMD1 [58, 57, 60, 61, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3D C2D CMD HMD2 [58, 57, 60, 62, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3D C2D CMD HMD3 [58, 57, 60, 63, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C3D CAD CBD HBD1 [58, 64, 67, 68, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C3D CAD CBD HBD2 [58, 64, 67, 69, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C3D CAD CBD CGD [58, 64, 67, 70, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+C4D ND FE O1 [59, 55, 0, 73, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4D C3D C2D CMD [59, 58, 57, 60, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+C4D C3D CAD HAD1 [59, 58, 64, 65, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4D C3D CAD HAD2 [59, 58, 64, 66, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+C4D C3D CAD CBD [59, 58, 64, 67, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+CMD C2D C3D CAD [60, 57, 58, 64, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=16.736000000000001, unit=kilojoule/mole)]
+CAD CBD CGD O1D [64, 67, 70, 71, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+CAD CBD CGD O2D [64, 67, 70, 72, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.0, unit=kilojoule/mole)]
+HAD1 CAD CBD HBD1 [65, 64, 67, 68, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAD1 CAD CBD HBD2 [65, 64, 67, 69, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAD1 CAD CBD CGD [65, 64, 67, 70, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAD2 CAD CBD HBD1 [66, 64, 67, 68, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAD2 CAD CBD HBD2 [66, 64, 67, 69, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HAD2 CAD CBD CGD [66, 64, 67, 70, 3, Quantity(value=0.0, unit=radian), Quantity(value=0.65084444444444445, unit=kilojoule/mole)]
+HBD1 CBD CGD O1D [68, 67, 70, 71, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBD1 CBD CGD O1D [68, 67, 70, 71, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBD1 CBD CGD O2D [68, 67, 70, 72, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBD1 CBD CGD O2D [68, 67, 70, 72, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBD2 CBD CGD O1D [69, 67, 70, 71, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBD2 CBD CGD O1D [69, 67, 70, 71, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+HBD2 CBD CGD O2D [69, 67, 70, 72, 1, Quantity(value=0.0, unit=radian), Quantity(value=3.3472000000000004, unit=kilojoule/mole)]
+HBD2 CBD CGD O2D [69, 67, 70, 72, 3, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=0.33472000000000002, unit=kilojoule/mole)]
+CBA O1A CGA O2A [21, 25, 24, 26, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=4.6024000000000003, unit=kilojoule/mole)]
+CBD O2D CGD O1D [67, 72, 70, 71, 2, Quantity(value=3.1415926535897931, unit=radian), Quantity(value=4.6024000000000003, unit=kilojoule/mole)]
+<class 'simtk.openmm.openmm.HarmonicBondForce'>
+Found 81 HarmonicBondForce terms
+<class 'simtk.openmm.openmm.HarmonicAngleForce'>
+Found 146 HarmonicAngleForce terms
+<class 'simtk.openmm.openmm.PeriodicTorsionForce'>
+Found 236 PeriodicTorsionForce terms
+<class 'simtk.openmm.openmm.NonbondedForce'>
+Found 74 NonbondedForce terms )
+Found 423 NonbondedForce exception terms (i.e. 1-4) 
+<class 'simtk.openmm.openmm.CMMotionRemover'>
+
+Harmonic bond: 			141.358628484 kcal/mol
+Harmonic angle: 		88.5747556007 kcal/mol
+Proper and improper torsions: 	40.7053410109 kcal/mol
+EE, VDW, 14EE and 14VDW: 	28.2064192785 kcal/mol

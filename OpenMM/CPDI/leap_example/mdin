@@ -8,4 +8,8 @@ Title
    ntb=0,
    cut=999.0
  /
+ &debugf
+   do_debugf=1,
+   dumpfrc=1
+ /
 

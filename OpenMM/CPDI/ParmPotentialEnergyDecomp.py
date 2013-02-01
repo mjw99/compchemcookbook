@@ -8,21 +8,10 @@ from simtk.unit import *
 from sys import stdout
 import time
 from copy import deepcopy 
+import decimal 
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("Cuda")
 platform = openmm.Platform_getPlatformByName("Reference")
 
-
-
-# Run on multiple cards
-# 0  Tesla M2090
-# 1  Tesla C2075
-# 2  Tesla C2075
-platformProperties = {"OpenCLDeviceIndex":"0"}
-#platformProperties = {"OpenCLDeviceIndex":"1"}
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
-#platformProperties = {"OpenCLDeviceIndex":"1,2"}
 
 # Prmtop
 prmtop = AmberPrmtopFile('./leap_example/prmtop')
@@ -32,7 +21,7 @@ system = prmtop.createSystem(nonbondedMethod=NoCutoff)
 # Remember, this is being run NVE
 integrator = VerletIntegrator(1*femtoseconds)
 
-simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
+simulation = Simulation(prmtop.topology, system, integrator, platform)
 
 print "Platform: %s" % (simulation.context.getPlatform().getName())
 
@@ -104,10 +93,9 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 #   print indexToAtomNameDict[a], indexToAtomNameDict[b], indexToAtomNameDict[c], indexToAtomNameDict[d] + " " + str(force.getTorsionParameters(i))
 
 #Non-bonded
-force = system.getForce(3)
-for i in range(force.getNumParticles()):
-   #a = force.getParticleParameters(i)[0]
-   print indexToAtomNameDict[i] + " " + str(force.getParticleParameters(i))
+#force = system.getForce(3)
+#for i in range(force.getNumParticles()):
+#   print indexToAtomNameDict[i] + " " + str(force.getParticleParameters(i))
 
 
 
@@ -181,10 +169,13 @@ print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnerg
 
 
 # Output forces
-#print ""
-#forces = [None]
-#forces = simulation.context.getState(getForces=True).getForces()
+print "Forces"
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
 
 
-#for force in forces:
-#     print force
+for force in forces:
+     #print("{0}".format( force.in_units_of(kilocalorie/mole/angstrom) ))
+     print(" {0:+1.16E} {1:+1.16E} {2:+1.16E}".format(  force.value_in_unit(kilocalorie/mole/angstrom)[0] , force.value_in_unit(kilocalorie/mole/angstrom)[1], force.value_in_unit(kilocalorie/mole/angstrom)[2]) )
+
+
