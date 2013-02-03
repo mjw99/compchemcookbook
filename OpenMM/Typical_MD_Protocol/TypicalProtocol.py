@@ -16,7 +16,7 @@ platform = openmm.Platform_getPlatformByName("CUDA")
 #platformProperties = {"OpenCLPrecision":"mixed"}
 
 # CUDA precision
-elatformProperties = {"CUDALPrecision":"mixed"}
+platformProperties = {"CUDAPrecision":"mixed"}
 
 
 # Run on multiple cards
