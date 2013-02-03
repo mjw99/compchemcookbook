@@ -199,5 +199,18 @@ print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnerg
 
 
 
+# Output forces
+print "Forces"
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
+
+
+for force in forces:
+     #print("{0}".format( force.in_units_of(kilocalorie/mole/angstrom) ))
+     print(" {0:+1.16E} {1:+1.16E} {2:+1.16E}".format(  force.value_in_unit(kilocalorie/mole/angstrom)[0] , force.value_in_unit(kilocalorie/mole/angstrom)[1], force.value_in_unit(kilocalorie/mole/angstrom)[2]) )
+
+
+
+
 
 
