@@ -34,6 +34,10 @@ simulation = Simulation(prmtop.topology, system, integrator, platform, platformP
 print "Platform: %s" % (simulation.context.getPlatform().getName())
 print "Number of atoms %i"      % len(inpcrd.positions)
 
+# Dump  structure
+PDBFile.writeFile(prmtop.topology, inpcrd.positions, open('initial.pdb', 'w'))
+
+
 
 
 ######################
