@@ -6,20 +6,41 @@ from simtk.unit import *
 from sys import stdout
 import time
 
-platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("Cuda")
-#platform = openmm.Platform_getPlatformByName("Reference")
+
+## Platform
+################
+
+#platform = openmm.Platform_getPlatformByName("OpenCL")
+#platform = openmm.Platform_getPlatformByName("CUDA")
+platform = openmm.Platform_getPlatformByName("Reference")
 
 
 
-# Run on multiple cards
+## Precision
+################
+
+# OpenCL
+#platformProperties = {"OpenCLPrecision":"mixed"}
+# CUDA 
+#platformProperties = {"CudaPrecision":"mixed"}
+
+
+## Parallel GPUs
+################
+
+# Run on multiple cards; current setup on vertex
 # 0  Tesla M2090
 # 1  Tesla C2075
 # 2  Tesla C2075
-platformProperties = {"OpenCLDeviceIndex":"0"}
-#platformProperties = {"OpenCLDeviceIndex":"1"}
+
+#OpenCL parallel
 #platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
 #platformProperties = {"OpenCLDeviceIndex":"1,2"}
+
+# CUDA parallel
+#platformProperties = {"CudaDeviceIndex":"0,1,2"}
+#platformProperties = {"CudaDeviceIndex":"0"}
+
 print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
@@ -102,6 +123,9 @@ print str(NsPerDay)  + " nS/day"
 # OpenMM 4.1.1/OpenCL, 1XM2090+2xC2075, ecc on	25.55 ns/day  (67.60 run time)
 
 # OpenMM 4.1.1/CUDA, M2090,  ecc off		11.77 ns/day (146.69 run time)
+
+
+# OpenMM 5.0/Reference
 
 
 
