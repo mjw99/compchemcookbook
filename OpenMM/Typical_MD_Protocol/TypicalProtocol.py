@@ -7,23 +7,34 @@ from simtk.unit import *
 from sys import stdout
 
 
-# Reference
-#platform=openmm.Platform_getPlatform(0)
-# CUDA
-#platform=openmm.Platform_getPlatform(1)
-# OpenCL
-#platform=openmm.Platform_getPlatform(2)
+#platform = openmm.Platform_getPlatformByName("Reference")
+#platform = openmm.Platform_getPlatformByName("OpenCL")
+platform = openmm.Platform_getPlatformByName("CUDA")
+
+
+# OpenCL precision
+#platformProperties = {"OpenCLPrecision":"mixed"}
+
+# CUDA precision
+elatformProperties = {"CUDALPrecision":"mixed"}
 
 
 # Run on multiple cards
 # 0  Tesla M2090
 # 1  Tesla C2075
 # 2  Tesla C2075
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
-platformProperties = {"OpenCLDeviceIndex":"1,2"}
-platform = openmm.Platform_getPlatformByName("OpenCL")
-print "Speed relative to reference is : " + str(platform.getSpeed())
 
+#OpenCL parallel
+#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+#platformProperties = {"OpenCLDeviceIndex":"1,2"}
+
+# CUDA parallel
+#platformProperties = {"CUDADeviceIndex":"0,1,2"}
+platformProperties = {"CUDADeviceIndex":"0"}
+
+
+
+print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 
@@ -65,14 +76,14 @@ integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 print "Platform: %s" % (simulation.context.getPlatform().getName())
-print platform.getPropertyValue(simulation.context, "OpenCLDeviceIndex")
+#print platform.getPropertyValue(simulation.context, "CUDADeviceIndex")
 
 simulation.context.setPositions(modeller.positions)
 simulation.minimizeEnergy(maxIterations=1000)
 
 # Saving minimised positions
 positions = simulation.context.getState(getPositions=True).getPositions()
-PDBFile.writeFile(simulation.topology, positions, open('minisation.pdb', 'w'))
+PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 
 #######################
 #######################
