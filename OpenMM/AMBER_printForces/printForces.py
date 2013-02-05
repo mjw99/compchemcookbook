@@ -7,8 +7,6 @@ from simtk.unit import *
 from sys import stdout
 import time
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("Cuda")
 platform = openmm.Platform_getPlatformByName("Reference")
 
 
@@ -40,6 +38,6 @@ forces = simulation.context.getState(getForces=True).getForces()
 print "Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 for force in forces:
-     print force
+     print force.in_units_of(kilocalorie/mole/angstrom)
 
 
