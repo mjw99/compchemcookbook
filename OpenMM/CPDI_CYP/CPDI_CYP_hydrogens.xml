@@ -1,0 +1,43 @@
+ <Residue name="CYP">
+  <Variant name="CYP"/>
+  <H name="H" parent="N"/>
+  <H name="H2" parent="N" terminal="N"/>
+  <H name="H3" parent="N" terminal="N"/>
+  <H name="HA" parent="CA"/>
+  <H name="HB2" parent="CB"/>
+  <H name="HB3" parent="CB"/>
+ </Residue>
+
+<Residue name="HEM">
+        <H name="HHD" parent="CHD" />
+        <H name="HHA" parent="CHA" />
+        <H name="HHB" parent="CHB" />
+        <H name="HHC" parent="CHC" />
+        <H name="HAB" parent="CAB" />
+        <H name="HBB1" parent="CBB" />
+        <H name="HBB2" parent="CBB" />
+        <H name="HAC" parent="CAC" />
+        <H name="HBC1" parent="CBC" />
+        <H name="HBC2" parent="CBC" />
+        <H name="HMB1" parent="CMB" />
+        <H name="HMB2" parent="CMB" />
+        <H name="HMB3" parent="CMB" />
+        <H name="HMC1" parent="CMC" />
+        <H name="HMC2" parent="CMC" />
+        <H name="HMC3" parent="CMC" />
+        <H name="HMD1" parent="CMD" />
+        <H name="HMD2" parent="CMD" />
+        <H name="HMD3" parent="CMD" />
+        <H name="HMA1" parent="CMA" />
+        <H name="HMA2" parent="CMA" />
+        <H name="HMA3" parent="CMA" />
+        <H name="HAA1" parent="CAA" />
+        <H name="HAA2" parent="CAA" />
+        <H name="HAD1" parent="CAD" />
+        <H name="HAD2" parent="CAD" />
+        <H name="HBA1" parent="CBA" />
+        <H name="HBA2" parent="CBA" />
+        <H name="HBD1" parent="CBD" />
+        <H name="HBD2" parent="CBD" />
+</Residue>
+
