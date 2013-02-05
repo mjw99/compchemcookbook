@@ -11,8 +11,8 @@ import time
 ################
 
 #platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("CUDA")
-platform = openmm.Platform_getPlatformByName("Reference")
+platform = openmm.Platform_getPlatformByName("CUDA")
+#platform = openmm.Platform_getPlatformByName("Reference")
 
 
 
@@ -22,7 +22,7 @@ platform = openmm.Platform_getPlatformByName("Reference")
 # OpenCL
 #platformProperties = {"OpenCLPrecision":"mixed"}
 # CUDA 
-#platformProperties = {"CudaPrecision":"mixed"}
+platformProperties = {"CudaPrecision":"mixed"}
 
 
 ## Parallel GPUs
@@ -39,7 +39,7 @@ platform = openmm.Platform_getPlatformByName("Reference")
 
 # CUDA parallel
 #platformProperties = {"CudaDeviceIndex":"0,1,2"}
-#platformProperties = {"CudaDeviceIndex":"0"}
+platformProperties = {"CudaDeviceIndex":"0"}
 
 print "Speed relative to reference is : " + str(platform.getSpeed())
 
@@ -48,7 +48,7 @@ print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 prmtop = AmberPrmtopFile('prmtop7')
-inpcrd = AmberInpcrdFile('inpcrd.equil.openmm',  loadVelocities=True, loadBoxVectors=True)
+inpcrd = AmberInpcrdFile('inpcrd.equil',  loadVelocities=True, loadBoxVectors=True)
 
 system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=0.8*nanometer, constraints=HBonds)
 
