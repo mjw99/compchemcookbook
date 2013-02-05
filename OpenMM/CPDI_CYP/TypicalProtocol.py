@@ -107,7 +107,7 @@ print "Heating system under NVT"
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
 # Note, new system, with SHAKE
-system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom)
+system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
 
 # Set the COM Removal to something sensible
 for i in range(system.getNumForces()):
