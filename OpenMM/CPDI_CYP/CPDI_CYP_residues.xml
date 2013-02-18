@@ -1,100 +1,97 @@
- <Residue name="CYP">
-  <Bond from="-C" to="N"/>
-  <Bond from="C" to="CA"/>
-  <Bond from="C" to="O"/>
-  <Bond from="C" to="OXT"/>
-  <Bond from="CA" to="CB"/>
-  <Bond from="CA" to="HA"/>
-  <Bond from="CA" to="N"/>
-  <Bond from="CB" to="HB2"/>
-  <Bond from="CB" to="HB3"/>
-  <Bond from="CB" to="SG"/>
-  <Bond from="H" to="N"/>
-  <Bond from="H2" to="N"/>
-  <Bond from="H3" to="N"/>
- </Residue>
-
-<Residue name="HEM">
-        <Bond from="NC" to="C1C" />
-        <Bond from="NC" to="C4C" />
-        <Bond from="NC" to="FE" />
-        <Bond from="C1C" to="C2C" />
-        <Bond from="C1C" to="CHC" />
-        <Bond from="C4C" to="C3C" />
-        <Bond from="C4C" to="CHD" />
-        <Bond from="C2C" to="C3C" />
-        <Bond from="C2C" to="CMC" />
-        <Bond from="C3C" to="CAC" />
-        <Bond from="CHD" to="HHD" />
-        <Bond from="CHD" to="C1D" />
-        <Bond from="C1D" to="ND" />
-        <Bond from="C1D" to="C2D" />
-        <Bond from="ND" to="C4D" />
-        <Bond from="ND" to="FE" />
-        <Bond from="C4D" to="C3D" />
-        <Bond from="C4D" to="CHA" />
-        <Bond from="C3D" to="C2D" />
-        <Bond from="C3D" to="CAD" />
-        <Bond from="C2D" to="CMD" />
-        <Bond from="CHA" to="HHA" />
-        <Bond from="CHA" to="C1A" />
-        <Bond from="C1A" to="C2A" />
-        <Bond from="C1A" to="NA" />
-        <Bond from="C2A" to="C3A" />
-        <Bond from="C2A" to="CAA" />
-        <Bond from="C4A" to="NA" />
-        <Bond from="C4A" to="C3A" />
-        <Bond from="C4A" to="CHB" />
-        <Bond from="NA" to="FE" />
-        <Bond from="C3A" to="CMA" />
-        <Bond from="CHB" to="HHB" />
-        <Bond from="CHB" to="C1B" />
-        <Bond from="C1B" to="C2B" />
-        <Bond from="C1B" to="NB" />
-        <Bond from="C2B" to="C3B" />
-        <Bond from="C2B" to="CMB" />
-        <Bond from="NB" to="C4B" />
-        <Bond from="NB" to="FE" />
-        <Bond from="C4B" to="CHC" />
-        <Bond from="C4B" to="C3B" />
-        <Bond from="CHC" to="HHC" />
-        <Bond from="FE" to="O1" />
-        <Bond from="C3B" to="CAB" />
-        <Bond from="CAB" to="HAB" />
-        <Bond from="CAB" to="CBB" />
-        <Bond from="CBB" to="HBB1" />
-        <Bond from="CBB" to="HBB2" />
-        <Bond from="CAC" to="HAC" />
-        <Bond from="CAC" to="CBC" />
-        <Bond from="CBC" to="HBC1" />
-        <Bond from="CBC" to="HBC2" />
-        <Bond from="CMB" to="HMB1" />
-        <Bond from="CMB" to="HMB2" />
-        <Bond from="CMB" to="HMB3" />
-        <Bond from="CMC" to="HMC1" />
-        <Bond from="CMC" to="HMC2" />
-        <Bond from="CMC" to="HMC3" />
-        <Bond from="CMD" to="HMD1" />
-        <Bond from="CMD" to="HMD2" />
-        <Bond from="CMD" to="HMD3" />
-        <Bond from="CMA" to="HMA1" />
-        <Bond from="CMA" to="HMA2" />
-        <Bond from="CMA" to="HMA3" />
-        <Bond from="CAA" to="HAA1" />
-        <Bond from="CAA" to="HAA2" />
-        <Bond from="CAA" to="CBA" />
-        <Bond from="CAD" to="HAD1" />
-        <Bond from="CAD" to="HAD2" />
-        <Bond from="CAD" to="CBD" />
-        <Bond from="CBA" to="HBA1" />
-        <Bond from="CBA" to="HBA2" />
-        <Bond from="CBA" to="CGA" />
-        <Bond from="CBD" to="HBD1" />
-        <Bond from="CBD" to="HBD2" />
-        <Bond from="CBD" to="CGD" />
-        <Bond from="CGD" to="O1D" />
-        <Bond from="CGD" to="O2D" />
-        <Bond from="CGA" to="O1A" />
-        <Bond from="CGA" to="O2A" />
-</Residue>
-
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Residues>
+  <Residue name="HEM">
+    <Bond from="NC" to="C1C"/>
+    <Bond from="NC" to="C4C"/>
+    <Bond from="NC" to="FE"/>
+    <Bond from="C1C" to="C2C"/>
+    <Bond from="C1C" to="CHC"/>
+    <Bond from="C4C" to="C3C"/>
+    <Bond from="C4C" to="CHD"/>
+    <Bond from="C2C" to="C3C"/>
+    <Bond from="C2C" to="CMC"/>
+    <Bond from="C3C" to="CAC"/>
+    <Bond from="CHD" to="HHD"/>
+    <Bond from="CHD" to="C1D"/>
+    <Bond from="C1D" to="ND"/>
+    <Bond from="C1D" to="C2D"/>
+    <Bond from="ND" to="C4D"/>
+    <Bond from="ND" to="FE"/>
+    <Bond from="C4D" to="C3D"/>
+    <Bond from="C4D" to="CHA"/>
+    <Bond from="C3D" to="C2D"/>
+    <Bond from="C3D" to="CAD"/>
+    <Bond from="C2D" to="CMD"/>
+    <Bond from="CHA" to="HHA"/>
+    <Bond from="CHA" to="C1A"/>
+    <Bond from="C1A" to="C2A"/>
+    <Bond from="C1A" to="NA"/>
+    <Bond from="C2A" to="C3A"/>
+    <Bond from="C2A" to="CAA"/>
+    <Bond from="C4A" to="NA"/>
+    <Bond from="C4A" to="C3A"/>
+    <Bond from="C4A" to="CHB"/>
+    <Bond from="NA" to="FE"/>
+    <Bond from="C3A" to="CMA"/>
+    <Bond from="CHB" to="HHB"/>
+    <Bond from="CHB" to="C1B"/>
+    <Bond from="C1B" to="C2B"/>
+    <Bond from="C1B" to="NB"/>
+    <Bond from="C2B" to="C3B"/>
+    <Bond from="C2B" to="CMB"/>
+    <Bond from="NB" to="C4B"/>
+    <Bond from="NB" to="FE"/>
+    <Bond from="C4B" to="CHC"/>
+    <Bond from="C4B" to="C3B"/>
+    <Bond from="CHC" to="HHC"/>
+    <Bond from="FE" to="O1"/>
+    <Bond from="C3B" to="CAB"/>
+    <Bond from="CAB" to="HAB"/>
+    <Bond from="CAB" to="CBB"/>
+    <Bond from="CBB" to="HBB1"/>
+    <Bond from="CBB" to="HBB2"/>
+    <Bond from="CAC" to="HAC"/>
+    <Bond from="CAC" to="CBC"/>
+    <Bond from="CBC" to="HBC1"/>
+    <Bond from="CBC" to="HBC2"/>
+    <Bond from="CMB" to="HMB1"/>
+    <Bond from="CMB" to="HMB2"/>
+    <Bond from="CMB" to="HMB3"/>
+    <Bond from="CMC" to="HMC1"/>
+    <Bond from="CMC" to="HMC2"/>
+    <Bond from="CMC" to="HMC3"/>
+    <Bond from="CMD" to="HMD1"/>
+    <Bond from="CMD" to="HMD2"/>
+    <Bond from="CMD" to="HMD3"/>
+    <Bond from="CMA" to="HMA1"/>
+    <Bond from="CMA" to="HMA2"/>
+    <Bond from="CMA" to="HMA3"/>
+    <Bond from="CAA" to="HAA1"/>
+    <Bond from="CAA" to="HAA2"/>
+    <Bond from="CAA" to="CBA"/>
+    <Bond from="CAD" to="HAD1"/>
+    <Bond from="CAD" to="HAD2"/>
+    <Bond from="CAD" to="CBD"/>
+    <Bond from="CBA" to="HBA1"/>
+    <Bond from="CBA" to="HBA2"/>
+    <Bond from="CBA" to="CGA"/>
+    <Bond from="CBD" to="HBD1"/>
+    <Bond from="CBD" to="HBD2"/>
+    <Bond from="CBD" to="CGD"/>
+    <Bond from="CGD" to="O1D"/>
+    <Bond from="CGD" to="O2D"/>
+    <Bond from="CGA" to="O1A"/>
+    <Bond from="CGA" to="O2A"/>
+  </Residue>
+  <Residue name="CYP">
+    <Bond from="N" to="CA"/>
+    <Bond from="N" to="H"/>
+    <Bond from="CA" to="HA"/>
+    <Bond from="CA" to="CB"/>
+    <Bond from="CA" to="C"/>
+    <Bond from="CB" to="HB2"/>
+    <Bond from="CB" to="HB3"/>
+    <Bond from="CB" to="SG"/>
+    <Bond from="C" to="O"/>
+  </Residue>
+</Residues>

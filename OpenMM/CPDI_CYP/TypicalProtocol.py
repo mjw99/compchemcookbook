@@ -55,7 +55,7 @@ pdb = PDBFile('1TQN_modded.pdb')
 # Be very careful with order here, if amber99sb is
 # first, CYP will be matched against CYX in amber99sb.xml
 # and not CYP in CPDI_CYP.xml
-forceField = ForceField('CPDI_CYP.xml', 'amber99sb.xml', 'tip3p.xml')
+forceField = ForceField('CPDI_CYP_ff.xml', 'amber99sb.xml', 'tip3p.xml')
 
 
 modeller = Modeller(pdb.topology, pdb.positions)
