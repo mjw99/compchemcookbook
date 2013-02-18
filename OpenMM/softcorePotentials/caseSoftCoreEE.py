@@ -40,14 +40,15 @@ newChain = topology.addChain()
 ####################################################################################
 
 # caseSoftCoreEE; see Eq. 5 in http://dx.doi.org/10.1002/jcc.21909
-caseSoftCoreEE = CustomNonbondedForce("(1-l12) * ((q1 * q2) / ( 4 * PI * EPSILON0  * ((l12 * BETAC) + r^M)^(1/M) ))  ;"
+# Note the reversal of (1-lambda) here... I've got to check this
+caseSoftCoreEE = CustomNonbondedForce("l12 * ((q1 * q2) / ( 4 * PI * EPSILON0 * (((1-l12) * BETAC) + r^M)^(1/M) ))  ;"
 "PI=3.141592653589;"
 "EPSILON0=5.72765E-4;"
 "M=6;"
 "BETAC=2.5;"
 "l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
 
-#For e0, see EPSILON0 in ./SimTKUtilities/SimTKOpenMMRealType.h
+# EPSILON0 is from ./SimTKUtilities/SimTKOpenMMRealType.h , hence in the correct internal units
 
 # For values of M and B, see page 3260 of 10.1002/jcc.21909
 
@@ -83,7 +84,7 @@ for particle_index in range(nparticles):
   else:
      # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
-     caseSoftCoreEE.addParticle([charge, 0])
+     caseSoftCoreEE.addParticle([charge, 1])
      #nonbondedForce.addParticle(charge, 0 , 0)
 
 system.addForce(caseSoftCoreEE)
@@ -115,6 +116,11 @@ print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces
 simulation.context.setParameter("lambda",  1 )
 print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
 print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+
+simulation.context.setParameter("lambda",  0 )
+print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
+print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+
 
 
 
