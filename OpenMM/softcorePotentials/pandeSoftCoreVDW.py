@@ -20,15 +20,8 @@ epsilon = 0.238 * kilocalories_per_mole # Lennard-Jones well-depth
 
 timestep = 1 * femtosecond # integrator timestep
 
-
-# =============================================================================
-# Compute box size.
-# =============================================================================
-
-box_edge = 100 * angstrom
-cutoff = 8 * angstrom
+cutoff = 999 * angstrom
 print "sigma = %s" % sigma
-print "box_edge = %s" % box_edge
 print "cutoff = %s" % cutoff
 
 # =============================================================================
@@ -39,23 +32,35 @@ print "cutoff = %s" % cutoff
 lambda_value = 1.0
 
 system = System()
-system.setDefaultPeriodicBoxVectors(Vec3(box_edge, 0, 0), Vec3(0, box_edge, 0), Vec3(0, 0, box_edge))
 
 topology = Topology()
 newChain = topology.addChain()
 
 
-# Modified VdW; see page E in http://dx.doi.org/10.1021/ct300857j
-customNonBondedForce = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;sigma=0.5*(sigma1*sigma2); epsilon=sqrt(epsilon1*epsilon2); alphaLJ=0.5; l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
+###################################################################################
 
-customNonBondedForce.addPerParticleParameter("sigma")
-customNonBondedForce.addPerParticleParameter("epsilon")
+# Softcore VdW; see page E in http://dx.doi.org/10.1021/ct300857j
+# which is actually the VDW from http://dx.doi.org/10.1063/1.1877132 Equ. 4
+pandeSoftCoreVDW = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;"
+"sigma=0.5*(sigma1*sigma2);"
+"epsilon=sqrt(epsilon1*epsilon2);"
+"alphaLJ=0.5;"
+"l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
 
-customNonBondedForce.addGlobalParameter("lambda", 1.0)
-customNonBondedForce.addPerParticleParameter("useLambda")
+# Note, the Lorentz-Bertelot rules are being invoked here....
 
-customNonBondedForce.setNonbondedMethod(NonbondedForce.CutoffPeriodic)
-customNonBondedForce.setCutoffDistance(cutoff)
+pandeSoftCoreVDW.addPerParticleParameter("sigma")
+pandeSoftCoreVDW.addPerParticleParameter("epsilon")
+pandeSoftCoreVDW.addPerParticleParameter("useLambda")
+
+# "useLamba" is a per particle parameter that is a function of the global parameter, lambda
+# This enables a subset of particles to be affected by the lambda value.
+
+pandeSoftCoreVDW.addGlobalParameter("lambda", 1.0)
+
+pandeSoftCoreVDW.setNonbondedMethod(NonbondedForce.CutoffNonPeriodic)
+pandeSoftCoreVDW.setCutoffDistance(cutoff)
+
 
 
 # Assign force types
@@ -66,21 +71,18 @@ for particle_index in range(nparticles):
   if (particle_index == 0 ):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", element.argon, newResidue)
-     customNonBondedForce.addParticle( [3.4*angstrom, 0.238*kilocalories, 1 ]  )
+     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories, 1 ]  )
      
   else:
      # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
-     customNonBondedForce.addParticle( [3.4*angstrom, 0.238*kilocalories, 0 ]  )
+     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories, 0 ]  )
 
-system.addForce(customNonBondedForce)
+system.addForce(pandeSoftCoreVDW)
 
 print "System.getNumParticles() is %i"  % system.getNumParticles()
 print "system.getNumForces() is %i " % system.getNumForces()
 
-
-# Create initial positions; slightly perturbed from equilibrium.
-positions = [  Vec3(0,0,0), Vec3(0,0,0.1) ]
 
 
 # Create Integrator
@@ -88,7 +90,7 @@ integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
 # Create initial positions.
-positions = [  Vec3(0,0,0), Vec3(0,0,0.1) ]
+positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.1) ]
 simulation.context.setPositions(positions)
 
 print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
