@@ -1,6 +1,10 @@
 # Obtaining per term energy contributions in OpenMM is hard.
-# This takes an original system and then copies out each class
-# of force to their own system.
+# This is an approach to work around this:
+# It takes an original system and then copies out each class
+# of force to their own system, and then evaluates the 
+# energy for each of those systems.
+
+# This could be improved, esp for the non-bonded terms
 
 from simtk.openmm.app import *
 from simtk.openmm import *
@@ -31,28 +35,28 @@ print "Total potential energy is " +  str(state.getPotentialEnergy().in_units_of
 
 
 
-# Create new state with only Harmonic Bonds in
+# Create a new system with only Harmonic Bonds in
 HarmonicBondSystem = System()
 for j in range (system.getNumParticles()):
   HarmonicBondSystem.addParticle(system.getParticleMass(j) )
 HarmonicBondIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-# Creat state with only Harmonic Angles in
+# Create a new system with only Harmonic Angles in
 HarmonicAngleSystem = System()
 for j in range (system.getNumParticles()):
   HarmonicAngleSystem.addParticle(system.getParticleMass(j) )
 HarmonicAngleIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-# Create state with only Torsion terms in
+# Create a new system with only Torsion terms in
 PeriodicTorsionSystem = System()
 for j in range (system.getNumParticles()):
   PeriodicTorsionSystem.addParticle(system.getParticleMass(j) )
 PeriodicTorsionIntegrator = VerletIntegrator(1*femtoseconds)
 
 
-# Create state with only Nonbonded terms in
+# Create a new system only Nonbonded terms in
 NonbondedSystem = System()
 for j in range (system.getNumParticles()):
   NonbondedSystem.addParticle(system.getParticleMass(j) )
