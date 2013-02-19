@@ -42,7 +42,7 @@ newChain = topology.addChain()
 # Softcore VdW; see page E in http://dx.doi.org/10.1021/ct300857j
 # which is actually the VDW from http://dx.doi.org/10.1063/1.1877132 Equ. 4
 pandeSoftCoreVDW = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;"
-"sigma=0.5*(sigma1*sigma2);"
+"sigma=0.5*(sigma1+sigma2);"
 "epsilon=sqrt(epsilon1*epsilon2);"
 "alphaLJ=0.5;"
 "l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
@@ -90,10 +90,12 @@ integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
 # Create initial positions.
-positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.1) ]
+positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
 print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
+
+print simulation.context.getState(getEnergy=True).getPotentialEnergy()
 
 # Run dynamics.
 simulation.reporters.append( PDBReporter('output.pdb', 100) )

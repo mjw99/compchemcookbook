@@ -100,15 +100,13 @@ integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
 # Create initial positions; 1 A apart
-positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.1) ]
+positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
 print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
 
 
 
-# Should be 1387.28173828 kJ/mol for:
-#
 # nonbondedForce = NonbondedForce()
 # nonbondedForce.setNonbondedMethod(NonbondedForce.CutoffNonPeriodic)
 # nonbondedForce.setCutoffDistance(999 * angstrom)

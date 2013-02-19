@@ -17,8 +17,9 @@ nparticles = 2 # number of particles
 mass = 39.9 * amu # mass
 sigma = 3.4 * angstrom # Lennard-Jones sigma
 epsilon = 0.238 * kilocalories_per_mole # Lennard-Jones well-depth
-
 timestep = 1 * femtosecond # integrator timestep
+
+charge = 1.0 * elementary_charge 
 
 cutoff = 999 * angstrom
 print "sigma = %s" % sigma
@@ -37,29 +38,10 @@ topology = Topology()
 newChain = topology.addChain()
 
 
-###################################################################################
 
-# Softcore VdW; see page E in http://dx.doi.org/10.1021/ct300857j
-# which is actually the VDW from http://dx.doi.org/10.1063/1.1877132 Equ. 4
-caseSoftCoreVDW = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;"
-"sigma=0.5*(sigma1+sigma2);"
-"epsilon=sqrt(epsilon1*epsilon2);"
-"alphaLJ=0.5;"
-"l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
-
-# Note, the Lorentz-Bertelot rules are being invoked here....
-
-caseSoftCoreVDW.addPerParticleParameter("sigma")
-caseSoftCoreVDW.addPerParticleParameter("epsilon")
-caseSoftCoreVDW.addPerParticleParameter("useLambda")
-
-# "useLamba" is a per particle parameter that is a function of the global parameter, lambda
-# This enables a subset of particles to be affected by the lambda value.
-
-caseSoftCoreVDW.addGlobalParameter("lambda", 1.0)
-
-caseSoftCoreVDW.setNonbondedMethod(NonbondedForce.CutoffNonPeriodic)
-caseSoftCoreVDW.setCutoffDistance(cutoff)
+nonbondedForce = NonbondedForce()
+nonbondedForce.setNonbondedMethod(NonbondedForce.CutoffNonPeriodic)
+nonbondedForce.setCutoffDistance(cutoff)
 
 
 
@@ -71,14 +53,14 @@ for particle_index in range(nparticles):
   if (particle_index == 0 ):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", element.argon, newResidue)
-     caseSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories_per_mole, 1 ]  )
+     nonbondedForce.addParticle(charge, 0 , 0)
      
   else:
      # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
-     caseSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories_per_mole, 0 ]  )
+     nonbondedForce.addParticle(charge, 0 , 0)
 
-system.addForce(caseSoftCoreVDW)
+system.addForce(nonbondedForce)
 
 print "System.getNumParticles() is %i"  % system.getNumParticles()
 print "system.getNumForces() is %i " % system.getNumForces()
@@ -89,26 +71,11 @@ print "system.getNumForces() is %i " % system.getNumForces()
 integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
-# Create initial positions (in nm)
+# Create initial positions.
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
 print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
 
-
-
-# Should be 1387.28173828 kJ/mol for:
-#
-# nonbondedForce = NonbondedForce()
-# nonbondedForce.setNonbondedMethod(NonbondedForce.CutoffNonPeriodic)
-# nonbondedForce.setCutoffDistance(999 * angstrom)
-
-simulation.context.setParameter("lambda",  1 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
 print simulation.context.getState(getEnergy=True).getPotentialEnergy()
-
-simulation.context.setParameter("lambda",  0 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
-
 
