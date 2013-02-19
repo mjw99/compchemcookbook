@@ -96,7 +96,7 @@ print "system.getNumForces() is %i " % system.getNumForces()
 integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
-# Create initial positions; 1 A apart
+# Create initial positions; 6 A apart
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
