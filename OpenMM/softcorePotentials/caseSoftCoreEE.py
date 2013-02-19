@@ -18,7 +18,7 @@ platform = openmm.Platform_getPlatformByName("Reference")
 nparticles = 2 # number of particles
 mass = 1 * amu # mass
 timestep = 1 * femtosecond # integrator timestep
-charge = 1 * elementary_charge
+charge = 1.0 * elementary_charge
 
 
 cutoff = 999 * angstrom
@@ -79,16 +79,13 @@ for particle_index in range(nparticles):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", element.argon, newResidue)
      caseSoftCoreEE.addParticle([charge, 1])
-     #nonbondedForce.addParticle(charge, 0 , 0)
      
   else:
      # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
      caseSoftCoreEE.addParticle([charge, 1])
-     #nonbondedForce.addParticle(charge, 0 , 0)
 
 system.addForce(caseSoftCoreEE)
-#system.addForce(nonbondedForce)
 
 print "system.getNumParticles() is %i"  % system.getNumParticles()
 print "system.getNumForces() is %i " % system.getNumForces()
