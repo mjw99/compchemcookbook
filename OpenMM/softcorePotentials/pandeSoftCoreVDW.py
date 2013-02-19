@@ -71,12 +71,12 @@ for particle_index in range(nparticles):
   if (particle_index == 0 ):
      # Add alchemically-modified particle.
      topology.addAtom("MODD", element.argon, newResidue)
-     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories, 1 ]  )
+     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories_per_mole, 1 ]  )
      
   else:
      # Add normal particle
      topology.addAtom("Argo", element.argon, newResidue)
-     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories, 0 ]  )
+     pandeSoftCoreVDW.addParticle( [3.4*angstrom, 0.238*kilocalories_per_mole, 0 ]  )
 
 system.addForce(pandeSoftCoreVDW)
 
