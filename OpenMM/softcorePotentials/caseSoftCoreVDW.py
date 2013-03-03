@@ -41,11 +41,11 @@ newChain = topology.addChain()
 
 # Softcore VdW; see page E in http://dx.doi.org/10.1021/ct300857j
 # which is actually the VDW from http://dx.doi.org/10.1063/1.1877132 Equ. 4
-#caseSoftCoreVDW = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + (r/sigma)^6)^2) - 1/( alphaLJ*(1-l12) + (r/sigma)^6) ) ;"
-caseSoftCoreVDW = CustomNonbondedForce("4*epsilon*(l12)*( (sigma / (alphaLJ*(1-l12)*sigma + r^6)^(1/6) )^12 - (sigma / ( alphaLJ*(1-l12)*sigma + r^6)^(1/6) )^6) ;"
+caseSoftCoreVDW = CustomNonbondedForce("4*epsilon*(l12)*( (sigma / (alphaLJ*(1-l12)*sigma^n + r^n)^(1/n) )^12 - (sigma / ( alphaLJ*(1-l12)*sigma^n + r^n)^(1/n) )^6) ;"
 "sigma=0.5*(sigma1+sigma2);"
 "epsilon=sqrt(epsilon1*epsilon2);"
 "alphaLJ=0.5;"
+"n=6;"
 "l12=1-(1-lambda)*step(useLambda1+useLambda2-0.5)");
 
 # Note, the Lorentz-Bertelot rules are being invoked here....
