@@ -79,3 +79,8 @@ print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces
 
 print simulation.context.getState(getEnergy=True).getPotentialEnergy()
 
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
+for force in forces:
+     print force
+

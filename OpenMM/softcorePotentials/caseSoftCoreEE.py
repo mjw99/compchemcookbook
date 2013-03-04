@@ -111,11 +111,26 @@ print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces
 simulation.context.setParameter("lambda",  1 )
 print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
 print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
+for force in forces:
+     print force
 
 simulation.context.setParameter("lambda",  0 )
 print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
 print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
+for force in forces:
+     print force
 
 
 
+simulation.context.setParameter("lambda",  0.8 )
+print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
+print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+forces = [None]
+forces = simulation.context.getState(getForces=True).getForces()
+for force in forces:
+     print force
 
