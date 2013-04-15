@@ -10,20 +10,19 @@ import time
 ## Platform
 ################
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-platform = openmm.Platform_getPlatformByName("CUDA")
+platform = openmm.Platform_getPlatformByName("OpenCL")
+#platform = openmm.Platform_getPlatformByName("CUDA")
 #platform = openmm.Platform_getPlatformByName("Reference")
 
 
-
+platformProperties = {}
 ## Precision
 ################
 
 # OpenCL
-#platformProperties = {"OpenCLPrecision":"mixed"}
+platformProperties['OpenCLPrecision'] = 'mixed'
 # CUDA 
-platformProperties = {"CudaPrecision":"mixed"}
-
+#platformProperties['CudaPrecision'] = 'mixed'
 
 ## Parallel GPUs
 ################
@@ -34,21 +33,16 @@ platformProperties = {"CudaPrecision":"mixed"}
 # 2  Tesla C2075
 
 #OpenCL parallel
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
-#platformProperties = {"OpenCLDeviceIndex":"1,2"}
+#platformProperties['OpenCLDeviceIndex'] = '0,1,2'
+#platformProperties['OpenCLDeviceIndex'] = '1'
+platformProperties['OpenCLDeviceIndex'] = '0'
 
 # CUDA parallel
-#platformProperties = {"CudaDeviceIndex":"0,1,2"}
-platformProperties = {"CudaDeviceIndex":"0"}
+#platformProperties['CudaDeviceIndex'] = '0,1,2'
+#platformProperties['CudaDeviceIndex'] = '0'
 
-print "Speed relative to reference is : " + str(platform.getSpeed())
-
-
-
-
-
-prmtop = AmberPrmtopFile('prmtop7')
-inpcrd = AmberInpcrdFile('inpcrd.equil',  loadVelocities=True, loadBoxVectors=True)
+prmtop = AmberPrmtopFile('prmtop')
+inpcrd = AmberInpcrdFile('inpcrd',  loadVelocities=True, loadBoxVectors=True)
 
 system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=0.8*nanometer, constraints=HBonds)
 
@@ -61,8 +55,13 @@ for i in range(system.getNumForces()):
 integrator = VerletIntegrator(2*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
-print "Platform: %s" % (simulation.context.getPlatform().getName())
 
+print "OpenMM version: %s" % (simulation.context.getPlatform().getOpenMMVersion())
+print "Platform: %s" % (simulation.context.getPlatform().getName())
+for item in simulation.context.getPlatform().getPropertyNames():
+  print "%s: %s" % (item, simulation.context.getPlatform().getPropertyValue(simulation.context,item))
+
+print ""
 print "Number of atoms %i"      % len(inpcrd.positions)
 print "Number of velocities %i" % len(inpcrd.velocities)
 
@@ -71,7 +70,6 @@ simulation.context.setVelocities(inpcrd.velocities)
 
 simulation.reporters.append(PDBReporter('output.pdb', 1000))
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
-#simulation.reporters.append(StateDataReporter(stdout, 10, step=True,  totalEnergy=True, kineticEnergy=True, potentialEnergy=True, temperature=True))
 
 start_time = time.time()
 simulation.step(10000) # i.e. 20,000 fs == 20 ps == 0.02 ns
@@ -108,24 +106,13 @@ print str(NsPerDay)  + " nS/day"
 # Results #
 ###########
 
-# AMBER11, M2090,  ecc on 			38.12 ns/day  (45.28s run time)
-# AMBER11, M2090,  ecc off 			42.48 ns/day  (40.67s run time)
+# AMBER11, M2090,  ecc on 			38.12 ns/day	(45.28s run time)
+# AMBER11, M2090,  ecc off 			42.48 ns/day	(40.67s run time)
+
+# AMBER12 (Bugfix 15), M2090,  ecc on		41.92 ns/day	(41.40s run time)
 
 
-
-# OpenMM 4.1.1/Reference 			0.07 ns/day  (24366.66 run time)
-
-# OpenMM 4.1.1/OpenCL, M2090,  ecc on 		17.38 ns/day  (99.41 run time)
-# OpenMM 4.1.1/OpenCL, M2090,  ecc off 		18.40 ns/day  (93.91 run time)
-
-# OpenMM 4.1.1/OpenCL, C2075,  ecc on 		12.31 ns/day  (140.32 run time)
-# OpenMM 4.1.1/OpenCL, 2xC2075,  ecc on 	19.24 ns/day  (89.81 run time)
-# OpenMM 4.1.1/OpenCL, 1XM2090+2xC2075, ecc on	25.55 ns/day  (67.60 run time)
-
-# OpenMM 4.1.1/CUDA, M2090,  ecc off		11.77 ns/day (146.69 run time)
-
-
-# OpenMM 5.0/Reference
-
-
-
+# OpenMM 5.0/Reference				x ns/day    (x run time)
+# OpenMM 5.0/OpenCL, M2090,  ecc on 		17.27 ns/day  (	100.04 run time)
+# OpenMM 5.0/CUDA, M2090,  ecc on 		19.56 ns/day  	(88.30 run time)
+# OpenMM 5.0/OpenCL, C2075,  ecc on           	12.18 ns/day  	(141.21 run time)
