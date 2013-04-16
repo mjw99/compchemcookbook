@@ -28,14 +28,13 @@ platformProperties['CudaPrecision'] = 'mixed'
 #OpenCL parallel
 #platformProperties['OpenCLDeviceIndex'] = '0,1,2'
 #platformProperties['OpenCLDeviceIndex'] = '1'
-#platformProperties['OpenCLDeviceIndex'] = '0'
+#platformProperties['OpenCLDeviceIndex'] = '1,2'
 
 # CUDA parallel
-platformProperties['CudaDeviceIndex'] = '1,2'
+#platformProperties['CudaDeviceIndex'] = '1,2'
+platformProperties['CudaDeviceIndex'] = '0'
 
 
-
-print "Speed relative to reference is : " + str(platform.getSpeed())
 
 
 
@@ -49,6 +48,9 @@ print "Speed relative to reference is : " + str(platform.getSpeed())
 # 1) Build system from PDB and assign AMBER FF99SB FF #
 #######################################################
 print "Building system"
+
+# wget "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=1UBQ" -O 1UBQ.pdb
+#ff6700fb140ab9289134ba6555f87d0e  1UBQ.pdb
 
 pdb = PDBFile('1UBQ.pdb')
 forceField = ForceField('amber99sb.xml', 'tip3p.xml')
