@@ -1,4 +1,4 @@
-# Typical AMBER MD protocol 
+# Typical AMBER MD protocol with CYP3A4
 
 from simtk.openmm.app import *
 from simtk.openmm import *
@@ -20,7 +20,6 @@ platformProperties = {}
 platformProperties['CudaPrecision'] = 'mixed'
 
 
-
 # Run on multiple cards
 # 0  Tesla M2090
 # 1  Tesla C2075
@@ -33,12 +32,7 @@ platformProperties['CudaPrecision'] = 'mixed'
 
 # CUDA parallel
 platformProperties['CudaDeviceIndex'] = '1,2'
-
-
-
-
-
-print "Speed relative to reference is : " + str(platform.getSpeed())
+#platformProperties['CudaDeviceIndex'] = '0'
 
 
 
@@ -54,18 +48,28 @@ print "Speed relative to reference is : " + str(platform.getSpeed())
 #######################################################
 print "Building system"
 
+
+# OpenMM 5.1 only
+Topology.loadBondDefinitions('CPDI_CYP_residues.xml')
+Modeller.loadHydrogenDefinitions('CPDI_CYP_hydrogens.xml')
+
 pdb = PDBFile('1TQN_modded.pdb')
 
-forceField = ForceField('CPDI_CYP_ff.xml','amber99sb.xml', 'tip3p.xml')
+# if amber99sb.xml is first, CYP will be matched against CYX in amber99sb.xml
+# and not CYP in CPDI_CYP_ff.xml
+forceField = ForceField('CPDI_CYP_ff.xml','amber99sb.xml','tip3p.xml')
 
-# for templateSignatures in forceField._templateSignatures:
+#
+#for templateSignatures in forceField._templateSignatures:
 #  print templateSignatures
 
 modeller = Modeller(pdb.topology, pdb.positions)
+
 # Add missing hydrogens
 modeller.addHydrogens(forceField)
 
 # Add TIP3P solvent
+
 modeller.addSolvent(forceField, model='tip3p', padding=8*angstrom)
 
 # Dump modeller structure
@@ -107,8 +111,10 @@ PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 print "Heating system under NVT"
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
+
 # Note, new system, with SHAKE
-system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
+system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds, rigidWater=True )
+
 
 # Set the COM Removal to something sensible
 for i in range(system.getNumForces()):
@@ -120,7 +126,7 @@ simulation.context.setPositions(positions)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
 simulation.reporters.append(PDBReporter('heating.pdb', 1000))
-simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
+simulation.step(35000)
 
 # Save the positions and velocities
 positions = simulation.context.getState(getPositions=True).getPositions()

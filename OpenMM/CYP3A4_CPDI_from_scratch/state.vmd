@@ -293,7 +293,7 @@ display cuestart   0.500000
 display cueend     10.000000
 display cuedensity 0.320000
 display cuemode    Exp2
-mol new heating.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new density.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name
@@ -364,7 +364,7 @@ mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
 mol rename top heating.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -76.31} {0 1 0 -68.325} {0 0 1 -83.247} {0 0 0 1}} {{0.179813 0.915285 0.360443 0} {0.0838557 0.350818 -0.93268 0} {-0.98012 0.197934 -0.0136696 0} {0 0 0 1}} {{0.0675438 0 0 0} {0 0.0675438 0 0} {0 0 0.0675438 0} {0 0 0 1}} {{1 0 0 0.0290962} {0 1 0 -0.0360135} {0 0 1 1.01072} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -74.13} {0 1 0 -66.77} {0 0 1 -81.258} {0 0 0 1}} {{-0.121333 -0.00947084 -0.992566 0} {-0.985459 0.120976 0.11931 0} {0.118947 0.992609 -0.0240121 0} {0 0 0 1}} {{0.0669287 0 0 0} {0 0.0669287 0 0} {0 0 0.0669287 0} {0 0 0 1}} {{1 0 0 0.113522} {0 1 0 -0.0178583} {0 0 1 0.162098} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 0
