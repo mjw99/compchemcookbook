@@ -74,7 +74,7 @@ This is close enough for the moment; differences in the 3rd decimal place
 will be due to rounding errors in parameters in the XML and will be 
 addressed soon.
 
-==> Hence modeller can parse the information in CPDI_CYP.xml.
+==> Hence modeller can parse the information in CPDI_CYP_ff.xml.
 
 However, one quirk has appeared; if add addHydrogens() is used on the
 complete ./leap_example/out.pdb , differences are seen:
@@ -101,7 +101,7 @@ THIS IS FINE; addHydrogens rebuilds where the hydrogens are, hence the topology 
 same, but the coordinates of the hydrogens are slightly different.
 
 ==> Hence, modeller.addHydrogens is able to process the information in
-simtk/openmm/app/data/hydrogens.xml correctly for the HEM residue.
+CPDI_CYP_hydrogens.xml correctly for the HEM residue.
 
 
 Using the ./1TQN_HEM.pdb structure (i.e. without hydrogens and adding them)

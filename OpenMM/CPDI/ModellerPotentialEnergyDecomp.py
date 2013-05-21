@@ -8,69 +8,59 @@ from simtk.unit import *
 from sys import stdout
 import time
 from copy import deepcopy 
+import decimal 
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("Cuda")
 platform = openmm.Platform_getPlatformByName("Reference")
 
 
-
-# Run on multiple cards
-# 0  Tesla M2090
-# 1  Tesla C2075
-# 2  Tesla C2075
-platformProperties = {"OpenCLDeviceIndex":"0"}
+# OpenMM 5.1 only
+Topology.loadBondDefinitions('CPDI_CYP_residues.xml')
+Modeller.loadHydrogenDefinitions('CPDI_CYP_hydrogens.xml')
 
 
 # PDB
-#pdb = PDBFile('./leap_example/out.pdb')
-pdb = PDBFile('./1TQN_HEM.pdb')
-forceField = ForceField('CPDI_CYP.xml')
+# Note, leap miscreates this file. The line:
+# ATOM     28 FE   HEM     1     -15.846 -23.032 -11.293  1.00  0.00           FE
+# should be
+# ATOM     28 FE   HEM     1     -15.846 -23.032 -11.293  1.00  0.00          FE
+pdb = PDBFile('./leap_example/out.pdb')
+forceField = ForceField('CPDI_CYP_ff.xml')
 modeller = Modeller(pdb.topology, pdb.positions)
 modeller.addHydrogens(forceField)
+
 # Dump modeller structure
 PDBFile.writeFile(modeller.getTopology(), modeller.getPositions(),open('modeller.pdb', 'w'))
 
 
-
-
-
-
-
-
-
-
-
-
-
 system = forceField.createSystem(modeller.topology, nonbondedMethod=NoCutoff)
 
-#list(list(pdb.topology.residues())[0].atoms())[0].element.mass
 
 
-
-# Create a map between index and name
-indexToAtomNameDict = {}
-atoms =  modeller.topology.atoms()
-print "Creating map"
-for atom in atoms:
-  indexToAtomNameDict[atom.index] = atom.name
-  print atom.index, atom.name 
 
 # Remember, this is being run NVE
 integrator = VerletIntegrator(1*femtoseconds)
 
-simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
+simulation = Simulation(pdb.topology, system, integrator, platform)
 
 print "Platform: %s" % (simulation.context.getPlatform().getName())
 
-simulation.context.setPositions(modeller.positions)
+simulation.context.setPositions(pdb.positions)
 
 # Entire system
 system = simulation.context.getSystem()
 state = simulation.context.getState( getEnergy=True)
 print "Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
 print ""
+
+
+
+# Create a map between index and name
+indexToAtomNameDict = {}
+atoms =  pdb.topology.atoms()
+print "Creating map"
+for atom in atoms:
+  indexToAtomNameDict[atom.index] = atom.name
+  print atom.index, atom.name
 
 
 
@@ -103,7 +93,6 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 
 
 
-
 # Harmonic angle debug
 #force = system.getForce(1)
 #for i in range(force.getNumAngles()):
@@ -113,19 +102,18 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 #   print indexToAtomNameDict[a], indexToAtomNameDict[b], indexToAtomNameDict[c] + " " + str(force.getAngleParameters(i))
 
 
-# Torsion debug
-force = system.getForce(2)
-for i in range(force.getNumTorsions()):
-   a = force.getTorsionParameters(i)[0]
-   b = force.getTorsionParameters(i)[1]
-   c = force.getTorsionParameters(i)[2]
-   d = force.getTorsionParameters(i)[3]
-   print indexToAtomNameDict[a], indexToAtomNameDict[b], indexToAtomNameDict[c], indexToAtomNameDict[d] + " " + str(force.getTorsionParameters(i))
+
+#force = system.getForce(2)
+#for i in range(force.getNumTorsions()):
+#   a = force.getTorsionParameters(i)[0]
+#   b = force.getTorsionParameters(i)[1]
+#   c = force.getTorsionParameters(i)[2]
+#   d = force.getTorsionParameters(i)[3]
+#   print indexToAtomNameDict[a], indexToAtomNameDict[b], indexToAtomNameDict[c], indexToAtomNameDict[d] + " " + str(force.getTorsionParameters(i))
 
 #Non-bonded
 #force = system.getForce(3)
 #for i in range(force.getNumParticles()):
-   #a = force.getParticleParameters(i)[0]
 #   print indexToAtomNameDict[i] + " " + str(force.getParticleParameters(i))
 
 
@@ -174,25 +162,25 @@ for i in range(system.getNumForces()):
 print ("")
 # Harmonic Bond
 HarmonicBondContext = Context(HarmonicBondSystem, HarmonicBondIntegrator, platform)
-HarmonicBondContext.setPositions(modeller.positions)
+HarmonicBondContext.setPositions(pdb.positions)
 HarmonicBondState = HarmonicBondContext.getState( getEnergy=True)
 print ("Harmonic bond: " + "\t\t\t" + str( HarmonicBondState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # Harmonic Angle
 HarmonicAngleContext = Context(HarmonicAngleSystem, HarmonicAngleIntegrator, platform)
-HarmonicAngleContext.setPositions(modeller.positions)
+HarmonicAngleContext.setPositions(pdb.positions)
 HarmonicAngleState = HarmonicAngleContext.getState( getEnergy=True)
 print ("Harmonic angle: " + "\t\t" + str(HarmonicAngleState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # Torsions
 PeriodicTorsionContext = Context(PeriodicTorsionSystem, PeriodicTorsionIntegrator, platform)
-PeriodicTorsionContext.setPositions(modeller.positions)
+PeriodicTorsionContext.setPositions(pdb.positions)
 PeriodicTorsionState = PeriodicTorsionContext.getState( getEnergy=True)
 print ("Proper and improper torsions: " + "\t" + str(PeriodicTorsionState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # NB
 NonbondedContext = Context(NonbondedSystem, NonbondedIntegrator, platform)
-NonbondedContext.setPositions(modeller.positions)
+NonbondedContext.setPositions(pdb.positions)
 NonbondedState = NonbondedContext.getState( getEnergy=True)
 
 print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
@@ -208,9 +196,5 @@ forces = simulation.context.getState(getForces=True).getForces()
 for force in forces:
      #print("{0}".format( force.in_units_of(kilocalorie/mole/angstrom) ))
      print(" {0:+1.16E} {1:+1.16E} {2:+1.16E}".format(  force.value_in_unit(kilocalorie/mole/angstrom)[0] , force.value_in_unit(kilocalorie/mole/angstrom)[1], force.value_in_unit(kilocalorie/mole/angstrom)[2]) )
-
-
-
-
 
 
