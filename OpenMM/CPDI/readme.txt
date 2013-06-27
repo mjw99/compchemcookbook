@@ -2,6 +2,9 @@ Testing to see if the CPDI parameters by Cheatham et al. can
 be successfully converted to OpenMM XML (using JAMBER) and then 
 applied to a PDB using OpenMM's modeller tool.
 
+Note, <ExternalBond from="27"/> in CPDI_CYP_ff.xml has been removed
+for this example
+
 
 
 1) Benchmark; single point energy using SANDER
