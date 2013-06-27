@@ -84,6 +84,8 @@
     <Bond from="CGA" to="O2A"/>
   </Residue>
   <Residue name="CYP">
+    <Bond from="-C" to="N"/>
+    <Bond from="C" to="+N"/>
     <Bond from="N" to="CA"/>
     <Bond from="N" to="H"/>
     <Bond from="CA" to="HA"/>

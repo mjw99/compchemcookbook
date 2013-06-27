@@ -29,13 +29,7 @@ platformProperties = {"CudaPrecision":"mixed"}
 
 # CUDA parallel
 #platformProperties = {"CudaDeviceIndex":"0,1,2"}
-platformProperties = {"CudaDeviceIndex":"1"}
-
-
-
-print "Speed relative to reference is : " + str(platform.getSpeed())
-
-
+platformProperties = {"CudaDeviceIndex":"2"}
 
 
 #####################
@@ -49,6 +43,10 @@ print "Speed relative to reference is : " + str(platform.getSpeed())
 #######################################################
 print "Building system"
 
+# OpenMM 5.1 only
+Topology.loadBondDefinitions('CPDI_CYP_residues.xml')
+Modeller.loadHydrogenDefinitions('CPDI_CYP_hydrogens.xml')
+
 pdb = PDBFile('1TQN_modded.pdb')
 
 
@@ -56,6 +54,10 @@ pdb = PDBFile('1TQN_modded.pdb')
 # first, CYP will be matched against CYX in amber99sb.xml
 # and not CYP in CPDI_CYP.xml
 forceField = ForceField('CPDI_CYP_ff.xml', 'amber99sb.xml', 'tip3p.xml')
+
+#for templateSignatures in forceField._templateSignatures:
+#  print templateSignatures
+
 
 
 modeller = Modeller(pdb.topology, pdb.positions)
@@ -118,7 +120,7 @@ for i in range(system.getNumForces()):
 simulation = Simulation(modeller.topology, system, integrator, platform)
 simulation.context.setPositions(positions)
 
-simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, time=True, potentialEnergy=True, temperature=True, density=True))
 simulation.reporters.append(PDBReporter('heating.pdb', 1000))
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -145,10 +147,10 @@ simulation = Simulation(modeller.topology, system, integrator, platform)
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
-simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, time=True, potentialEnergy=True, temperature=True, density=True))
 simulation.reporters.append(PDBReporter('density.pdb', 1000))
 
-simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
+simulation.step(35000) 
 
 # Save the positions and velocities
 positions = simulation.context.getState(getPositions=True).getPositions()
@@ -167,8 +169,8 @@ simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
 
-# Report every 0.1 ns / 100 ps
-simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
+# Report every 2 ps
+simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, time=True, potentialEnergy=True, temperature=True, density=True))
 simulation.reporters.append(PDBReporter('production.pdb', 1000))
 
 # 10 ns
