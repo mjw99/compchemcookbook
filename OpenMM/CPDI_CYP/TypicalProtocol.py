@@ -12,10 +12,11 @@ platform = openmm.Platform_getPlatformByName("CUDA")
 #platform = openmm.Platform_getPlatformByName("OpenCL")
 
 
+platformProperties = {}
 # OpenCL precision
-#platformProperties = {"OpenCLPrecision":"mixed"}
+#platformProperties['OpenCLPrecision'] = 'mixed'
 # CUDA precision
-platformProperties = {"CudaPrecision":"mixed"}
+platformProperties['CudaPrecision'] = 'mixed'
 
 
 # Run on multiple cards
@@ -24,12 +25,13 @@ platformProperties = {"CudaPrecision":"mixed"}
 # 2  Tesla C2075
 
 #OpenCL parallel
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
-#platformProperties = {"OpenCLDeviceIndex":"1,2"}
+#platformProperties['OpenCLDeviceIndex'] = '0,1,2'
+#platformProperties['OpenCLDeviceIndex'] = '1'
+#platformProperties['OpenCLDeviceIndex'] = '1,2'
 
 # CUDA parallel
-#platformProperties = {"CudaDeviceIndex":"0,1,2"}
-platformProperties = {"CudaDeviceIndex":"2"}
+#platformProperties['CudaDeviceIndex'] = '1,2'
+platformProperties['CudaDeviceIndex'] = '1'
 
 
 #####################
