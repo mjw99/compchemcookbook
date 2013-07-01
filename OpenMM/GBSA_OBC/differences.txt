@@ -1,0 +1,91 @@
+***Needs updating for ACE_ALA_NME***
+
+In the OpenMM manual, for the GBSAOBCForce, it is stated that it is
+using the GBSAOBCII model, with parameters alpha=1, beta=0.8 and gamma=4.85.
+
+According to the AMBER12 manual, this corresponds to igb=5. It is also stated
+that "set default PBradii mbondi2" should be set in leap, when using this option.
+
+A test was setup; a ACE-ALA-NMEA system was created in leap and a prmtop and pdb was generated:
+
+
+
+#A script to create N-acetyl-alanine-N′-methylamide
+
+source leaprc.ff99SB
+set default PBradii mbondi2
+ACEALANME = {sequence ACE ALA NME }
+savepdb ACEALANME snap.pdb
+saveamberparm ACEALANME prmtop inpcrd
+quit
+
+The relevant sections pertaining to the GB parameters were extracted:
+
+
+%FLAG RADIUS_SET
+%FORMAT(1a80)
+H(N)-modified Bondi radii (mbondi2)
+
+%FLAG RADII
+%FORMAT(5E16.8)
+  1.20000000E+00  1.70000000E+00  1.20000000E+00  1.20000000E+00  1.70000000E+00
+  1.50000000E+00  1.55000000E+00  1.30000000E+00  1.70000000E+00  1.20000000E+00
+  1.70000000E+00  1.20000000E+00  1.20000000E+00  1.20000000E+00  1.70000000E+00
+  1.50000000E+00  1.55000000E+00  1.30000000E+00  1.70000000E+00  1.20000000E+00
+  1.20000000E+00  1.20000000E+00
+
+%FLAG SCREEN
+%FORMAT(5E16.8)
+  8.50000000E-01  7.20000000E-01  8.50000000E-01  8.50000000E-01  7.20000000E-01
+  8.50000000E-01  7.90000000E-01  8.50000000E-01  7.20000000E-01  8.50000000E-01
+  7.20000000E-01  8.50000000E-01  8.50000000E-01  8.50000000E-01  7.20000000E-01
+  8.50000000E-01  7.90000000E-01  8.50000000E-01  7.20000000E-01  8.50000000E-01
+  8.50000000E-01  8.50000000E-01
+
+From a saved PDB output from LEAP, the same system was created in OpenMM 5.1:
+
+  forceField = ForceField('amber99sb.xml', 'amber99_obc.xml', 'tip3p.xml')
+  modeller = Modeller(pdb.topology, pdb.positions)
+  modeller.addHydrogens(forceField)
+
+  system = forceField.createSystem(modeller.topology, nonbondedCutoff=8*angstrom)
+
+Serialising the System object and extracting the GBSAOBCForce:
+
+  f = open('system.xml','w')
+  f.write(XmlSerializer.serializeSystem(system))
+  f.close()
+
+resulted in this:
+
+                <Force cutoff="2" method="0" soluteDielectric="1" solventDielectric="78.3" type="GBSAOBCForce" version="1">
+                        <Particles>
+                                <Particle q=".1123" r=".125" scale=".85" />  SOK
+                                <Particle q="-.3662" r=".19" scale=".72" />  SOK
+                                <Particle q=".1123" r=".125" scale=".85" />  SOK
+                                <Particle q=".1123" r=".125" scale=".85" />  SOK
+                                <Particle q=".5972" r=".1875" scale=".72" /> SOK
+                                <Particle q="-.5679" r=".148" scale=".85" /> SOK
+                                <Particle q="-.4157" r=".1706" scale=".79" />SOK
+                                <Particle q=".2719" r=".115" scale=".85" />  SOK
+                                <Particle q=".0337" r=".19" scale=".72" />   SOK
+                                <Particle q=".0823" r=".125" scale=".85" />  SOK
+                                <Particle q="-.1825" r=".19" scale=".72" />  SOK 
+                                <Particle q=".0603" r=".125" scale=".85" />  SOK
+                                <Particle q=".0603" r=".125" scale=".85" />  SOK
+                                <Particle q=".0603" r=".125" scale=".85" />  SOK
+                                <Particle q=".5973" r=".1875" scale=".72" /> SOK
+                                <Particle q="-.5679" r=".148" scale=".85" /> SOK
+                                <Particle q="-.4157" r=".1706" scale=".79" /> SOK
+                                <Particle q=".2719" r=".115" scale=".85" />  SOK
+                                <Particle q="-.149" r=".19" scale=".72" />   SOK
+                                <Particle q=".0976" r=".125" scale=".85" />  SOK
+                                <Particle q=".0976" r=".125" scale=".85" />  SOK
+                                <Particle q=".0976" r=".125" scale=".85" />  SOK
+                        </Particles>
+                </Force>
+
+
+
+It can be seen that all the scale values are correct, however, taking into 
+account the fact that these r differs by a factor of 10, r is still incorrect.
