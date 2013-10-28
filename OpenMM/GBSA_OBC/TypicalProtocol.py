@@ -1,4 +1,5 @@
 # Typical AMBER GB MD protocol with N-acetyl-alanine-N'-methylamide
+# (i.e. blocked alanine dipeptide) 
 from simtk.openmm.app import *
 from simtk.openmm import *
 from simtk.unit import *
@@ -11,7 +12,7 @@ platformProperties = {}
 
 # CUDA precision
 platformProperties['CudaPrecision'] = 'mixed'
-platformProperties['CudaDeviceIndex'] = '1'
+platformProperties['CudaDeviceIndex'] = '0'
 
 
 #######################################################
@@ -65,17 +66,6 @@ integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 1*femtoseconds)
 
 # Note, new system
 system = forceField.createSystem(modeller.topology, nonbondedCutoff=20*angstrom, nonbondedMethod=CutoffNonPeriodic)
-
-# The reaction field method is turned on for NonbondedForce objects even when 
-# GBSAOBCForce in present in a system. This is wrong and causes problems
-#  https://github.com/SimTk/openmm/issues/26 
-#  https://simtk.org/tracker/index.php?func=detail&aid=1881&group_id=161&atid=435
-# This turns the reaction field off.
-for i in range(system.getNumForces()):
-   print type(system.getForce(i))
-   if (type(system.getForce(i)) == openmm.NonbondedForce):
-      system.getForce(i).setReactionFieldDielectric(1)
-
 
 simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
 simulation.context.setPositions(positions)

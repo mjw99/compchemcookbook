@@ -1,16 +1,14 @@
-***Needs updating for ACE_ALA_NME***
-
 In the OpenMM manual, for the GBSAOBCForce, it is stated that it is
 using the GBSAOBCII model, with parameters alpha=1, beta=0.8 and gamma=4.85.
 
 According to the AMBER12 manual, this corresponds to igb=5. It is also stated
-that "set default PBradii mbondi2" should be set in leap, when using this option.
+that "set default PBradii mbondi2" should be set in LEaP, when using this option.
 
-A test was setup; a ACE-ALA-NMEA system was created in leap and a prmtop and pdb was generated:
+A test was setup; a ACE-ALA-NME system was created in LEaP and a prmtop and pdb was generated:
 
 
 
-#A script to create N-acetyl-alanine-N′-methylamide
+#A script to create N-acetyl-alanine-N′-methylamide (i.e. blocked alanine dipeptide)
 
 source leaprc.ff99SB
 set default PBradii mbondi2
@@ -42,7 +40,9 @@ H(N)-modified Bondi radii (mbondi2)
   8.50000000E-01  7.90000000E-01  8.50000000E-01  7.20000000E-01  8.50000000E-01
   8.50000000E-01  8.50000000E-01
 
-From a saved PDB output from LEAP, the same system was created in OpenMM 5.1:
+
+From a saved PDB output from LEaP, the same system was created in OpenMM 5.2. Note
+5.2  has the RF/GB fix[1], any previous versions do not.
 
   forceField = ForceField('amber99sb.xml', 'amber99_obc.xml', 'tip3p.xml')
   modeller = Modeller(pdb.topology, pdb.positions)
@@ -58,9 +58,9 @@ Serialising the System object and extracting the GBSAOBCForce:
 
 resulted in this:
 
-                <Force cutoff="2" method="0" soluteDielectric="1" solventDielectric="78.3" type="GBSAOBCForce" version="1">
+                <Force cutoff="2" method="0" soluteDielectric="1" solventDielectric="1" type="GBSAOBCForce" version="1">
                         <Particles>
-                                <Particle q=".1123" r=".125" scale=".85" />  SOK
+                                <Particle q=".1123" r=".125" scale=".85" />  SOK (Screen OK)
                                 <Particle q="-.3662" r=".19" scale=".72" />  SOK
                                 <Particle q=".1123" r=".125" scale=".85" />  SOK
                                 <Particle q=".1123" r=".125" scale=".85" />  SOK
@@ -89,3 +89,10 @@ resulted in this:
 
 It can be seen that all the scale values are correct, however, taking into 
 account the fact that these r differs by a factor of 10, r is still incorrect.
+This is still an open bug [2]
+
+
+Ref
+===
+[1] https://simtk.org/tracker/index.php?func=detail&aid=1881&group_id=161&atid=435
+[2] https://simtk.org/forums/viewtopic.php?f=161&t=4147
