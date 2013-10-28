@@ -142,7 +142,7 @@
 				<Torsion k="4.6024" p1="14" p2="18" p3="16" p4="17" periodicity="2" phase="3.14159265359" />
 			</Torsions>
 		</Force>
-		<Force cutoff="2" dispersionCorrection="1" ewaldTolerance=".0005" method="1" rfDielectric="78.3" type="NonbondedForce" version="1">
+		<Force cutoff="2" dispersionCorrection="1" ewaldTolerance=".0005" method="1" rfDielectric="1" type="NonbondedForce" version="1">
 			<Particles>
 				<Particle eps=".0656888" q=".1123" sig=".264953278775" />
 				<Particle eps=".4577296" q="-.3662" sig=".339966950842" />
