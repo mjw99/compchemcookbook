@@ -21,8 +21,8 @@
 from PyQuante.Ints import getbasis,getints
 from PyQuante.Molecule import Molecule
 from PyQuante.hartree_fock import *
-#from PyQuante.Basis.sto3g import basis_data
-from PyQuante.Basis.p631ss import basis_data
+from PyQuante.Basis.sto3g import basis_data
+#from PyQuante.Basis.p631ss import basis_data
 from PyQuante.Constants import hartree2ev
 
 #import logging
