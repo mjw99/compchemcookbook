@@ -1,0 +1,185 @@
+echo
+
+start molecule
+
+title "Methane Scan"
+charge 0
+
+geometry units angstroms noautoz nocenter noautosym
+   C       -1.84525       -1.71270       -0.23471
+   C       -1.97165       -0.31422        0.36367
+   C       -0.86869        0.60557       -0.15573
+   C        0.49284        0.01006       -0.00377
+   C        0.67453       -1.41277       -0.04608
+   C       -0.48686       -2.34879        0.06690
+   H       -1.92137       -0.37499        1.45812
+   H       -0.90989        1.56102        0.37832
+   H        1.36756        0.65140       -0.04805
+   H        1.68333       -1.80898        0.02102
+   H       -0.33107       -3.19483       -0.61237
+   H       -1.98996       -1.65577       -1.32086
+   H       -2.95059        0.10956        0.11149
+   H       -1.03769        0.82480       -1.21699
+   H       -2.64255       -2.35619        0.15574
+   H       -0.49708       -2.75985        1.08331
+end
+
+basis
+  * library 6-31G*
+end
+
+dft
+  xc b3lyp
+  mult 1
+  # Do not print the MO vector coefficients; just too much data.
+  noprint "final vectors analysis"
+
+  #D3: www.nwchem-sw.org/index.php/Release61:Density_Functional_Theory_for_Molecules
+  disp vdw 3
+end
+
+
+#task rtdbprint
+
+
+
+python
+
+import math
+from nwgeom import *
+
+# Variables
+atomZValueI = 6
+atomZValueJ = 1
+cutOffDistance = 1.2
+
+
+indexToZ = {}
+indexToCoordinates = {}
+bondsToConsider = []
+
+
+# How many atoms are there?
+numberOfAtoms = len(rtdb_get("geometry:geometry:charges"))
+
+# Array of Z values per atom
+ZArray = rtdb_get("geometry:geometry:charges")
+
+
+rawGeometryInAu = rtdb_get("geometry:geometry:coords")
+# Get scaling factor
+factor = rtdb_get('geometry:geometry:angstrom_to_au')
+# Carry out conversion
+rawGeometryInAng = map(lambda x: x/factor, rawGeometryInAu)
+
+
+# Note this runs 0 --> numberOfAtoms-1
+for i in range(numberOfAtoms):
+  # Add Atom to index
+  indexToZ[i+1] = int(ZArray[i])
+
+  # Add Cartesians to index
+  # This pretty mess is due to the rawGeometryInAng starting from 0
+  x = (3*(i)) + 0
+  y = (3*(i)) + 1
+  z = (3*(i)) + 2
+
+
+  indexToCoordinates[i+1] = rawGeometryInAng[x], rawGeometryInAng[y], rawGeometryInAng[z]
+
+
+# Show atom index, Zvalue and coordinates
+#print "Index, Zvalue, Coordinates"
+#for key in indexToZ.keys():
+#  print key, indexToZ[key], indexToCoordinates[key]
+
+
+
+# Step through index
+for keyI in indexToZ.keys():
+  # Select current Atom C
+  if indexToZ[keyI] == atomZValueI:
+    # Step through index
+    for keyJ in indexToZ.keys():
+      # Select atom H
+      if indexToZ[keyJ] == atomZValueJ:
+        # Calculate distance from C_i to H_j
+        x = float(indexToCoordinates[keyI][0]) - float(indexToCoordinates[keyJ][0])
+        y = float(indexToCoordinates[keyI][1]) - float(indexToCoordinates[keyJ][1])
+        z = float(indexToCoordinates[keyI][2]) - float(indexToCoordinates[keyJ][2])
+
+        dist =  math.sqrt(x*x + y*y + z*z)
+
+        # Typical C-H bond length
+        if dist < cutOffDistance :
+          #print keyI, indexToZ[keyI], indexToCoordinates[keyI], keyJ, indexToZ[keyJ], indexToCoordinates[keyJ], dist
+          bondsToConsider.append( (keyI,keyJ,dist) )
+
+print "Bonds to consider for this molecule"
+for item in bondsToConsider:
+  print item
+
+
+# Save Optimised geom for the moment
+optimised_list = geom_get_coords('geometry')
+
+for currentBond in bondsToConsider:
+  # Restore optimised geom
+  geom_set_coords('geometry',optimised_list)
+
+  # Set our bond parameters
+  atomI  = currentBond[0]
+  atomJ  = currentBond[1]
+  eq = currentBond[2]
+  print "Atom i is " + str(atomI) + " atom j is " + str(atomJ) + " eq is " + str(eq)
+
+
+
+  # Scan
+
+  geomWithOutBondInformation = '''
+    geometry adjust
+      zcoord
+        bond  %i %i    %s cccc constant
+      end
+    end
+  '''
+
+  # This is truly dirty; I will go to Hell for this...
+  geomWithBondInformation =  geomWithOutBondInformation % (atomI,atomJ,"%f")
+
+
+  # How far aside of the equilibrium bond length should we go?
+  min = eq - 0.2
+  max = eq + 0.2
+  results=scan_input(geomWithBondInformation,[min],[max],25,'dft',task_optimize)
+
+  # Temp arrays for r and E
+  x = []
+  y = []
+
+  for i in range(0, len(results) ):
+     x.append(results[i][0][0])
+     y.append(results[i][1][0])
+
+  #Write data
+  fileName = "bond_scan_" + str(atomI) + "_" + str(atomJ) + ".dat"
+  f = open(fileName,'w')
+
+  for i in range(0, len(x) ):
+    f.write("%s, %s \n" % (float(x[i]),float(y[i])) )
+
+  f.close()
+
+
+
+
+end
+
+
+# Initial optimisation
+task dft optimize
+
+# Do everything
+task python
+
