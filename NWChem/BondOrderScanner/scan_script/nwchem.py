@@ -1,38 +1,3 @@
-echo
-
-start molecule
-
-title "Methane Scan"
-charge 0
-
-geometry units angstroms noautoz nocenter noautosym
-   C       -1.55829       -1.29231       -0.00626
-   H       -0.46561       -1.29829        0.00208
-   H       -1.92346       -0.58343        0.74087
-   H       -1.92895       -2.29263        0.23025
-   H       -1.91357       -0.99608       -0.99396
-end
-
-basis
-  * library 6-31G*
-end
-
-dft
-  xc b3lyp
-  mult 1
-  # Do not print the MO vector coefficients; just too much data.
-  noprint "final vectors analysis"
-
-  #D3: www.nwchem-sw.org/index.php/Release61:Density_Functional_Theory_for_Molecules
-  disp vdw 3
-end
-
-
-#task rtdbprint
-
-
-
-python
 
 import math
 from nwgeom import *
@@ -162,13 +127,4 @@ for currentBond in bondsToConsider:
 
 
 
-
-end
-
-
-# Initial optimisation
-task dft optimize
-
-# Do everything
-task python
 

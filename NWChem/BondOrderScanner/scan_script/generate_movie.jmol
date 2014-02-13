@@ -1,0 +1,14 @@
+load methane_scan.nwlog
+
+
+/*
+  add any other rendering commands
+*/
+for (var i=0; i<36; i=i+1)
+  write image 200 200 @{"movie" + ("0000" + i)[-3][0] + ".gif"}
+    /* 200 and 200 are width and height */
+  rotate axisangle {1 1 0} 10
+    /* axis is defined by X Y Z lengths between braces; this one is at 45 degrees
+      and 10 (degrees) is angle of rotation, so the 36-loop gives a full turn
+    */
+end for
