@@ -53,8 +53,8 @@ dft
   xc b3lyp
   odft
   mult 2
-  #maxiter 5001
-  #cgmin
+  maxiter 5001
+  cgmin
 end
 
 neb
