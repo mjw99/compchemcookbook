@@ -1,4 +1,4 @@
-memory 2 gb
+memory 3 gb
 scratch_dir /tmp
 echo
 
@@ -118,6 +118,7 @@ for currentBond in bondsToConsider:
 #Hack to only look at the first bond 
 #for i in range(0, 1):
 #  currentBond = bondsToConsider[0]
+
   # Restore optimised geom
   geom_set_coords('geometry', optimised_list)
 
@@ -144,11 +145,11 @@ for currentBond in bondsToConsider:
 
 
   # How far aside of the equilibrium bond length should we go?
-  minInAng = eqInAng - 0.2
-  maxInAng = eqInAng + 0.2
-  results=scan_input(geomWithBondInformation, [minInAng], [maxInAng], 25, 'dft', task_optimize)
+  minInAng = eqInAng - 0.1
+  maxInAng = eqInAng + 0.1
+  results=scan_input(geomWithBondInformation, [minInAng], [maxInAng], 25, 'dft', task_energy)
 
-#for task_optimize, an array of [][][] is returned
+#for task_optimize, an array of [Step][Constraint distance in Ang, Energy in Hartrees][Gradient*3N] is returned
 #hence, bond length of step 1 is results[0][0][0]
 #       the energy of  step 1 is results[0][1][0]
 #
@@ -161,6 +162,10 @@ for currentBond in bondsToConsider:
 #    )
 #), 
 
+#for task_energy, an array of results[Step][Constraint distance in Ang, Energy in Hartrees] is returned
+# ( ([0.9601624218239677], -40.504069984496326), 
+# )
+
   #print "Results are "
   #print results
 
@@ -172,7 +177,7 @@ for currentBond in bondsToConsider:
      # Bond length in Ang
      r.append(results[i][0][0])
      # Energy in Hartrees
-     E.append(results[i][1][0])
+     E.append(results[i][1])
 
   #Write data
   fileName = "bond_scan_" + str(atomI) + "_" + str(atomJ) + ".dat"
