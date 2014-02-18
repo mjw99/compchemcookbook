@@ -114,6 +114,10 @@ for item in bondsToConsider:
 optimised_list = geom_get_coords('geometry')
 
 for currentBond in bondsToConsider:
+
+#Hack to only look at the first bond 
+#for i in range(0, 1):
+#  currentBond = bondsToConsider[0]
   # Restore optimised geom
   geom_set_coords('geometry', optimised_list)
 
@@ -121,7 +125,7 @@ for currentBond in bondsToConsider:
   atomI   = currentBond[0]
   atomJ   = currentBond[1]
   eqInAng = currentBond[2]
-  print "Atom i is " + str(atomI) + " atom j is " + str(atomJ) + " eqInAng (Ang) is " + str(eqInAng)
+  #print "Atom i is " + str(atomI) + " atom j is " + str(atomJ) + " eqInAng (Ang) is " + str(eqInAng)
 
 
 
@@ -144,12 +148,30 @@ for currentBond in bondsToConsider:
   maxInAng = eqInAng + 0.2
   results=scan_input(geomWithBondInformation, [minInAng], [maxInAng], 25, 'dft', task_optimize)
 
+#for task_optimize, an array of [][][] is returned
+#hence, bond length of step 1 is results[0][0][0]
+#       the energy of  step 1 is results[0][1][0]
+#
+#Results from step 1                         
+#(  ([0.9601229970129712], (-40.50414714460964, [0.1305882123916416, -0.000685351393882445, 0.0008893831987804206, 
+#                         -0.1305866917371298, 0.0006849901522953115, -0.0008888238087244316,
+#                         -9.441926373254805e-07, 7.709099557606791e-07, 1.2856222834090048e-06,
+#                         -1.2748148733865428e-07, -1.5786745028723015e-06, -6.099030355408153e-07,
+#                         -4.4898038150525954e-07, 1.1690061331448565e-06, -1.2351093055806839e-06]
+#    )
+#), 
+
+  #print "Results are "
+  #print results
+
   # Temp arrays for r and E
   r = []
   E = []
 
   for i in range(0, len(results) ):
+     # Bond length in Ang
      r.append(results[i][0][0])
+     # Energy in Hartrees
      E.append(results[i][1][0])
 
   #Write data
