@@ -10,8 +10,8 @@ import time
 ## Platform
 ################
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-platform = openmm.Platform_getPlatformByName("CUDA")
+platform = openmm.Platform_getPlatformByName("OpenCL")
+#platform = openmm.Platform_getPlatformByName("CUDA")
 #platform = openmm.Platform_getPlatformByName("Reference")
 
 
@@ -20,9 +20,9 @@ platformProperties = {}
 ################
 
 # OpenCL
-#platformProperties['OpenCLPrecision'] = 'mixed'
+platformProperties['OpenCLPrecision'] = 'mixed'
 # CUDA 
-platformProperties['CudaPrecision'] = 'mixed'
+#platformProperties['CudaPrecision'] = 'mixed'
 
 ## Parallel GPUs
 ################
@@ -35,11 +35,12 @@ platformProperties['CudaPrecision'] = 'mixed'
 #OpenCL parallel
 #platformProperties['OpenCLDeviceIndex'] = '0,1,2'
 #platformProperties['OpenCLDeviceIndex'] = '1'
-#platformProperties['OpenCLDeviceIndex'] = '0'
+platformProperties['OpenCLDeviceIndex'] = '0'
 
 # CUDA parallel
 #platformProperties['CudaDeviceIndex'] = '0,1,2'
-platformProperties['CudaDeviceIndex'] = '1'
+#platformProperties['CudaDeviceIndex'] = '1'
+#platformProperties['CudaDeviceIndex'] = '0'
 
 prmtop = AmberPrmtopFile('prmtop')
 inpcrd = AmberInpcrdFile('inpcrd',  loadVelocities=True, loadBoxVectors=True)
@@ -120,3 +121,9 @@ print str(NsPerDay)  + " nS/day"
 # OpenMM 5.1/CUDA 5.5, M2090, ecc on		21.53 ns/day	(85.44 run time)
 # OpenMM 5.1/OpenCL (CUDA 5.5), C2075, ecc on	14.76 ns/day	(117.02 run time)
 # OpenMM 5.1/CUDA 5.5, C2075, ecc on		16.90 ns/day	(102.22 run time)
+
+
+# OpenMM 6.0/OpenCL 5.5, M2090, ecc on          17.72 ns/day    (97.49 run time)
+# OpenMM 6.0/CUDA 5.5, M2090, ecc on            20.30 ns/day    (85.10 run time)
+# OpenMM 6.0/OpenCL 5.5, C2075, ecc on		14.64 ns/day	(118.02 run time)
+# OpenMM 6.0/CUDA 5.5, C2075, ecc on		16.91 ns/day	(102.16 run time)
