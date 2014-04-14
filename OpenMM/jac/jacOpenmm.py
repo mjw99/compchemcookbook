@@ -127,3 +127,8 @@ print str(NsPerDay)  + " nS/day"
 # OpenMM 6.0/CUDA 5.5, M2090, ecc on            20.30 ns/day    (85.10 run time)
 # OpenMM 6.0/OpenCL 5.5, C2075, ecc on		14.64 ns/day	(118.02 run time)
 # OpenMM 6.0/CUDA 5.5, C2075, ecc on		16.91 ns/day	(102.16 run time)
+# OpenMM 6.0/CUDA 5.5, K40c, ecc on		51.37 ns/day	(33.63 run time)
+# OpenMM 6.0/OpenCL (CUDA 5.5), K40c, ecc on	36.61 ns/day	(47.19 run time)
+
+
+
