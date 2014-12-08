@@ -1,4 +1,4 @@
-# DHRF Benchmark using OpenMM
+# DHFR Benchmark using OpenMM
 
 from simtk.openmm.app import *
 from simtk.openmm import *
@@ -129,6 +129,11 @@ print str(NsPerDay)  + " nS/day"
 # OpenMM 6.0/CUDA 5.5, C2075, ecc on		16.91 ns/day	(102.16 run time)
 # OpenMM 6.0/CUDA 5.5, K40c, ecc on		51.37 ns/day	(33.63 run time)
 # OpenMM 6.0/OpenCL (CUDA 5.5), K40c, ecc on	36.61 ns/day	(47.19 run time)
+
+# OpenMM 6.1/CUDA 6.0, K40c, ecc on		49.73 ns/day	(34.75 run time)
+# OpenMM 6.1/OpenCL 6.0, K40c, ecc on		40.17 ns/day	(43.02 run time)
+
+
 
 
 
