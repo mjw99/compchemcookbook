@@ -1,0 +1,64 @@
+
+memory 120 gb
+scratch_dir /tmp
+
+start molecule
+
+title "Title"
+charge 0
+
+geometry units angstroms print xyz 
+   C       -4.51781       -0.48263        0.00392
+   C       -3.57107        0.70696        0.00152
+   H       -4.37149       -1.10067       -0.88764
+   H       -5.55722       -0.13986        0.01225
+   H       -4.35941       -1.10993        0.88701
+   C       -2.11085        0.26018        0.03289
+   H       -3.78425        1.33864        0.87160
+   H       -3.75805        1.31310       -0.89273
+   C       -1.16356        1.44844       -0.01317
+   H       -1.90238       -0.39901       -0.81758
+   H       -1.91962       -0.31731        0.94516
+   H       -1.29034        2.01368       -0.94220
+   H       -0.12481        1.10729        0.03714
+   H       -1.34038        2.12574        0.82827
+end
+
+basis
+  * library 6-31G*
+end
+
+# DFT module
+# http://www.nwchem-sw.org/index.php/Density_Functional_Theory_for_Molecules
+dft
+   # Calculate all integrals "on-the-fly"
+   direct
+
+   # B3LYP Combined Exchange and Correlation Functional
+   xc b3lyp
+
+   # Do not print the MO vector coefficients; just too much data.
+   noprint "final vectors analysis"
+
+   # Multiplicity
+   mult 1
+end
+
+# Python code that will actually calculate the PES scan
+python
+
+import RelaxedTorsionScanner
+
+scanTorsion(1, 2, 6, 9)
+
+end
+
+
+
+# Carry out an initial optimisation
+task dft optimize
+
+# Now, actually carry out the PES scan
+task python
+
+
