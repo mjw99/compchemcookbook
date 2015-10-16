@@ -2,7 +2,7 @@ from nwgeom import *
 
 
 
-def scanTorsion(atomI, atomJ, atomK, atomL)
+def scanTorsion(atomI, atomJ, atomK, atomL):
   """
   Carries out a relaxed scan about a torsion.
 
