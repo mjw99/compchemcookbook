@@ -8,7 +8,7 @@ import numpy as np
 import sys
 
 
-def plot(x,y):
+def plot(x,y,yfit):
   plt.figure()
   plt.title('Torsion')
 
@@ -16,6 +16,7 @@ def plot(x,y):
   plt.ylabel(r'Energy (kcal/mol)')
 
   plt.plot(x, y, marker='x')
+  plt.plot(x, yfit, marker='x')
 
   plt.show()
 
@@ -73,8 +74,7 @@ C, Cn, Cd,
 
   print popt
 
-  plot( offsetDataX, offsetDataY)
-  plot( offsetDataX, Torsion3(offsetDataX,
+  plot( offsetDataX, offsetDataY,Torsion3(offsetDataX,
 popt[0], popt[1], popt[2], 
 popt[3], popt[4], popt[5], 
 popt[6], popt[7], popt[8]) )
