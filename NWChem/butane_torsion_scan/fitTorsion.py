@@ -62,11 +62,11 @@ def fitTorsion(fileName):
 
   # Define Torsion
   def Torsion3(x,
-A, An, Ad,
-B, Bn, Bd,
-C, Cn, Cd,
+A, Ad,
+B, Bd,
+C, Cd,
 ):
-     return Torsion(x, A, An, Ad) + Torsion(x, B, Bn, Bd) + Torsion(x, C, Cn, Cd)
+     return Torsion(x, A, 1, Ad) + Torsion(x, B, 2, Bd) + Torsion(x, C, 3, Cd)
 
 
   # Actually do the fit
@@ -75,9 +75,9 @@ C, Cn, Cd,
   print popt
 
   plot( offsetDataX, offsetDataY,Torsion3(offsetDataX,
-popt[0], popt[1], popt[2], 
-popt[3], popt[4], popt[5], 
-popt[6], popt[7], popt[8]) )
+popt[0], popt[1],
+popt[2], popt[3],
+popt[4], popt[5] ))
 
 
 
