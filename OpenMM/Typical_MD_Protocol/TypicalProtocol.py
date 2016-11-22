@@ -1,15 +1,15 @@
 # Typical AMBER MD protocol 
 
-from simtk.openmm.app import *
-from simtk.openmm import *
-from simtk.unit import *
+import simtk.openmm.app as app
+import simtk.openmm as mm
+import simtk.unit as unit
 
 from sys import stdout
 
 
-#platform = openmm.Platform_getPlatformByName("Reference")
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-platform = openmm.Platform_getPlatformByName("CUDA")
+#platform = mm.Platform_getPlatformByName("Reference")
+#platform = mm.Platform_getPlatformByName("OpenCL")
+platform = mm.Platform_getPlatformByName("CUDA")
 
 
 platformProperties = {}
@@ -32,7 +32,7 @@ platformProperties['CudaPrecision'] = 'mixed'
 
 # CUDA parallel
 #platformProperties['CudaDeviceIndex'] = '1,2'
-platformProperties['CudaDeviceIndex'] = '0'
+platformProperties['CudaDeviceIndex'] = '1'
 
 
 
@@ -52,16 +52,16 @@ print "Building system"
 # wget "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=1UBQ" -O 1UBQ.pdb
 #ff6700fb140ab9289134ba6555f87d0e  1UBQ.pdb
 
-pdb = PDBFile('1UBQ.pdb')
-forceField = ForceField('amber99sb.xml', 'tip3p.xml')
+pdb = app.PDBFile('1UBQ.pdb')
+forceField = app.ForceField('amber99sb.xml', 'tip3p.xml')
 
 
 # Add missing hydrogens
-modeller = Modeller(pdb.topology, pdb.positions)
+modeller = app.Modeller(pdb.topology, pdb.positions)
 modeller.addHydrogens(forceField)
 
 # Add TIP3P solvent
-modeller.addSolvent(forceField, model='tip3p', padding=10*angstrom)
+modeller.addSolvent(forceField, model='tip3p', padding=10*unit.angstrom)
 
 
 
@@ -72,11 +72,11 @@ print "Number of atoms %i"      % len(modeller.positions)
 ######################
 print "Minimising system"
 
-system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom)
+system = forceField.createSystem(modeller.topology, nonbondedMethod=app.PME, nonbondedCutoff=8*unit.angstrom)
 
-integrator = VerletIntegrator(1*femtosecond)
+integrator = mm.VerletIntegrator(1*unit.femtosecond)
 
-simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
+simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 print "Platform: %s" % (simulation.context.getPlatform().getName())
 #print platform.getPropertyValue(simulation.context, "CUDADeviceIndex")
@@ -86,7 +86,7 @@ simulation.minimizeEnergy(maxIterations=1000)
 
 # Saving minimised positions
 positions = simulation.context.getState(getPositions=True).getPositions()
-PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
+app.PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 
 #######################
 #######################
@@ -98,22 +98,22 @@ PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 # 3) Thermalisation under NVT  #
 ################################
 print "Heating system under NVT"
-integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
+integrator = mm.LangevinIntegrator(300*unit.kelvin, 1/unit.picosecond, 2*unit.femtoseconds)
 
 # Note, new system, with SHAKE
-system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom, constraints=HBonds )
+system = forceField.createSystem(modeller.topology, nonbondedMethod=app.PME, nonbondedCutoff=8*unit.angstrom, constraints=app.HBonds )
 
 # Set the COM Removal to something sensible
 for i in range(system.getNumForces()):
-   if (type(system.getForce(i)) == openmm.CMMotionRemover):
+   if (type(system.getForce(i)) == mm.CMMotionRemover):
       system.getForce(i).setFrequency(1000)
 
 
-simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
+simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 simulation.context.setPositions(positions)
 
-simulation.reporters.append(StateDataReporter("heating.txt", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('heating.pdb', 1000))
+simulation.reporters.append(app.StateDataReporter("heating.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.PDBReporter('heating.pdb', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -131,16 +131,16 @@ simulation.reporters = []
 ####################################
 print "Density correction under NPT"
 
-system.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
-integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
+system.addForce(mm.MonteCarloBarostat(1*unit.bar, 300*unit.kelvin))
+integrator = mm.LangevinIntegrator(300*unit.kelvin, 1/unit.picosecond, 2*unit.femtoseconds)
 
-simulation = Simulation(modeller.topology, system, integrator, platform, platformProperties)
+simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
-simulation.reporters.append(StateDataReporter("density.txt", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('density.pdb', 1000))
+simulation.reporters.append(app.StateDataReporter("density.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.PDBReporter('density.pdb', 1000))
 
 simulation.step(35000)
 
@@ -162,8 +162,8 @@ simulation.context.setVelocities(velocities)
 
 
 # Report every 0.1 ns / 100 ps
-simulation.reporters.append(StateDataReporter("production.txt", 50000, time=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(PDBReporter('production.pdb', 50000))
+simulation.reporters.append(app.StateDataReporter("production.csv", 50000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.PDBReporter('production.pdb', 50000))
 
 # 10 ns
 simulation.step(5000000) 
