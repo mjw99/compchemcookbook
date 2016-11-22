@@ -94,14 +94,19 @@ app.PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', '
 #######################
 #######################
 
+dt = 2*unit.femtoseconds
+friction = 1*(1/unit.picosecond)
+constraints = app.HBonds
+hydrogenMass = None
+
 ################################
 # 3) Thermalisation under NVT  #
 ################################
 print "Heating system under NVT"
-integrator = mm.LangevinIntegrator(300*unit.kelvin, 1/unit.picosecond, 2*unit.femtoseconds)
+integrator = mm.LangevinIntegrator(300*unit.kelvin, friction, dt)
 
 # Note, new system, with SHAKE
-system = forceField.createSystem(modeller.topology, nonbondedMethod=app.PME, nonbondedCutoff=8*unit.angstrom, constraints=app.HBonds )
+system = forceField.createSystem(modeller.topology, nonbondedMethod=app.PME, nonbondedCutoff=8*unit.angstrom, constraints=constraints, hydrogenMass=hydrogenMass)
 
 # Set the COM Removal to something sensible
 for i in range(system.getNumForces()):
@@ -112,7 +117,7 @@ for i in range(system.getNumForces()):
 simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 simulation.context.setPositions(positions)
 
-simulation.reporters.append(app.StateDataReporter("heating.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.StateDataReporter("heating.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True, remainingTime=True, speed=True, totalSteps=35000))
 simulation.reporters.append(app.PDBReporter('heating.pdb', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
@@ -132,14 +137,14 @@ simulation.reporters = []
 print "Density correction under NPT"
 
 system.addForce(mm.MonteCarloBarostat(1*unit.bar, 300*unit.kelvin))
-integrator = mm.LangevinIntegrator(300*unit.kelvin, 1/unit.picosecond, 2*unit.femtoseconds)
+integrator = mm.LangevinIntegrator(300*unit.kelvin, friction, dt)
 
 simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
-simulation.reporters.append(app.StateDataReporter("density.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.StateDataReporter("density.csv", 1000, time=True, potentialEnergy=True, temperature=True, density=True, remainingTime=True, speed=True, totalSteps=35000))
 simulation.reporters.append(app.PDBReporter('density.pdb', 1000))
 
 simulation.step(35000)
@@ -162,7 +167,7 @@ simulation.context.setVelocities(velocities)
 
 
 # Report every 0.1 ns / 100 ps
-simulation.reporters.append(app.StateDataReporter("production.csv", 50000, time=True, potentialEnergy=True, temperature=True, density=True))
+simulation.reporters.append(app.StateDataReporter("production.csv", 50000, time=True, potentialEnergy=True, temperature=True, density=True, remainingTime=True, speed=True, totalSteps=5000000))
 simulation.reporters.append(app.PDBReporter('production.pdb', 50000))
 
 # 10 ns
