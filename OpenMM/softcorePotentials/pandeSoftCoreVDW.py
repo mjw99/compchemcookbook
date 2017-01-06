@@ -1,5 +1,7 @@
-# Example illustrating use of CustomNonbondedForce to lambda map out an Atom
+# Example illustrating the use of CustomNonbondedForce to lambda map out an Atom
 # Based upon argon-chemical-potential.py
+#
+# Mark J. Williamson 2013
 
 from simtk.openmm.app import *
 from simtk.openmm import *
@@ -51,10 +53,10 @@ pandeSoftCoreVDW = CustomNonbondedForce("4*epsilon*l12*( 1/( (alphaLJ*(1-l12) + 
 
 pandeSoftCoreVDW.addPerParticleParameter("sigma")
 pandeSoftCoreVDW.addPerParticleParameter("epsilon")
-pandeSoftCoreVDW.addPerParticleParameter("useLambda")
 
 # "useLamba" is a per particle parameter that is a function of the global parameter, lambda
 # This enables a subset of particles to be affected by the lambda value.
+pandeSoftCoreVDW.addPerParticleParameter("useLambda")
 
 pandeSoftCoreVDW.addGlobalParameter("lambda", 1.0)
 
@@ -103,14 +105,13 @@ simulation.reporters.append( StateDataReporter(stdout, 100, step=True, potential
 
 
 # =============================================================================
-# Lambda map in the Argon atom
+# Lambda map out the Argon atom vdw
 # =============================================================================
 
 # This is NVE; kinetic energy has come from the slight perturbation of the interatomic distance
 for i in range(10):
-  #1, 0.9, 0.8
+  #1, 0.9, 0.8....
   simulation.context.setParameter("lambda",  1 - (i*0.1)  )
-  #simulation.context.setParameter("lambda",  1 )
   print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
   simulation.step(10000)
 
