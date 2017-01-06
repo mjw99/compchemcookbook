@@ -91,8 +91,8 @@ print "system.getNumForces() is %i " % system.getNumForces()
 integrator = VerletIntegrator(1*femtosecond)
 simulation = Simulation(topology, system, integrator)
 
-# Create initial positions.
-positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
+# Create initial positions, 5 A apart.
+positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.5) ]
 simulation.context.setPositions(positions)
 
 print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
@@ -101,7 +101,7 @@ print simulation.context.getState(getEnergy=True).getPotentialEnergy()
 
 # Run dynamics.
 simulation.reporters.append( PDBReporter('output.pdb', 100) )
-simulation.reporters.append( StateDataReporter(stdout, 100, step=True, potentialEnergy=True) )
+#simulation.reporters.append( StateDataReporter(stdout, 100, step=True, potentialEnergy=True) )
 
 
 # =============================================================================
