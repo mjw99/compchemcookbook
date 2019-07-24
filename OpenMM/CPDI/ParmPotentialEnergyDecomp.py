@@ -23,25 +23,25 @@ integrator = VerletIntegrator(1*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform)
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
+print("Platform: ", (simulation.context.getPlatform().getName()))
 
 simulation.context.setPositions(inpcrd.positions)
 
 # Entire system
 system = simulation.context.getSystem()
 state = simulation.context.getState( getEnergy=True)
-print "Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
-print ""
+print("Total potential energy is ", str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("")
 
 
 
 # Create a map between index and name
 indexToAtomNameDict = {}
 atoms =  prmtop.topology.atoms()
-print "Creating map"
+print("Creating map")
 for atom in atoms:
   indexToAtomNameDict[atom.index] = atom.name
-  print atom.index, atom.name
+  print(atom.index, atom.name)
 
 
 
@@ -103,11 +103,11 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 for i in range(system.getNumForces()):
 
    force = system.getForce(i)
-   print type(force)
+   print(type(force))
 
 
    if isinstance( force, openmm.HarmonicBondForce ):
-     print "Found " + str(force.getNumBonds()) + " HarmonicBondForce terms"
+     print("Found ", str(force.getNumBonds()), " HarmonicBondForce terms")
 
      # Deep copy these forces into out new state
      copyOfForce = deepcopy(force)
@@ -115,20 +115,20 @@ for i in range(system.getNumForces()):
      HarmonicBondSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.HarmonicAngleForce ):
-     print "Found " + str(force.getNumAngles()) + " HarmonicAngleForce terms"
+     print("Found ", str(force.getNumAngles()), " HarmonicAngleForce terms")
 
      copyOfForce = deepcopy(force)
      HarmonicAngleSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.PeriodicTorsionForce ):
-     print "Found " + str(force.getNumTorsions()) + " PeriodicTorsionForce terms"
+     print("Found ", str(force.getNumTorsions()), " PeriodicTorsionForce terms")
 
      copyOfForce = deepcopy(force)
      PeriodicTorsionSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.NonbondedForce ):
-     print "Found " + str(force.getNumParticles()) + " NonbondedForce terms )"
-     print "Found " + str(force.getNumExceptions()) + " NonbondedForce exception terms (i.e. 1-4) "
+     print("Found " , str(force.getNumParticles()) , " NonbondedForce terms )")
+     print("Found " , str(force.getNumExceptions()) , " NonbondedForce exception terms (i.e. 1-4) ")
 
     
      copyOfForce = deepcopy(force)
@@ -169,7 +169,7 @@ print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnerg
 
 
 # Output forces
-print "Forces"
+print("Forces")
 forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 

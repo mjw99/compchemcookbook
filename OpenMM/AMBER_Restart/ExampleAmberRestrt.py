@@ -50,9 +50,9 @@ integrator = VerletIntegrator(1*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
+print("Platform: ", (simulation.context.getPlatform().getName()))
 
-print "Number of atoms %i"      % len(inpcrd.positions)
+print("Number of atoms ",   len(inpcrd.positions))
 
 # Set the positions and velocities from the AMBER files
 simulation.context.setPositions(inpcrd.positions)
