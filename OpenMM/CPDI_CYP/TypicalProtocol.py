@@ -43,7 +43,7 @@ platformProperties['CudaDeviceIndex'] = '1'
 #######################################################
 # 1) Build system from PDB and assign AMBER FF99SB FF #
 #######################################################
-print "Building system"
+print("Building system")
 
 # OpenMM 5.1 only
 Topology.loadBondDefinitions('CPDI_CYP_residues.xml')
@@ -80,7 +80,7 @@ PDBFile.writeFile(modeller.getTopology(), modeller.getPositions(),open('modeller
 ######################
 # 2) Minimisation    #
 ######################
-print "Minimising system"
+print("Minimising system")
 
 system = forceField.createSystem(modeller.topology, nonbondedMethod=PME, nonbondedCutoff=8*angstrom)
 
@@ -88,7 +88,7 @@ integrator = VerletIntegrator(1*femtosecond)
 
 simulation = Simulation(modeller.topology, system, integrator, platform)
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
+print("Platform: " , (simulation.context.getPlatform().getName()))
 #print platform.getPropertyValue(simulation.context, "OpenCLDeviceIndex")
 
 simulation.context.setPositions(modeller.positions)
@@ -107,7 +107,7 @@ PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 ################################
 # 3) Thermalisation under NVT  #
 ################################
-print "Heating system under NVT"
+print("Heating system under NVT")
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
 # Note, new system, with SHAKE
@@ -139,7 +139,7 @@ simulation.reporters = []
 ####################################
 # 4) Density correction under NPT  #
 ####################################
-print "Density correction under NPT"
+print("Density correction under NPT")
 
 system.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
@@ -165,7 +165,7 @@ simulation.reporters = []
 ####################################
 # 5) Production under NPT          #
 ####################################
-print "Production under NPT"
+print("Production under NPT")
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
