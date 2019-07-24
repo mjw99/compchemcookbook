@@ -70,7 +70,7 @@ platformProperties['CudaDeviceIndex'] = '0'
 
 
 
-print "Building system"
+print("Building system")
 forceField = ForceField('tip3p.xml');
 watPdb = PDBFile('WAT.pdb')
 modeller = Modeller(watPdb.topology, watPdb.positions)
@@ -133,15 +133,15 @@ simulation = Simulation(modeller.topology, system, integrator, platform, platfor
 simulation.context.setPositions(modeller.positions)
 
 state = simulation.context.getState( getEnergy=True)
-print "Original system Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
+print("Original system Total potential energy is ", str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 for i in range(system.getNumForces()):
     system.getForce(i).setForceGroup(i)
 
 for i in range(system.getNumForces()):
-    print type(system.getForce(i))
+    print(type(system.getForce(i)))
     state = simulation.context.getState(getEnergy=True, groups=1<<i)
-    print state.getPotentialEnergy().in_units_of(kilocalorie/mole)
+    print(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 
 
@@ -217,11 +217,11 @@ simulation = Simulation(modeller.topology, newSystem, integrator, platform, plat
 simulation.context.setPositions(modeller.positions)
 
 state = simulation.context.getState( getEnergy=True)
-print "Copied system Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
+print("Copied system Total potential energy is ", str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 #print "Copied system r is " +  str(state.getPotentialEnergy());
 
 
-print "Minimising system"
+print("Minimising system")
 simulation.minimizeEnergy(maxIterations=1000)
 
 # Saving minimised positions
@@ -233,7 +233,7 @@ PDBFile.writeFile(simulation.topology, positions, open('minimisation.pdb', 'w'))
 ################################
 # 2) Thermalisation under NVT  #
 ################################
-print "Heating system under NVT"
+print("Heating system under NVT")
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 1*femtoseconds)
 
 simulation = Simulation(modeller.topology, newSystem, integrator, platform, platformProperties)
@@ -257,7 +257,7 @@ simulation.reporters = []
 ####################################
 # 4) Density correction under NPT  #
 ####################################
-print "Density correction under NPT"
+print("Density correction under NPT")
 
 newSystem.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 1*femtoseconds)

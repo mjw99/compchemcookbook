@@ -22,7 +22,7 @@ charge = 1.0 * elementary_charge
 
 
 cutoff = 999 * angstrom
-print "cutoff = %s" % cutoff
+print("cutoff = ", cutoff)
 
 # =============================================================================
 # Build system
@@ -87,8 +87,8 @@ for particle_index in range(nparticles):
 
 system.addForce(caseSoftCoreEE)
 
-print "system.getNumParticles() is %i"  % system.getNumParticles()
-print "system.getNumForces() is %i " % system.getNumForces()
+print("system.getNumParticles() is ",  system.getNumParticles())
+print("system.getNumForces() is ", system.getNumForces())
 
 
 
@@ -100,7 +100,7 @@ simulation = Simulation(topology, system, integrator)
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
-print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
+print("simulation.system.getNumForces() is ", simulation.system.getNumForces())
 
 
 
@@ -109,28 +109,28 @@ print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces
 # nonbondedForce.setCutoffDistance(999 * angstrom)
 
 simulation.context.setParameter("lambda",  1 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 for force in forces:
-     print force
+     print(force)
 
 simulation.context.setParameter("lambda",  0 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 for force in forces:
-     print force
+     print(force)
 
 
 
 simulation.context.setParameter("lambda",  0.8 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 for force in forces:
-     print force
+     print(force)
 

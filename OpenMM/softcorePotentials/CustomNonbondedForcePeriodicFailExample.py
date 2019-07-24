@@ -61,8 +61,8 @@ def CustomNonbondedForceCutoffPeriodicTest(useNoCutOff):
   contextNonbondedForce.setPositions(initPos)
 
   stateNonbondedForce = contextNonbondedForce.getState( getEnergy=True)
-  print "NonbondedForce Total potential energy is " 
-  print  str(stateNonbondedForce.getPotentialEnergy().in_units_of(kilocalorie/mole))
+  print("NonbondedForce Total potential energy is ")
+  print(stateNonbondedForce.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 
 
@@ -119,8 +119,8 @@ def CustomNonbondedForceCutoffPeriodicTest(useNoCutOff):
   contextCustomNonbondedForce.setPositions(initPos)
 
   stateCustomNonbondedForce = contextCustomNonbondedForce.getState( getEnergy=True)
-  print "CustomNonbondedForce Total potential energy is " 
-  print str(stateCustomNonbondedForce.getPotentialEnergy().in_units_of(kilocalorie/mole))
+  print("CustomNonbondedForce Total potential energy is " )
+  print(stateCustomNonbondedForce.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 
 
@@ -142,11 +142,11 @@ platformProperties['CudaDeviceIndex'] = '0'
 
 
 
-print "1) Using NoCutoff"
+print("1) Using NoCutoff")
 CustomNonbondedForceCutoffPeriodicTest(1)
 
-print ""
-print "2) Using CutoffPeriodic"
+print("")
+print("2) Using CutoffPeriodic")
 CustomNonbondedForceCutoffPeriodicTest(0)
 
 

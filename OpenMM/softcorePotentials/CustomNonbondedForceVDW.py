@@ -75,8 +75,8 @@ for particle_index in range(nparticles):
 
 system.addForce(customNonbondedForceVDW)
 
-print "System.getNumParticles() is %i"  % system.getNumParticles()
-print "system.getNumForces() is %i " % system.getNumForces()
+print("System.getNumParticles() is ", system.getNumParticles())
+print("system.getNumForces() is " , system.getNumForces())
 
 
 
@@ -88,9 +88,9 @@ simulation = Simulation(topology, system, integrator)
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
-print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
+print("simulation.system.getNumForces() is ", simulation.system.getNumForces())
 
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 
 
 

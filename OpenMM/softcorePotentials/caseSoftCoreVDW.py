@@ -21,8 +21,8 @@ epsilon = 0.238 * kilocalories_per_mole # Lennard-Jones well-depth
 timestep = 1 * femtosecond # integrator timestep
 
 cutoff = 999 * angstrom
-print "sigma = %s" % sigma
-print "cutoff = %s" % cutoff
+print("sigma =  ", sigma)
+print("cutoff = " , cutoff)
 
 # =============================================================================
 # Build system
@@ -81,8 +81,8 @@ for particle_index in range(nparticles):
 
 system.addForce(caseSoftCoreVDW)
 
-print "System.getNumParticles() is %i"  % system.getNumParticles()
-print "system.getNumForces() is %i " % system.getNumForces()
+print("system.getNumParticles() is ", system.getNumParticles())
+print("system.getNumForces() is ", system.getNumForces())
 
 
 
@@ -94,7 +94,7 @@ simulation = Simulation(topology, system, integrator)
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.6) ]
 simulation.context.setPositions(positions)
 
-print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
+print("simulation.system.getNumForces() is ", simulation.system.getNumForces())
 
 
 
@@ -105,11 +105,11 @@ print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces
 # nonbondedForce.setCutoffDistance(999 * angstrom)
 
 simulation.context.setParameter("lambda",  1 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 
 simulation.context.setParameter("lambda",  0 )
-print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 
 

@@ -23,8 +23,8 @@ epsilon = 0.238 * kilocalories_per_mole # Lennard-Jones well-depth
 timestep = 1 * femtosecond # integrator timestep
 
 cutoff = 999 * angstrom
-print "sigma = %s" % sigma
-print "cutoff = %s" % cutoff
+print("sigma = ",sigma)
+print("cutoff =", cutoff)
 
 # =============================================================================
 # Build system
@@ -82,8 +82,8 @@ for particle_index in range(nparticles):
 
 system.addForce(pandeSoftCoreVDW)
 
-print "System.getNumParticles() is %i"  % system.getNumParticles()
-print "system.getNumForces() is %i " % system.getNumForces()
+print("System.getNumParticles() is ",  system.getNumParticles())
+print("system.getNumForces() is ", system.getNumForces())
 
 
 
@@ -95,9 +95,9 @@ simulation = Simulation(topology, system, integrator)
 positions = [  Vec3(0, 0, 0), Vec3(0, 0, 0.5) ]
 simulation.context.setPositions(positions)
 
-print "simulation.system.getNumForces() is %i " % simulation.system.getNumForces()
+print("simulation.system.getNumForces() is ", simulation.system.getNumForces())
 
-print simulation.context.getState(getEnergy=True).getPotentialEnergy()
+print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 
 # Run dynamics.
 simulation.reporters.append( PDBReporter('output.pdb', 100) )
@@ -112,7 +112,7 @@ simulation.reporters.append( PDBReporter('output.pdb', 100) )
 for i in range(10):
   #1, 0.9, 0.8....
   simulation.context.setParameter("lambda",  1 - (i*0.1)  )
-  print "Current lambda value is " + str(simulation.context.getParameter("lambda"))
+  print("Current lambda value is ", str(simulation.context.getParameter("lambda")))
   simulation.step(10000)
 
 
