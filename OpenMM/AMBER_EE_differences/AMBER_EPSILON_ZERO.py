@@ -67,10 +67,10 @@ AMBER_EPSILON_ZERO = 8.85449607758e-12
 
 
 
-print "AMBER's prefactor " + str(AMBER_PREFACTOR)
+print("AMBER's prefactor ", AMBER_PREFACTOR )
 # Exact
 # 332.063408432
-print  "'Exact' prefactor " + str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * EPSILON_ZERO * 1E-10 ) ) * AVOGADRO) / KCAL_TO_JOULE)
+print("'Exact' prefactor ", str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * EPSILON_ZERO * 1E-10 ) ) * AVOGADRO) / KCAL_TO_JOULE))
 
 
 
@@ -78,15 +78,15 @@ print  "'Exact' prefactor " + str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * EP
 # OpenMM's 
 # ./OpenMM4.1.1-Source/platforms/reference/src/SimTKUtilities/SimTKOpenMMRealType.h
 # ONE_4PI_EPS0 138.935456
-print "OpenMM's ONE_4PI_EPS0 is " + str(138.935456)
+print("OpenMM's ONE_4PI_EPS0 is ", str(138.935456))
 
-print "OpenMM's ONE_4PI_EPS0 should be " +   str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * EPSILON_ZERO * 1E-9 ) ) * AVOGADRO) * JOULES_TO_KILOJOULE)
+print("OpenMM's ONE_4PI_EPS0 should be " ,   str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * EPSILON_ZERO * 1E-9 ) ) * AVOGADRO) * JOULES_TO_KILOJOULE))
 
 
 # 332.0522173
 # What is AMBER Using for EPSILON_ZERO?
-print "Back calculating AMBER_EPSILON_ZERO " + str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * AMBER_PREFACTOR * 1E-10 ) ) * AVOGADRO) / KCAL_TO_JOULE)
+print("Back calculating AMBER_EPSILON_ZERO ", str((( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * AMBER_PREFACTOR * 1E-10 ) ) * AVOGADRO) / KCAL_TO_JOULE))
 
 
 # Hence, what would OpenMM's ONE_4PI_EPS0's be, using AMBER_EPSILON_ZERO ?
-print "Broken ONE_4PI_EPS0 would be " + str( (( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * AMBER_EPSILON_ZERO * 1E-9 ) ) * AVOGADRO) * JOULES_TO_KILOJOULE)
+print("Broken ONE_4PI_EPS0 would be " , str( (( ( 1 * E_CHARGE  * E_CHARGE) / ( 4 * PI * AMBER_EPSILON_ZERO * 1E-9 ) ) * AVOGADRO) * JOULES_TO_KILOJOULE))
