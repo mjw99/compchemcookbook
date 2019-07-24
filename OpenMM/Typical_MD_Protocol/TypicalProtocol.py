@@ -47,7 +47,7 @@ platformProperties['CudaDeviceIndex'] = '1'
 #######################################################
 # 1) Build system from PDB and assign AMBER FF99SB FF #
 #######################################################
-print "Building system"
+print("Building system")
 
 # wget "http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId=1UBQ" -O 1UBQ.pdb
 #ff6700fb140ab9289134ba6555f87d0e  1UBQ.pdb
@@ -65,12 +65,12 @@ modeller.addSolvent(forceField, model='tip3p', padding=10*unit.angstrom)
 
 
 
-print "Number of atoms %i"      % len(modeller.positions)
+print("Number of atoms ", len(modeller.positions))
 
 ######################
 # 2) Minimisation    #
 ######################
-print "Minimising system"
+print("Minimising system")
 
 system = forceField.createSystem(modeller.topology, nonbondedMethod=app.PME, nonbondedCutoff=8*unit.angstrom)
 
@@ -78,8 +78,8 @@ integrator = mm.VerletIntegrator(1*unit.femtosecond)
 
 simulation = app.Simulation(modeller.topology, system, integrator, platform, platformProperties)
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
-#print platform.getPropertyValue(simulation.context, "CUDADeviceIndex")
+print("Platform: ", (simulation.context.getPlatform().getName()))
+#print(platform.getPropertyValue(simulation.context, "CUDADeviceIndex"))
 
 simulation.context.setPositions(modeller.positions)
 simulation.minimizeEnergy(maxIterations=1000)
@@ -102,7 +102,7 @@ hydrogenMass = None
 ################################
 # 3) Thermalisation under NVT  #
 ################################
-print "Heating system under NVT"
+print("Heating system under NVT")
 integrator = mm.LangevinIntegrator(300*unit.kelvin, friction, dt)
 
 # Note, new system, with SHAKE
@@ -134,7 +134,7 @@ simulation.reporters = []
 ####################################
 # 4) Density correction under NPT  #
 ####################################
-print "Density correction under NPT"
+print("Density correction under NPT")
 
 system.addForce(mm.MonteCarloBarostat(1*unit.bar, 300*unit.kelvin))
 integrator = mm.LangevinIntegrator(300*unit.kelvin, friction, dt)
@@ -160,7 +160,7 @@ simulation.reporters = []
 ####################################
 # 5) Production under NPT          #
 ####################################
-print "Production under NPT"
+print("Production under NPT")
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
