@@ -19,10 +19,11 @@ platform = openmm.Platform_getPlatformByName("Reference")
 # 0  Tesla M2090
 # 1  Tesla C2075
 # 2  Tesla C2075
-platformProperties = {"OpenCLDeviceIndex":"0"}
+#platformProperties = {"OpenCLDeviceIndex":"0"}
 #platformProperties = {"OpenCLDeviceIndex":"1"}
 #platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
 #platformProperties = {"OpenCLDeviceIndex":"1,2"}
+platformProperties = {}
 
 
 prmtop = AmberPrmtopFile('prmtop')
@@ -37,16 +38,16 @@ system = prmtop.createSystem(nonbondedMethod=NoCutoff)
 integrator = VerletIntegrator(1*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
-print "Platform: %s" % (simulation.context.getPlatform().getName())
-print "Number of atoms %i"      % len(inpcrd.positions)
+print("Platform: %s" % (simulation.context.getPlatform().getName()))
+print("Number of atoms %i" , len(inpcrd.positions))
 
 simulation.context.setPositions(inpcrd.positions)
 
 # Entire system
 system = simulation.context.getSystem()
 state = simulation.context.getState( getEnergy=True)
-print "Total potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
-print ""
+print("Total potential energy is %s", str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("")
 
 
 
@@ -86,11 +87,11 @@ NonbondedIntegrator = VerletIntegrator(1*femtoseconds)
 for i in range(system.getNumForces()):
 
    force = system.getForce(i)
-   print type(force)
+   print(type(force))
 
 
    if isinstance( force, openmm.HarmonicBondForce ):
-     print "Found " + str(force.getNumBonds()) + " HarmonicBondForce terms"
+     print("Found %i", str(force.getNumBonds()), " HarmonicBondForce terms")
 
      # Deep copy these forces into out new state
      copyOfForce = deepcopy(force)
@@ -98,20 +99,20 @@ for i in range(system.getNumForces()):
      HarmonicBondSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.HarmonicAngleForce ):
-     print "Found " + str(force.getNumAngles()) + " HarmonicAngleForce terms"
+     print("Found %i", str(force.getNumAngles()),  " HarmonicAngleForce terms")
 
      copyOfForce = deepcopy(force)
      HarmonicAngleSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.PeriodicTorsionForce ):
-     print "Found " + str(force.getNumTorsions()) + " PeriodicTorsionForce terms"
+     print("Found %i", str(force.getNumTorsions()), " PeriodicTorsionForce terms")
 
      copyOfForce = deepcopy(force)
      PeriodicTorsionSystem.addForce(copyOfForce)
 
    if isinstance( force, openmm.NonbondedForce ):
-     print "Found " + str(force.getNumParticles()) + " NonbondedForce terms )"
-     print "Found " + str(force.getNumExceptions()) + " NonbondedForce exception terms (i.e. 1-4) "
+     print("Found %i" , str(force.getNumParticles()) , " NonbondedForce terms ")
+     print("Found %i" , str(force.getNumExceptions()) , " NonbondedForce exception terms (i.e. 1-4) ")
 
     
      copyOfForce = deepcopy(force)
@@ -128,34 +129,34 @@ print ("")
 HarmonicBondContext = Context(HarmonicBondSystem, HarmonicBondIntegrator, platform)
 HarmonicBondContext.setPositions(inpcrd.positions)
 HarmonicBondState = HarmonicBondContext.getState( getEnergy=True)
-print ("Harmonic bond: " + "\t\t\t" + str( HarmonicBondState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("Harmonic bond: " + "\t\t\t" + str( HarmonicBondState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # Harmonic Angle
 HarmonicAngleContext = Context(HarmonicAngleSystem, HarmonicAngleIntegrator, platform)
 HarmonicAngleContext.setPositions(inpcrd.positions)
 HarmonicAngleState = HarmonicAngleContext.getState( getEnergy=True)
-print ("Harmonic angle: " + "\t\t" + str(HarmonicAngleState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("Harmonic angle: " + "\t\t" + str(HarmonicAngleState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # Torsions
 PeriodicTorsionContext = Context(PeriodicTorsionSystem, PeriodicTorsionIntegrator, platform)
 PeriodicTorsionContext.setPositions(inpcrd.positions)
 PeriodicTorsionState = PeriodicTorsionContext.getState( getEnergy=True)
-print ("Proper and improper torsions: " + "\t" + str(PeriodicTorsionState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("Proper and improper torsions: " + "\t" + str(PeriodicTorsionState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 # NB
 NonbondedContext = Context(NonbondedSystem, NonbondedIntegrator, platform)
 NonbondedContext.setPositions(inpcrd.positions)
 NonbondedState = NonbondedContext.getState( getEnergy=True)
 
-print ("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
+print("EE, VDW, 14EE and 14VDW: " + "\t" + str(NonbondedState.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 
 
 # Output forces
-print ""
+print("")
 forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 
 
 for force in forces:
-     print force
+     print(force)
