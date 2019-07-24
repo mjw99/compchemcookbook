@@ -13,7 +13,7 @@ platform = openmm.Platform_getPlatformByName("Reference")
 
 platformProperties = {"OpenCLDeviceIndex":"0"}
 
-print "Building system"
+print("Building system")
 forceField = ForceField('amber99sb.xml');
 alaala = PDBFile('alaala.pdb')
 modeller = Modeller(alaala.topology, alaala.positions)

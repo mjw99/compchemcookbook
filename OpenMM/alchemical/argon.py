@@ -97,7 +97,7 @@ mbar = MBAR(u_kln, N_k)
 [DeltaF_ij, dDeltaF_ij, Theta_ij] = mbar.getFreeEnergyDifferences()
 
 #Deltaf_ij[i,j] is the dimensionless free energy difference f_j - f_i
-print DeltaF_ij
+print(DeltaF_ij)
 
 #Deltaf_ij[i,j] is the dimensionless free energy difference f_j - f_i
-print dDeltaF_ij
+print(dDeltaF_ij)
