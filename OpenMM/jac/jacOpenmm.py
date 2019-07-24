@@ -60,14 +60,14 @@ integrator = VerletIntegrator(2*femtoseconds)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties)
 
-print "OpenMM version: %s" % (simulation.context.getPlatform().getOpenMMVersion())
-print "Platform: %s" % (simulation.context.getPlatform().getName())
+print("OpenMM version: ",  (simulation.context.getPlatform().getOpenMMVersion()))
+print("Platform: ", (simulation.context.getPlatform().getName()))
 for item in simulation.context.getPlatform().getPropertyNames():
-  print "%s: %s" % (item, simulation.context.getPlatform().getPropertyValue(simulation.context,item))
+  print(item, simulation.context.getPlatform().getPropertyValue(simulation.context,item))
 
-print ""
-print "Number of atoms %i"      % len(inpcrd.positions)
-print "Number of velocities %i" % len(inpcrd.velocities)
+print("")
+print("Number of atoms ", len(inpcrd.positions))
+print("Number of velocities ", len(inpcrd.velocities))
 
 simulation.context.setPositions(inpcrd.positions)
 simulation.context.setVelocities(inpcrd.velocities)
@@ -87,9 +87,9 @@ timeNeedToRunOneNsinSeconds = (1/0.02) * totalDynamicsRunTimeInSeconds
 NsPerDay = 86400 / timeNeedToRunOneNsinSeconds
 
 
-print str(totalDynamicsRunTimeInSeconds) + " seconds"
-print str(timeNeedToRunOneNsinSeconds) + " is the time needed to run 1 ns"
-print str(NsPerDay)  + " nS/day"
+print( str(totalDynamicsRunTimeInSeconds) + " seconds")
+print(str(timeNeedToRunOneNsinSeconds) + " is the time needed to run 1 ns")
+print(str(NsPerDay)  + " nS/day")
 
 # Refs
 # Python API docs
