@@ -4,19 +4,17 @@ from simtk.unit import *
 from sys import stdout
 import time
 from amberrestrtfile import AmberRestrtFile
-from ambernetcdfreporter import AmberNetCDFReporter
+from parmed.openmm import StateDataReporter, NetCDFReporter
 
 
 # Run on multiple cards
 # 0  Tesla M2090
 # 1  Tesla C2075
 # 2  Tesla C2075
-#platformProperties = {"OpenCLDeviceIndex":"0"}
-platformProperties = {"OpenCLDeviceIndex":"1,2"}
-#platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platformProperties = {"CudaDeviceIndex":"0,1"}
 
-platform = openmm.Platform_getPlatformByName("OpenCL")
-print "Speed relative to reference is : " + str(platform.getSpeed())
+platform = openmm.Platform_getPlatformByName("CUDA")
+print("Speed relative to reference is : " + str(platform.getSpeed()))
 
 
 
@@ -31,8 +29,8 @@ system = prmtop.createSystem(nonbondedMethod=PME, nonbondedCutoff=8*angstrom, co
 integrator = VerletIntegrator(1*femtosecond)
 
 simulation = Simulation(prmtop.topology, system, integrator, platform, platformProperties )
-print "Platform: %s" % (simulation.context.getPlatform().getName())
-print "Number of atoms %i"      % len(inpcrd.positions)
+print("Platform: %s" % (simulation.context.getPlatform().getName()))
+print("Number of atoms %i"      % len(inpcrd.positions))
 
 # Dump  structure
 PDBFile.writeFile(prmtop.topology, inpcrd.positions, open('initial.pdb', 'w'))
@@ -43,7 +41,7 @@ PDBFile.writeFile(prmtop.topology, inpcrd.positions, open('initial.pdb', 'w'))
 ######################
 # 2) Minimisation    #
 ######################
-print "Minimising system"
+print("Minimising system")
 integrator = VerletIntegrator(1*femtosecond)
 
 simulation.context.setPositions(inpcrd.positions)
@@ -73,9 +71,9 @@ restrt = AmberRestrtFile('minimisation.restrt', positions, velocities, boxVector
 ################################
 
 # Use all GPUs
-platformProperties = {"OpenCLDeviceIndex":"0,1,2"}
+platformProperties = {"CudaDeviceIndex":"0,1"}
 
-print "Heating system under NVT"
+print("Heating system under NVT")
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
 
 # Note, new system
@@ -85,7 +83,7 @@ simulation = Simulation(prmtop.topology, system, integrator, platform, platformP
 simulation.context.setPositions(positions)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(AmberNetCDFReporter('heating.nc', 1000))
+simulation.reporters.append(NetCDFReporter('heating.nc', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -108,7 +106,7 @@ simulation.reporters = []
 ####################################
 # 4) Density correction under NPT  #
 ####################################
-print "Density correction under NPT"
+print("Density correction under NPT")
 
 system.addForce(MonteCarloBarostat(1*bar, 300*kelvin))
 integrator = LangevinIntegrator(300*kelvin, 1/picosecond, 2*femtoseconds)
@@ -119,7 +117,7 @@ simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
 
 simulation.reporters.append(StateDataReporter(stdout, 1000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(AmberNetCDFReporter('density.nc', 1000))
+simulation.reporters.append(NetCDFReporter('density.nc', 1000))
 
 simulation.step(35000) # i.e. 20,000 fs == 20 ps == 0.02 ns
 
@@ -141,7 +139,7 @@ simulation.reporters = []
 ####################################
 # 5) Production under NPT          #
 ####################################
-print "Production under NPT"
+print("Production under NPT")
 
 simulation.context.setPositions(positions)
 simulation.context.setVelocities(velocities)
@@ -149,7 +147,7 @@ simulation.context.setVelocities(velocities)
 
 # Report every 0.1 ns / 100 ps
 simulation.reporters.append(StateDataReporter(stdout, 50000, step=True, potentialEnergy=True, temperature=True, density=True))
-simulation.reporters.append(AmberNetCDFReporter('production.nc', 50000))
+simulation.reporters.append(NetCDFReporter('production.nc', 50000))
 
 # 10 ns
 simulation.step(5000000) 
