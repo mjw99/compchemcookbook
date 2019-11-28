@@ -23,8 +23,8 @@ simulation.context.setPositions(inpcrd.positions)
 
 
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
-print "Number of atoms %i"      % len(inpcrd.positions)
+print("Platform: %s" % (simulation.context.getPlatform().getName()))
+print("Number of atoms %i"      % len(inpcrd.positions))
 
 
 
@@ -35,9 +35,9 @@ forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 
 
-print "Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
+print("Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 for force in forces:
-     print force.in_units_of(kilocalorie/mole/angstrom)
+     print(force.in_units_of(kilocalorie/mole/angstrom))
 
 

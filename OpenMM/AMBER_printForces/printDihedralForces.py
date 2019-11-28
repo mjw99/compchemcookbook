@@ -42,7 +42,7 @@ simulation.context.setPositions( [Vec3(30.958572, 73.709137, 38.031029)*angstrom
 
 
 
-print "Platform: %s" % (simulation.context.getPlatform().getName())
+print("Platform: %s" % (simulation.context.getPlatform().getName()))
 
 
 
@@ -52,17 +52,17 @@ forces = [None]
 forces = simulation.context.getState(getForces=True).getForces()
 
 
-print "Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
+print("Potential energy is " +  str(state.getPotentialEnergy().in_units_of(kilocalorie/mole)))
 
 for i in range(system.getNumForces()):
     system.getForce(i).setForceGroup(i)
 
 for i in range(system.getNumForces()):
-    print type(system.getForce(i))
+    print(type(system.getForce(i)))
     state = simulation.context.getState(getEnergy=True, groups=1<<i)
-    print state.getPotentialEnergy().in_units_of(kilocalorie/mole)
+    print(state.getPotentialEnergy().in_units_of(kilocalorie/mole))
 
 for force in forces:
-     print force.in_units_of(kilocalorie/mole/angstrom)
+     print(force.in_units_of(kilocalorie/mole/angstrom))
 
 
