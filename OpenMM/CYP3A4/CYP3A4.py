@@ -3,8 +3,7 @@ from simtk.openmm import *
 from simtk.unit import *
 from sys import stdout
 import time
-from amberrestrtfile import AmberRestrtFile
-from parmed.openmm import StateDataReporter, NetCDFReporter
+from parmed.openmm import StateDataReporter, NetCDFReporterm, RestartReporter
 
 
 # Run on multiple cards
@@ -14,10 +13,6 @@ from parmed.openmm import StateDataReporter, NetCDFReporter
 platformProperties = {"CudaDeviceIndex":"0,1"}
 
 platform = openmm.Platform_getPlatformByName("CUDA")
-print("Speed relative to reference is : " + str(platform.getSpeed()))
-
-
-
 
 
 # Prepared via LEAP; I'm hoping to replace this with modeller,
