@@ -32,7 +32,7 @@ platformProperties['CudaPrecision'] = 'mixed'
 
 # CUDA parallel
 #platformProperties['CudaDeviceIndex'] = '1,2'
-platformProperties['CudaDeviceIndex'] = '1'
+platformProperties['CudaDeviceIndex'] = '0'
 
 
 

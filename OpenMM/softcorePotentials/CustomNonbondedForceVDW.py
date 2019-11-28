@@ -90,6 +90,15 @@ simulation.context.setPositions(positions)
 
 print("simulation.system.getNumForces() is ", simulation.system.getNumForces())
 
+for i in range(system.getNumForces()):
+    system.getForce(i).setForceGroup(i)
+
+for i in range(system.getNumForces()):
+    print(type(system.getForce(i)))
+    state = simulation.context.getState(getEnergy=True, groups=1<<i)
+    print(state.getPotentialEnergy())
+
+
 print(simulation.context.getState(getEnergy=True).getPotentialEnergy())
 
 
