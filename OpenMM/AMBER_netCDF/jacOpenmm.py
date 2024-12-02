@@ -1,4 +1,4 @@
-# DHRF Benchmark using OpenMM
+# DHFR Benchmark using OpenMM
 
 from simtk.openmm.app import *
 from simtk.openmm import *
