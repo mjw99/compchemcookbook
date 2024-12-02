@@ -1,14 +1,14 @@
 # ALAALA NVE example
 
-from simtk.openmm.app import *
-from simtk.openmm import *
+from openmm.app import *
+from openmm import *
 from simtk.unit import *
 from sys import stdout
 import time
 
-#platform = openmm.Platform_getPlatformByName("Reference")
-platform = openmm.Platform_getPlatformByName("CUDA")
-#platform = openmm.Platform_getPlatformByName("OpenCL")
+#platform = openmm.Platform.getPlatformByName("Reference")
+platform = openmm.Platform.getPlatformByName("CUDA")
+#platform = openmm.Platform.getPlatformByName("OpenCL")
 
 # OpenCL precision
 #platformProperties = {"OpenCLPrecision":"mixed"}
