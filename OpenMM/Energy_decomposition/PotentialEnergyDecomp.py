@@ -1,11 +1,11 @@
 # Obtain per term energy contributions in OpenMM.
 
-from simtk.openmm.app import *
-from simtk.openmm import *
+from openmm.app import *
+from openmm import *
 from simtk.unit import *
 from sys import stdout
 
-platform = openmm.Platform_getPlatformByName("Reference")
+platform = openmm.Platform.getPlatformByName("Reference")
 
 prmtop = AmberPrmtopFile('prmtop')
 inpcrd = AmberInpcrdFile('inpcrd')
