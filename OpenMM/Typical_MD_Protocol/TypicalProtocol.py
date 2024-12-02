@@ -1,15 +1,15 @@
 # Typical AMBER MD protocol 
 
-import simtk.openmm.app as app
-import simtk.openmm as mm
+import openmm.app as app
+import openmm as mm
 import simtk.unit as unit
 
 from sys import stdout
 
 
-#platform = mm.Platform_getPlatformByName("Reference")
-#platform = mm.Platform_getPlatformByName("OpenCL")
-platform = mm.Platform_getPlatformByName("CUDA")
+#platform = mm.Platform.getPlatformByName("Reference")
+#platform = mm.Platform.getPlatformByName("OpenCL")
+platform = mm.Platform.getPlatformByName("CUDA")
 
 
 platformProperties = {}
