@@ -1,4 +1,4 @@
-memory 120 gb
+memory 12 gb
 scratch_dir /tmp
 
 start molecule
