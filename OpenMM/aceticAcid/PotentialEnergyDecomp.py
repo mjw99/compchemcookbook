@@ -2,16 +2,16 @@
 # This takes an original system and then copies out each class
 # of force to their own system.
 
-from simtk.openmm.app import *
-from simtk.openmm import *
+from openmm.app import *
+from openmm import *
 from simtk.unit import *
 from sys import stdout
 import time
 from copy import deepcopy 
 
-#platform = openmm.Platform_getPlatformByName("OpenCL")
-#platform = openmm.Platform_getPlatformByName("Cuda")
-platform = openmm.Platform_getPlatformByName("Reference")
+#platform = openmm.Platform.getPlatformByName("OpenCL")
+#platform = openmm.Platform.getPlatformByName("Cuda")
+platform = openmm.Platform.getPlatformByName("Reference")
 
 
 
