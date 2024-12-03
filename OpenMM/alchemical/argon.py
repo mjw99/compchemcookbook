@@ -1,3 +1,5 @@
+#Note, this is https://openmm.github.io/openmm-cookbook/latest/notebooks/tutorials/Alchemical_free_energy_calculations.html
+
 from openmm.app import *
 from openmm import *
 from openmm.unit import *
