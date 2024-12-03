@@ -121,3 +121,6 @@ results = mbar.compute_free_energy_differences(compute_uncertainty=True)
 
 print("Free energy change to insert a particle = ", results['Delta_f'][nstates-1,0])
 print("Statistical uncertainty = ", results['dDelta_f'][nstates-1,0])
+
+with open("data.txt", "a") as file:
+    file.write(str(results['Delta_f'][nstates-1,0]) + " " + str(results['dDelta_f'][nstates-1,0]) + "\n")
